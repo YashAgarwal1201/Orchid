@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+	<title>Tic Tac Toe Game</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined">
+	<link rel="stylesheet" type="text/css" href="TicTacToeStyle.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="TicTacToeScript.js"></script>
+</head>
+
+<body>
+	<div class="game" id="gameId">
+		<h1>Tic Tac Toe</h1>
+		<div class="selection" id="selectionId">
+			<p>Make a selection please:</p>
+			<button onclick="selection(this)" id="cross"><i class="material-icons">close</i></button>
+			<button onclick="selection(this)" id="zero"><i class="material-icons-outlined">circle</i></button>
+		</div><br>
+		<div class="container" id="containerId">
+			<div class="subContainer s1">
+				<div id="cell1" onclick="move(this)"></div>
+				<div id="cell2" onclick="move(this)"></div>
+				<div id="cell3" onclick="move(this)"></div>
+			</div>
+			<div class="subContainer s2">
+				<div id="cell4" onclick="move(this)"></div>
+				<div id="cell5" onclick="move(this)"></div>
+				<div id="cell6" onclick="move(this)"></div>
+			</div>
+			<div class="subContainer s3">
+				<div id="cell7" onclick="move(this)"></div>
+				<div id="cell8" onclick="move(this)"></div>
+				<div id="cell9" onclick="move(this)"></div>
+			</div>
+		</div>
+	</div>
+	<script async src="https://telegram.org/js/telegram-widget.js?15" data-telegram-share-url="https://yashagarwal1201.github.io/myweb/" data-comment="hola" data-size="large" data-text="notext"></script>
+</body>
+</html>

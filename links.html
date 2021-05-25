@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Forgot Password</title>
+	<link rel="stylesheet" type="text/css" href="labstyle.css">
+</head>
+<body>
+	<div><h1>Forgot Password</h1></div>
+	<div class="form">
+		<form action="lab.php" method="POST">
+			<label>Name:</label><br>
+			<input type="text" name="Name" placeholder="Your Username..." required="on"><br><br>
+			<label>Email</label><br>
+			<input type="email" name="Email" placeholder="Your Email..." required="on"><br><br>
+			<label>New Password:</label><br>
+			<input type="text" name="newPassword" placeholder="New Password..." required="on"><br><br>
+			<label>Confirm Password:</label><br>
+			<input type="text" name="confirmPassword" placeholder="Confirm Password..." required="on"><br><br>
+			<button type="submit">Submit</button>
+			<button type="reset">Reset</button><br><br>
+		</form>
+	</div>
+	<div class="others">
+		<h3>Not a registered user ?</h3>
+		<button><a href="registration.html">Registration Page</a></button>
+	</div>
+</body>
+</html>

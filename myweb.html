@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<!-- head -->
+<head>
+	<title>Yash Agarwal</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=false">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="mystyle.css" id="link1">
+	<!--<link rel="stylesheet" type="text/css" media="screen and (min-device-width: 800px)" href="" id="style1">-->
+	<link rel="stylesheet" type="text/css" href="" id="link2">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="myscript.js"></script>
+	<!--<link rel="stylesheet" type="text/css" media="screen and (min-device-width: 800px)" href="" id="style1">-->
+</head>
+
+<body id="body">
+<!-- Navigation Menu -->	
+	<div class="topnav" id="topnav1">
+		<div class="navigation" id="nav">
+			<button onclick="fun(this)" id="b1" title="Click to view Home Page"><i class="material-icons">home</i></button>
+			<button onclick="fun(this)" id="b2" title="Click to view Bio Page">Bio</button>
+			<button onclick="fun(this)" id="b3" title="Click to view Projects Page">Projects</button>
+			<button onclick="fun(this)" id="b4" title="Click to view Timeline Page">Timeline</button>
+			<button onclick="fun(this)" id="b5" title="Click to view Social Page">Social</button>
+		</div>
+		<div class="dateTime" id="date">
+			<!--<script src="https://apps.elfsight.com/p/platform.js" defer></script>
+			<div class="elfsight-app-e7de20ce-359c-4309-bcf4-61833a1aebd1"></div>-->
+		</div>
+		<div class="searchbar" id="s">
+			<form>
+				<input type="search" name="" id="s1" autocomplete="off" placeholder="Search...">
+				<button type="submit" onclick="" id="s2"><i class="material-icons">search</i></button>
+			</form>
+		</div>
+	</div>
+<!-- Home -->
+	<div class="home" id="homeid">
+		<div class="homeHeading" id="homeHeadingid">
+			<h1>Yash Agarwal</h1>
+			<p>A Student & A budding Web Developer</p>
+		</div>
+		<div class="homeImage" id="homeImageid">
+			<img src="IMG_1.jpg"/>
+		</div>
+	</div>
+<!-- Bio -->
+	<div class="bio" id="bioid">
+		<h1>Bio</h1>
+		<p>Yash Agarwal, born on January 12th, 2000, is currently a Bachelor of Technology student in DIT University, Dehradun.</p>
+		<div class="bioEducation" id="bioEducationid">
+			<h2>Education</h2>
+			<div>
+				<h3>2018 - 2022</h3>
+				<p>Bachelor of Technology in Computer Science and Engineering<br>DIT University, Dehradun, India</p>
+			</div>
+			<div>
+				<h3>March, 2018</h3>
+				<p>Completed 12th (Intermediate)<br>Modern Era Public School, Bijnor, India</p>
+			</div>
+			<div>
+				<h3>March, 2016</h3>
+				<p>Completed 10th (High School)<br>Modern Era Public School, Bijnor, India</p>
+			</div>
+		</div>
+		<div class="bioCertification" id="bioCertificationid">
+			<h2>Certifications</h2>
+			<div class="bc1">
+				<h3>July 26, 2020</h3>
+				<p>Completed certification for "Crash course on Python" by Google on Coursera.</p>
+			</div>
+			<div class="bc1">
+				<h3>July 27, 2020</h3>
+				<p>Completed certification for "Introduction to HTML5" by University of Michigan on Coursera.</p>
+			</div>
+		</div>
+		<div class="bioContact" id="bioContactid">
+			<h2>Contact</h2>
+			<div>
+				<h3>E-mail</h3>
+				<p><a href="mailto:legoyashx@outlook.com" title="Click to open your E-mail application">legoyashx@outlook.com</a></p>
+			</div>
+		</div>
+	</div>	
+<!-- Projects -->
+	<div class="projects" id="projectsid">
+		<h1>Projects</h1>
+		<div class="projectCategory" id="projectCategoryid">
+			<button onclick="projectView(this)" id="temp" title="Click to view Templates">Templates</button>
+			<button onclick="projectView(this)" id="ac" title="Click to view Academic projects">Academic</button>
+			<button onclick="projectView(this)" id="my" title="Click to view timeline of this website">This</button>
+		</div>
+		<div class="projectTemplate" id="projectTemplateid">
+			<div class="pt1">
+				<h3>August, 2020 - <br>currently ongoing</h3>
+				<p>Academic project on "Facial Recogniton based Attendance System".</p>
+			</div>
+			<div class="pt1">
+				<h3>August, 2020 - <br>currently ongoing</h3>
+				<p>Academic project on "Facial Recogniton based Attendance System".</p>
+			</div>
+			<iframe src="search.html" style="width: 120%; height: 500px;"></iframe>
+		</div>
+		<div class="projectAcademic" id="projectAcademicid">
+			<div class="pa1">
+				<h3>August, 2020 - <br>currently ongoing</h3>
+				<p>Academic project on "Facial Recogniton based Attendance System".<br/>Role: Group communicator (or, Group Manager).</p>
+			</div>
+			<div class="pa1">
+				<h3>August, 2020 - <br>currently ongoing</h3>
+				<p>Academic project on "Facial Recogniton based Attendance System".</p>
+			</div>
+		</div>
+		<div class="projectTimeline" id="projectTimelineid">
+  			<div class="container left" id="l">
+    			<div class="content">
+      				<button onclick="version(this)" title="Click to view this version" id="v1"><h2>January, 2021</h2></button>
+      				<p>Initial release.</p>
+    			</div>
+  			</div>
+  			<div class="container right" id="r">
+    			<div class="content">
+      				<button onclick="version(this)" title="Click to view this version" id="v2"><h2>February, 2021</h2></button>
+      				<p>UI update.</p>
+    			</div>
+  			</div>
+  			<div class="container left" id="l">
+    			<div class="content">
+      				<button onclick="version(this)" title="Click to view this version" id="v3"><h2>April, 2021</h2></button>
+      				<p>UI update.</p>
+    			</div>
+  			</div>
+  			<div class="container right" id="r">
+    			<div class="content">
+      				<button onclick="" title="TBA" disabled=""><h2>Later, 2021</h2></button>
+      				<p>TBA.</p>
+    			</div>
+  			</div>
+		</div>
+	</div>	
+<!-- Timeline -->
+	<div class="timeline" id="timelineid">
+		<h1>Timeline</h1>
+		<div class="timelineTime" id="timelineTimeid">
+  			<div class="container left" id="l">
+    			<div class="content">
+      				<h3>August, 2018</h3>
+      				<br><i class="material-icons">school</i>
+      				<p>Started Under-Graduation <br>at DIT university</p>
+    			</div>
+  			</div>
+  			<div class="container right" id="r">
+    			<div class="content">
+      				<h3>March, 2018</h3>
+      				<br><i class="material-icons">grade</i>
+      				<p>Completed 12th standard</p>
+    			</div>
+  			</div>
+  			<div class="container left" id="l">
+    			<div class="content">
+      				<h3>March, 2016</h3>
+      				<br><i class="material-icons">grade</i>
+      				<p>Completed 10th standard</p>
+    			</div>
+  			</div>
+  			<div class="container right" id="r">
+    			<div class="content">
+      				<h3>April, 2007</h3>
+      				<br><i class="material-icons">school</i>
+      				<p>Started school <br>at Modern Era Public School</p>
+    			</div>
+  			</div>
+  			<div class="container left" id="l">
+    			<div class="content">
+      				<h3>January 12, 2000</h3>
+      				<br><i class="material-icons">cake</i>
+      				<p>Born on this day</p>
+    			</div>
+  			</div>
+		</div>
+	</div>	
+<!-- Social -->
+	<div class="social" id="socialid">
+		<div class="socialHeading" id="socialHeadingid">
+			<h1>Social Page</h1>
+		</div>
+	</div>	
+<!-- Upward Scroll Button -->		
+	<button onclick="scrollbtn()" id="pagescroll" title="go to top"><i class="material-icons">arrow_upward</i></button>
+<!-- Footer -->
+	<div class="footer" id="footerid">
+		<h2>Want to say something ?</h2>
+		<form action="myForm.php" method="POST" target="_parent" onsubmit="window.location.reload();">
+			<div id="f1">
+				<label>Name:</label><br>
+				<input type="text" name="Name" placeholder="Your Name..." required="" autocomplete="off" size="50">
+			</div><br>
+			<div id="f2">
+				<label>E-mail:</label><br>
+				<input type="email" name="E-mail" placeholder="Your E-mail..." required="" autocomplete="off" size="25">
+			</div><br>
+			<div id="f3">
+				<label>Message:</label><br>
+				<textarea name="Message" placeholder="Your Message..." autocomplete="off" required="" size="150"></textarea>
+			</div><br>
+			<div id="f9">
+				<label>Website:</label><br>
+				<input type="text" name="website" placeholder="Your website..." autocomplete="off">
+			</div><br>
+			<div id="f4">
+				<button type="submit" title="Submit your Message"><i class="material-icons">send</i></button>
+				<button type="reset" title="Discard your Message"><i class="material-icons">delete</i></button>
+			</div>
+		</form>
+		<p>Replies can be expected within 24 hours.</p>
+	</div>
+</body>
+</html>

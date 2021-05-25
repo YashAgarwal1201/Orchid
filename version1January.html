@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+	<title>Yash Agarwal</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!--styling section of this page-->
+	<style>
+		* {  box-sizing: border-box;}
+		body { margin: 5.0px; font-size: 120%; }
+		.column1 { padding: 2%; width: 25%; float: left; border-right: solid; }
+		.column2 { width: 100%; padding-left: 2%; }
+		.column1 h3 { text-align: right; }
+		.row { border: solid ; background-color: lightgrey; border-collapse: collapse; }
+		.row:after {  content: "";  display: table;  clear: both;}
+		.img1 { height: 263px; width: 200px; background: url("myImage.jpg") no-repeat center; margin: 0 auto; }
+		h1 { text-align: center; text-decoration: underline; }
+        h3 { padding: 1%; font-family: "Georgia" serif; font-size: 120%;}
+        p { padding: 10px; }
+        a { color: black; text-decoration: none; }
+        a:hover { color: grey; }
+        table, tr, td { padding: 5px; text-align: left; }
+        footer { font-family: cursive; font-size: 70%; }
+        @media screen and (max-width: 870px) 
+        { .a img { height: 25%; width: 25%; } .column1,footer { width: 100%; border: none; border-bottom: solid;} .column1 h3 { text-align: left; } }
+        @media screen and (max-width: 870px) { .column2,footer { width: 100%; } }	
+		@media screen and (max-width: 600px) { .column1,footer { width: 100%; border: none; border-bottom: solid; } }
+		@media screen and (max-width: 600px) { .column2,footer { width: 100%; text-align: left;}  }
+	</style>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+	<div class="row"> 
+		<h1>Profile</h1>
+	</div>
+	<!--Profile image, Details, Skills, Hobbies-->
+	<div class="row" style="background-color: white;"> 
+		<div class="column1">
+			<p class="a"><div class="img1"></div><p style="text-align: center;"><b>Yash Agarwal</b></p></p>
+			<p>
+				<h3>Details</h3><b>D.O.B.</b><br>January 12, 2000<br><br>
+				<b>Address:</b><br>Pragati Vihar<br>Bijnor, U.P., India<br><br>
+				<b>Contact:</b><br><a href="mailto:legoyashx@outlook.com" class="mail">legoyashx@outlook.com</a><br><br>
+				<b>Nationality:</b><br>Indian
+			</p>
+			<p>
+				<h3>Skills</h3><b>Programming Languages worked on:</b><br>
+				HTML, CSS, Javascript, C, Python.<br><br>
+				<b>Languages speak:</b><br>
+				English, Hindi.
+			</p>
+			<p>
+				<h3>Hobbies</h3>
+				Watching Movies & TV series, Web Design, Doing crafts.<br>
+			</p>
+		</div>
+		<!-- Education history, Achievements, Declaration-->
+		<div class="column2"> 
+			<table>
+				<tr><td><h3><i class="fa fa-tasks" style="font-size: 20px; padding: 10px;"></i>Projects</h3></td></tr>
+				<tr>
+					<td>
+						<ul><li>Academic Group project on "Face Based Attendance System".<br>Tenure: August, 2020 - currently ongoing
+							<br>Position: Group Communicator</li></ul>
+					</td>
+				</tr>
+				<tr><td><h3><i class="fa fa-trophy" style="font-size:20px; padding: 10px;"></i>Achievements</h3></td></tr>
+				<tr><td>
+					<ul>
+						<li>Successfully completed Online Certification on "Crash Course On Python by Google" on Coursera.
+							<br>Score: 94%</li>
+						<li>Successfully completed Online Certification on "Introduction To HTML5 by University of Michigan" on Coursera.<br>Score: 92.83%</li>
+					</ul>
+				</td></tr>
+				<tr><td><h3><i class="fa fa-book" style="font-size:20px; padding: 10px;"></i>Education History</h3></td></tr>
+				<tr><td>
+					<ul>
+						<li>BTech from DIT University, Dehradun<br>Batch Year: 2018-2022.</li>
+						<li>12<sup>th</sup> from Modern Era Public School, Bijnor<br>Year passed: 2018.</li>
+						<li>10<sup>th</sup> from Modern Era Public School, Bijnor<br>Year Passed: 2016.</li>
+					</ul>
+				</td></tr>
+				<tr><td><h3><i class="fa fa-pencil" style="font-size:20px; padding: 10px;"></i>Declaration</h3></td></tr>
+				<tr>
+					<td><p>I hereby declare that the information furnished here is true to the best of my knowledge.</p><br><br>
+						<p style="text-align: right;"><br>Yash Agarwal</p>
+					</td>
+				</tr>
+			</table>		
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,187 @@
+.mainContainerA { 
+	scrollbar-width: 0px;
+	-webkit-scrollbar-width: 0px;
+	font-family: "verdana", sans-serif;
+	width: 100%;
+	overflow-x: scroll;
+	overflow-y: none; }
+.subContainerA {
+	width: 120%;
+	display: flex;
+	flex-flow: row nowrap;
+	margin-left: 50px;
+	justify-content: flex-start;
+	align-items: flex-start;
+	position: relative;
+	margin: 20px;
+	/*white-space: nowrap;*/ }
+.mainContainerA .subContainerA::after {
+  	content: '';
+  	position: absolute;
+  	width: 100%;
+  	height: 6px;
+  	background-color: grey;
+  	top: 0;
+  	bottom: 0;}  	
+.mainContainerA .containerA {
+	margin-top: 30px;
+	padding: 15px; 
+	height: 15%; 
+	width: 20%;  }
+.containerA { 
+	color: #132020;
+	border-radius: 25px;
+	position: relative;
+	margin-left: 15px;
+	margin-right: 15px;
+	text-align: center;
+	border: 2px solid #132020;
+	background: grey;
+	position: relative; }
+.mainContainerA .subContainerA .containerA::after {
+  	content: '';
+  	position: absolute;
+  	width: 25px;
+  	height: 25px;
+  	left: 49%;
+  	background-color: #132020;
+  	border: 2px dashed grey;
+  	top: -45px;
+  	border-radius: 50%;
+  	z-index: 1; } 
+.arrow::before {
+  	content: " ";
+  	height: 0;
+  	position: absolute;
+  	top: -11px;
+  	width: 0;
+  	z-index: 1;
+  	margin-left: auto;
+  	margin-right: auto;
+  	border: medium solid #132020;
+  	border-width: 0px 10px 10px 10px;
+  	border-color: transparent transparent grey transparent;
+  	/*border-left: 15px solid transparent;
+  	border-right: 15px solid transparent;
+  	border-bottom: 15px solid white;*/ }
+.containerA h3 { 
+	border-bottom: 2px solid white; }  	
+.containerA:hover, .containerA h3:hover, .arrow:hover::before { 
+	border-bottom-color: white; }  	  	 		
+.containerA:hover { 
+	border-color: white; }		
+.mainContainerA::-webkit-scrollbar { 
+  	width: 0px; }
+
+.mainContainer { 
+	scrollbar-width: 0px;
+	-webkit-scrollbar-width: 0px;
+	width: 100%;
+	overflow-x: scroll;
+	overflow-y: none; }
+.subContainer {
+	width: 180%;
+	display: flex;
+	flex-flow: row nowrap;
+	margin-left: 50px;
+	justify-content: flex-start;
+	align-items: flex-start;
+	margin: 20px;
+	/*white-space: nowrap;*/ }
+.mainContainer .container {
+	padding-right: 15px; 
+	height: 15%; 
+	width: 15%;  }
+.mainContainer .container:hover {
+	cursor: pointer;
+	z-index: 1;
+	opacity: 0.7; }
+.mainContainer a { 
+	color: white; 
+	text-decoration: none; }
+.container { 
+	position: relative; 
+	width: 100%;}
+.container .thumbnail img {
+  	opacity: 1;
+  	/*display: block;*/
+  	width: 100%;
+  	height: 100%;
+  	height: auto;
+  	transition: .2s ease-in-out;
+  	backface-visibility: hidden; 
+  	white-space: nowrap; }
+.middle {
+  	transition: .5s ease;
+  	opacity: 0;
+  	position: absolute;
+  	top: 50%;
+  	left: 50%;
+  	transform: translate(-50%, -50%);
+  	-ms-transform: translate(-50%, -50%);
+  	text-align: left; 
+  	white-space: nowrap;}
+.container:hover .thumbnail img {
+  	border-top-right-radius: 25%;
+  	border-bottom-left-radius: 25%;
+	z-index: 1;
+  	opacity: 0.5;	}
+.container:hover .middle {
+  	opacity: 1; }
+.text {
+  	background-color: none;
+  	font-size: 18px;
+  	padding: 10px; 
+  	white-space: nowrap;}
+.text p { 
+  	vertical-align: middle; 
+  	color: white; }	
+.text p:hover { 
+  	cursor: pointer; 
+  	text-decoration: underline; }	
+.mainContainer::-webkit-scrollbar { 
+  	width: 0px; }  	
+
+.modalContainer { 
+	display: none;
+	position: fixed;
+	left: 0;
+	top: 0; 
+	z-index: 1; 
+	width: 100%; 
+	background-color: darkslategrey; 
+	padding: 5%; 
+	overflow: auto;
+	height: 100%; }
+.modalContainer::-webkit-scrollbar { 
+	width: 0; }	
+.modalContainer .modalContent { 
+	padding: 5%;
+	width: 80%; 
+	margin-right: auto; 
+	margin-left: auto; 
+	background-color: #132020;
+	border-top-right-radius: 15%;
+	border-bottom-left-radius: 15%;  }	
+.modalContent iframe { 
+	display: inline-block;
+	outline: none; background: none;
+	width: 863px;
+	height: 1078px; 
+	border:5px solid black; 
+	margin: 10px; }	
+.modalContent button { 
+	top: 0;
+	left: 0;
+	display: inline-block; 
+	outline: none; 
+	border: 2px solid grey; 
+	line-height: 30px; 
+	border-radius: 30%; 
+	background: none; }  
+.modalContent button:hover { 
+	cursor: pointer; 
+	color: white; 
+	border-color: white; }	
+.modalContent button i { 
+	vertical-align: middle; }		  	

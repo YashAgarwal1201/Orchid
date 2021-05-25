@@ -1,0 +1,614 @@
+
+@import "horizontalnavigationnight.css";
+
+/* Style for all elements */
+* { 
+	box-sizing: border-box;
+	font-family: "Monospace", Monospace;
+	line-height: 1.5; }
+html { 
+	scroll-behavior: smooth; }
+body { 
+	font-size: 20px; 
+	margin: 0.0; 
+	background: #132020; }
+
+h1, h2 { color: white; }		
+
+@media screen and (max-width: 769px)
+{
+	body { 
+		font-size: 15px;
+		margin: 5px; }	
+}	
+
+@media screen and (max-width: 481px)
+{
+	body { 
+		margin: 1px; 
+		background-color: grey; }
+}
+
+/* Navigation Bar */
+.topnav {
+	/*position: sticky;
+	top: 0;
+	left: 0;*/
+	z-index: 1;
+	display: flex; 
+	font-size: 19px;
+	height: 100px;
+	margin: 20px 50px;
+	flex-flow: row wrap;
+	justify-content: space-between;
+	align-items: center; }
+.topnav .navigation button { 
+	font-size: 19px;
+	display: inline-block; 
+	outline: none;
+	border: none;  
+	background: none; 
+	padding: 20px; }
+.topnav #b1 { 
+	background-color: grey;
+	color: #132020; }	
+.topnav #b1:hover { 
+	border-top-right-radius: 20px;
+	border-bottom-left-radius: 20px; 
+	border: none; }			
+.topnav .navigation button:hover { 
+	color: white; 
+	cursor: pointer;
+	border-bottom: 2px solid white; }	
+.topnav .dateTime { 
+	color: grey;
+	padding: 20px; 
+	padding-bottom: 10px; }	
+.topnav .searchbar { 
+	padding: 20px; }
+.topnav .searchbar input[type=search], button { 
+	color: grey;
+	background: none; 
+	outline: none; 
+	border: none;
+	line-height: 25px; }	
+.topnav .searchbar input[type=search] { 
+	border-bottom: 2px solid grey;
+	width: 150px;
+	transition: width 0.2s ease; }
+.topnav .searchbar input[type=search]:focus {
+	color: white; 
+	width: 250px; 
+	border-bottom: 2px solid white; }
+input[type=search]::placeholder { 
+	vertical-align: middle;
+	color: grey; }	
+.topnav .searchbar button:hover { 
+	cursor: pointer; 
+	color: white; }
+.topnav .searchbar button i { 
+	vertical-align: middle; }
+
+.topnav2 { 
+	display: none;
+	flex-flow: row wrap;
+	justify-content: space-between;
+	position: relative;
+	align-items: center; }
+.topnav2 *{ 
+	font-size: 19px; }	
+.topnav2 .nav { 
+	display: none; 
+	flex-flow: column wrap; 
+	justify-content: flex-start; 
+	align-items: center;
+	background-color: grey;
+	color: #132020;
+	width: 100%;
+	position: absolute;
+	top: 45px;
+	left: 0px; }
+.topnav2 .nav * { 
+	text-align: left;
+	color: #132020; }		
+.topnav2 button, .topnav2 .nav button { 
+	cursor: pointer;
+	font-size: 19px;
+	display: inline-block; 
+	outline: none;
+	border: none;  
+	background: none; 
+	padding: 20px; }
+.topnav .nav button { 
+	width: 100%; }	
+.topnav2 .nav button:hover { 
+	background: white; }		
+.topnav2 .dateTime { 
+	color: grey;
+	padding: 20px; 
+	padding-bottom: 10px; }	
+.topnav2 .searchbar { 
+	padding: 20px; }
+
+@media screen and (max-width: 769px)
+{
+	.topnav { 
+		display: none; }	
+	.topnav2 { 
+		display: flex; }		
+}		
+
+/*@media screen and (max-width: 481px)
+{
+
+}*/
+
+/* Style Home */
+.home { 
+	display: flex; 
+	flex-flow: row wrap;
+	justify-content: space-around;
+	align-items: center;
+	margin-bottom: 150px;
+	margin-top: 100px; }
+.home .homeHeading { 
+	width: 50%;
+	display: flex;
+	flex-flow: column wrap;
+	justify-content: space-around;
+	align-items: flex-end;
+	color: grey;
+	text-align: right; }
+.home .homeImage img { 
+	width: 70%; 
+	height: auto; 
+	position: relative;
+	border: 50px solid grey; }
+.home .homeImageBtn { 
+	width: 100px;
+	position: absolute;
+	top: 230px;
+	right: 375px; }	
+.home .homeImageBtn i {
+	cursor: pointer; 
+	color: #132020; } 	
+.home #quotez { 
+	font-family: "Lucida Handwriting", cursive; }
+
+@media screen and (max-width: 769px)
+{
+	.home { 
+		display: flex;
+		flex-flow: column wrap;
+		align-items: center;
+		justify-content: space-around;
+		height: auto;
+		margin-top: 50px;  }
+	.home .homeHeading { 
+		width: 100%; 
+		/*justify-content: center;*/
+		align-items: center;
+		margin-top: 100px;
+		text-align: center; }	
+	.home .homeImage {
+		margin-bottom: 150px;
+		margin-top: 100px; 
+		background-color: grey;
+		padding: 25px;
+		width: 100%; }
+	.home .homeImage img{ 
+		display: block;
+		width: 50%;
+		border: 0px;
+		margin-right: auto; 
+		margin-left: auto; }
+	.home .homeImageBtn { 
+		display: none;
+		top: 950px; 
+		left: 330px;}		
+	.home .homeImageBtn i { 
+		color: grey; }				
+}
+
+/*@media screen and (max-width: 481px)
+{
+
+}*/
+
+/* Style footer */
+.footer { 
+	display: block; 
+	padding: 15px;
+	background-color: grey;
+	font-family: "Tahoma", sans-serif;
+	border: 3px solid #132020;
+	transition: border 0.3s ease;  }
+.footer *{
+	font-family: "Tahoma", sans-serif; }
+.footer h2 { 
+	color: black; }			
+.footer form { 
+	margin: 50px;
+	color: #132020;
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-around;
+	align-items: center;
+	align-content: flex-start; }
+.footer #f1, #f2 { 
+	padding: 15px; 
+	width: 50%; }
+.footer #f1 input, #f2 input { 
+	display: inline-block; 
+	outline: none; 
+	background: none; 
+	border: none; 
+	border-bottom: 2px solid #132020; 
+	width: 50%; 
+	padding-top: 10px;
+	transition: width 0.2s ease-in-out; }
+.footer #f1 input:focus, #f2 input:focus { 
+	width: 100%; 
+	border-bottom: 2px solid black; }
+.footer #f3 { 
+	padding: 15px; 
+	width: 100%; }	
+.footer #f3 textarea { 
+	display: inline-block; 
+	outline: none; 
+	background: none;
+	font-family: "Lucida Console", Monospace;
+	resize: none; 
+	border: none; 
+	border-bottom: 2px solid #132020; 
+	width: 100%; 
+	padding-top: 13px; }
+.footer #f3 textarea:focus { 
+	border-bottom: 2px solid black; }
+.footer #f1 input:hover, #f2 input:hover, #f3 textarea:hover { 
+	cursor: pointer; }				
+.footer #f4 { 
+	padding: 15px; 
+	width: 100%; }
+.footer #f4 button { 
+	display: inline-block; 
+	outline: none;
+	border: none; 
+	background-color: #132020; 
+	color: grey; 
+	width: 15%; 
+	height: 50px; }		
+.footer #f4 button:hover {
+	cursor: pointer;
+	color: white;  }
+.footer #f1 input, #f2 input, #f3 textarea, #f4 button { 
+	line-height: 30px; }
+.footer #f1 input::placeholder,#f2 input::placeholder, #f3 textarea::placeholder { 
+	vertical-align: middle;
+	font-size: 15px;
+	font-family: sans-serif;
+	color: #132020; }
+.footer button i { 
+	vertical-align: middle; }	
+.footer #f9 { 
+	display: none; }	
+.footer p { 
+	font-size: 15px; }
+.footer .details { 
+	width: 200px;
+	font-size: 18px; }
+.footer .details a { 
+	color: black; 
+	text-decoration: none; }
+.footer .details summary:hover, a:hover { 
+	cursor: pointer; 
+	color: white; }		
+
+@media screen and (max-width: 481px)
+{
+	.footer #f1, #f2 { 
+		width: 100%; }
+	.footer #f1 input, #f2 input { 
+		width: 100%; }	
+	.footer #f4 button { 
+		width: 100%; }
+}
+
+@media screen and (max-width: 769px)
+{
+	.footer form { 
+		margin: 5px; }
+	.footer #f1 input::placeholder,#f2 input::placeholder, #f3 textarea::placeholder { 
+		font-size: 15px; }
+	.footer #f4 button { 
+		width: 49%; }	
+	.footer .details, .footer p { 
+		font-size: 15px; }		
+}	
+
+#pagescrollup {
+ 	display: none;
+  	position: fixed;
+  	bottom: 25px;
+  	right: 25px;
+  	z-index: 99;
+  	border: none;
+  	outline: none;
+  	line-height: 30px;
+  	background-color: #132020;
+  	color: white;
+  	cursor: pointer;
+  	border-radius: 50%;	}
+#pagescrollup i { 
+	vertical-align: middle;
+	color: white; }
+#pagescrollup:hover {
+  background-color: black;	}
+
+ #pagescrolldown {
+ 	display: none;
+  	position: fixed;
+  	bottom: 25px;
+  	right: 65px;
+  	z-index: 99;
+  	border: none;
+  	outline: none;
+  	line-height: 30px;
+  	background-color: #132020;
+  	color: white;
+  	cursor: pointer;
+  	border-radius: 50%;	}
+#pagescrolldown i { 
+	vertical-align: middle;
+	color: white; }
+#pagescrolldown:hover {
+  background-color: black;	}
+
+/* Style Bio */
+.bio { 
+	display: none;
+	color: grey;
+	flex-flow: column wrap;
+	justify-content: space-around;
+	align-items: flex-start;
+	padding: 25px; }
+.bio .bioCertification div, .bioEducation div, .bioAcademic div, .bioContact div, .bioSkills div { 
+	display: flex; 
+	flex-flow: row wrap; 
+	justify-content: flex-start; 
+	align-items: center; 
+	padding: 25px; }
+.bio h2 { 
+	color: white; }	
+.bio .bioCertification div h3:hover, .bioEducation div h3:hover, .bioAcademic div h3:hover, .bioContact div h3:hover {
+	color: white; 
+	text-decoration: underline; }	
+.bio .bioCertification div h3, .bioEducation div h3, .bioAcademic div h3, .bioContact div h3 { 
+	position: relative;
+	padding: 20px;  }		
+.bio .bioCertification div h3::after, .bioEducation div h3::after, .bioAcademic div h3::after, .bioContact div h3::after { 
+	content: ' '; 
+	position: absolute;
+  	width: 3px;
+  	background-color: grey;
+  	top: 0;
+  	bottom: 0;
+  	margin: 10px; }
+ .bio .bioCertification div p, .bioEducation div p, .bioAcademic div p, .bioContact div p {
+ 	text-decoration: none;
+ 	color: grey; 
+ 	margin-left: 25px; } 	
+.bio .bioContact div a:hover { 
+	text-decoration: underline; 
+	cursor: pointer; }
+.bioSkills table { 
+	width: 30%; 
+	margin-left: 25%;
+	border: none; }
+.bioSkills table td i{ 
+	margin-left: 50px; 
+	margin-right: 50px; 
+	font-size: 30px; 
+	padding: 10px;}
+.bioSkills table h3 { 
+	padding: 10px; 
+	text-align: right; }	
+.bioSkills tr:hover { 
+	color: white; 
+	cursor: pointer; }
+.bioSkills tr:hover td i{ 
+	transform: scale(2,2);
+	color: white; }
+
+@media screen and (max-width: 769px)
+{
+	.bio { 
+		padding: 15px; }
+	.bio .bioCertification div, .bioEducation div, .bioAcademic div, .bioContact div, .bioSkills div { 
+		padding: 5px; }
+	.bio .bioCertification div h3, .bioEducation div h3, .bioAcademic div h3, .bioContact div h3 { 
+		padding: 25px 10px 25px 10px; }	
+	.bio .bioCertification div p, .bioEducation div p, .bioAcademic div p, .bioContact div p { 
+		margin-left: 15px; }	
+	.bioSkills table { 
+		width: 100%;
+		margin-left: 0px; }
+	.bioSkills table td i{ 
+		margin-left: 40px; 
+		margin-right: 40px; }
+
+	.subContainerA { 
+		margin-left: 40px;
+		width: 220%; }
+	.mainContainerA .containerA {
+		height: 15%; 
+		width: 50%;  }	
+
+}
+
+/*@media screen and (max-width: 481px)
+{
+	
+}*/
+
+/* Style Projects */
+.projects { 
+	color: grey;
+	display: none; 
+	flex-flow: column wrap; 
+	justify-content: space-between; 
+	align-items: flex-start; 
+	padding: 25px; }
+.projects h1 { 
+	text-align: left; }	
+.projects .projectCategory button {
+	font-size: 17px;
+	display: inline-block; 
+	outline: none;
+	border-bottom: 2px solid #132020;  
+	background: none; 
+	padding: 20px; }	
+.projects .projectCategory button:hover { 
+	color: white; 
+	cursor: pointer;
+	border-bottom: 2px solid white; }
+.projects .projectTimeline {
+	display: none;
+  	position: relative;
+  	max-width: 1200px;
+  	margin-left: auto;
+  	margin-right: auto;
+  	/*margin: 0 auto;*/ }
+/* The actual timeline (the vertical ruler) */
+.projects .projectTimeline::after {
+  	content: '';
+  	position: absolute;
+  	width: 6px;
+  	background-color: grey;
+  	top: 0;
+  	bottom: 0;
+  	left: 50%;
+  	margin-left: -3px; }
+/* Container around content */ 
+.projects .projectTimeline .container {
+  	padding: 25px;
+  	position: relative;
+  	background-color: inherit;
+  	width: 100%; }
+/* Place the container to the left */ 
+.projects .projectTimeline .left {
+  	left: -50%; }
+/* Place the container to the right*/
+.projects .projectTimeline .right {
+  	left: 50%; }  	
+/* The circles on the timeline */
+.projects .projectTimeline .container::after {
+  	content: '';
+  	position: absolute;
+  	width: 25px;
+  	height: 25px;
+  	right: -15px;
+  	background-color: #132020;
+  	border: 2px dashed grey;
+  	top: 15px;
+  	border-radius: 50%;
+  	z-index: 1; }
+/* Fix the circle for containers on the right side */
+.projects .projectTimeline .right::after {
+  	left: -15px; }  	
+.projects .projectTimeline .container .content {
+	text-align: center;
+	color: #132020;
+  	padding: 25px;
+  	background-color: grey;
+  	position: relative;
+  	border: 2px solid #132020;
+  	border-bottom-right-radius: 10%;
+  	border-bottom-left-radius: 10%; }
+.projects .projectTimeline .container .content:hover { 
+	border: 2px solid white; }
+.projects .projectTimeline .container .content button { 
+	text-align: center;
+	color: #132020;
+	display: inline-block;  }
+.projects .projectTimeline .container .content button:hover { 
+	color: white; }
+.projects .projectTemplate .pt1{ 
+	display: flex; 
+	flex-flow: row wrap; 
+	justify-content: flex-start; 
+	align-items: center; 
+	padding: 25px; }	
+.projects .pa1 h3, .pt1 h3 { 
+	color: grey;
+	position: relative;
+	padding: 20px;  }
+.projects .pa1 h3:hover, .pt1 h3:hover { 
+	color: white; 
+	text-decoration: underline; }		
+.projects .pa1 h3::after, .pt1 h3::after { 
+	content: ' '; 
+	position: absolute;
+  	width: 3px;
+  	background-color: grey;
+  	top: 0;
+  	bottom: 0;
+  	margin: 10px; }
+.projects .pa1 p, .pt1 p { 
+	margin-left: 25px; }
+
+@media screen and (max-width: 769px)
+{
+	.projects { 
+		padding: 15px; }
+	.projects .projectCategory button { 
+		font-size: 15px; 
+		padding: 10px; }
+	.subContainer { 
+		width: 280%; }	
+	.text p { 
+		font-size: 15px; }	
+	.modalContainer .modalContent { 
+		width: 90%;
+		border-top-right-radius: 50px;
+		border-bottom-left-radius: 50px; }	
+	.modalContent iframe { 
+		width: 90%; }		
+}
+
+/*@media screen and (max-width: 481px)
+{
+	.projects { 
+		padding: 10px; }
+	.subContainer { 
+		width: 480%; }	
+	.modalContainer { 
+		padding: 1px; }		
+	.modalContainer .modalContent { 
+		width: 100%;
+		padding: 0px;
+		margin: 0px;
+		border-top-right-radius: 50px;
+		border-bottom-left-radius: 50px; }	
+	.modalContent iframe { 
+		width: 100%;
+		margin: 0px; }
+}*/
+
+
+/* Style Social */
+.gallery { 
+	color: grey;
+	display: none; 
+	flex-flow: column wrap; 
+	justify-content: space-around; 
+	align-items: flex-start; 
+	padding: 25px; }
+#i1 { 
+	width: 100%; }	
+
+/* Style for main scrollbar */
+body::-webkit-scrollbar { width: 10px; }
+body::-webkit-scrollbar-track { border-radius: 5px; }
+body::-webkit-scrollbar-track:hover { background-color: #132020; }
+body::-webkit-scrollbar-thumb { background-color: grey; border:1px solid #132020; border-radius: 5px; }	
