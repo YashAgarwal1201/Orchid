@@ -8,17 +8,16 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="google-site-verification" content="nmoLLJ3D8eS6hYCnBRkEGKLvBhlzRTsidi-_NYECPu4" />
+	<link href="https://yashagarwal.epizy.com/" rel="canonical">
 	<link rel="icon" type="image/icon type" href="Images/YA3.png">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Spectral|Rubik">
 	<link rel="stylesheet" type="text/css" href="mystyle.css" id="link1">
-	<!--<link rel="stylesheet" type="text/css" media="screen and (min-device-width: 800px)" href="" id="style1">-->
 	<link rel="stylesheet" type="text/css" href="" id="link2">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-	<script src="myscript.js"></script>
+	<!--<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>-->
 	<!--<script src="https://apps.elfsight.com/p/platform.js" defer></script>-->
-	<!--<link rel="stylesheet" type="text/css" media="screen and (min-device-width: 800px)" href="" id="style1">-->
 </head>
 
 <body id="body" onload="changeMode()">
@@ -36,23 +35,40 @@
 		</div>
 		<div class="dateTime" id="date"></div>
 		<div class="searchbar" id="s" >
-			<form id="s" action="">
-				<input type="search" name="" id="search1" autocomplete="off" placeholder="Search...">
-				<button type="submit" onclick="" id="s2"><i class="material-icons">search</i></button>
+			<form id="s" action="searchbar.php">
+				<input type="search" name="searchres" id="search1" autocomplete="off" placeholder="Search...">
+				<!--<button type="submit" onclick="" id="s2"><i class="material-icons">search</i></button>-->
+				<span><i class="material-icons" id="s">search</i></span>
 			</form>
 		</div>
 	</div>
+	<!--<div id="anime">
+		<div id="animeC"></div>
+	</div>-->
 
 	<div class="topnav2" id="topnav2id">
-		<button onclick="topnav2(this)" id="tn2btnid"><i class="material-icons">menu</i></button>
+		<button id="tn2btnid"><i class="material-icons" id="tn2btnid">menu</i></button>
 		<div class="nav" id="navId">
 			<button onclick="fun(this)" id="b1" title="Click to view Home Page">Home</button>
 			<button onclick="fun(this)" id="b2" title="Click to view Bio Page">Bio</button>
 			<button onclick="fun(this)" id="b3" title="Click to view Work Page">Work</button>
 		</div>
-		<div class="dateTime" id="date"></div>
-		<button><i class="material-icons">search</i></button>
+		<div class="dateTime2" id="date"></div>
+		<!--<button><i class="material-icons" onclick="alert('Currently Not Available for this device');">search</i></button>-->
+		<div class="searchbar" id="s" >
+			<form id="s" action="searchbar.php">
+				<input type="search" name="searchres" id="search1" autocomplete="off" placeholder="Search...">
+				<!--<button type="submit" onclick="" id="s2"><i class="material-icons">search</i></button>-->
+				<span><i class="material-icons" id="s">search</i></span>
+			</form>
+		</div>
 	</div>
+
+	<div class="searchDisplay">
+		<h3>Search Results</h3>
+		<div id="searchResultsId">No Suggestions</div>
+	</div>
+	
 <!-- Home -->
 	<div class="home" id="homeid">
 		<div class="homeHeading" id="homeHeadingid">
@@ -68,8 +84,8 @@
 		</div>
 		<div class="homeImage" id="homeImageid"></div>
 		<div class="homeImageBtn" id="homeImageBtnId">
-			<button onclick="displayPreviousImage();"><i class="material-icons">arrow_back</i></button>
-			<button onclick="displayNextImage();"><i class="material-icons">arrow_forward</i></button>
+			<button onclick="displayPreviousImage();" class="prev"><i class="material-icons">arrow_back</i></button>
+			<button onclick="displayNextImage();" class="nex"><i class="material-icons">arrow_forward</i></button>
 		</div>
 	</div>
 <!-- Bio -->
@@ -94,53 +110,55 @@
 			</div>
 		</div>
 		<div class="bioAcademic" id="bioAcademicid">
-			<h2>Academic Project</h2>
+			<h2>Academic Projects</h2>
 			<div>
 				<h3>August, 2020 - <br>currently ongoing</h3>
 				<p>Academic project on "Facial Recogniton based Attendance System".<br>Role: Group communicator (or, Group Manager).</p>
 			</div>
-			<!--<div class="pa1">
-				<h3>August, 2020 - <br>currently ongoing</h3>
-				<p>Academic project on "Facial Recogniton based Attendance System".</p>
-			</div>-->
+			<div class="pa1">
+				<h3>January, 2021 - <br>April, 2021</h3>
+				<p>Research project on "Entrepreneurship & Start-up".<br>Role: Group Manager.</p>
+			</div>
 		</div>
 		<div class="bioCertification" id="bioCertificationid">
 			<h2>Certifications</h2>
 			<div class="bc1">
 				<h3>July 26, 2020</h3>
-				<p>Completed certification for "Crash course on Python" by Google on Coursera.</p>
+				<p>Completed certification for "<u onclick='$("#cmc1").css({"display":"block", "z-index":"10"});'>Crash course on Python by Google</u>" on Coursera.</p>
 			</div>
 			<div class="bc1">
 				<h3>July 27, 2020</h3>
-				<p>Completed certification for "Introduction to HTML5" by University of Michigan on Coursera.</p>
+				<p>Completed certification for "<u onclick='$("#cmc2").css({"display":"block", "z-index":"10"});'>Introduction to HTML5 by University of Michigan</u>" on Coursera.</p>
+			</div>
+		</div>
+		<div class="modalContainerCollection" id="cmc1">
+			<div class="modalContentCollection">
+				<button onclick="$('#cmc1').css('display', 'none');" title="Close this modal"><i class="material-icons">close</i></button>
+				<p id="cfm1"><br>
+					<script>
+						var x = document.createElement("img");
+						x.src = "Images/CF2.PNG";
+						var src = document.getElementById('cfm1');
+						src.appendChild(x);
+					</script><br>
+				</p>
+			</div>
+		</div>
+		<div class="modalContainerCollection" id="cmc2">
+			<div class="modalContentCollection">
+				<button onclick="$('#cmc2').css('display', 'none');" title="Close this modal"><i class="material-icons">close</i></button>
+				<p id="cfm2"><br>
+					<script>
+						var x = document.createElement("img");
+						x.src = "Images/CF1.PNG";
+						var src = document.getElementById('cfm2');
+						src.appendChild(x);
+					</script><br>
+				</p>
 			</div>
 		</div>
 		<div class="bioSkills" id="bioSkillsid">
 			<h2>Skills</h2>
-			<!--<div class="sk1">
-				<h3>HTML</h3>
-				<div class="skContent">
-					<i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i>
-				</div>
-			</div>
-			<div class="sk1">
-				<h3>CSS</h3>
-				<div class="skContent">
-					<i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i>
-				</div>
-			</div>
-			<div class="sk1">
-				<h3>JavaScript</h3>
-				<div class="skContent">
-					<i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i>
-				</div>
-			</div>
-			<div class="sk1">
-				<h3>PHP</h3>
-				<div class="skContent">
-					<i class="material-icons">star</i>
-				</div>
-			</div>-->
 			<table>
 				<tr>
 					<td><h3>HTML</h3></td>
@@ -171,7 +189,7 @@
 					<td></td>
 				</tr>
 				<tr>
-					<td><h3>Jquery</h3></td>
+					<td><h3>jQuery</h3></td>
 					<td><i class="material-icons">star</i></td>
 					<td><i class="material-icons">star</i></td>
 					<td></td>
@@ -189,23 +207,50 @@
 				<p>legoyashx@outlook.com</p>
 			</div>
 		</div>
+		<div class="bioShare" id="bioShareid">
+			<h2>Share</h2>
+			<div>
+				<div class="a2a_kit a2a_kit_size_32 a2a_default_style">
+					<!--<a class="a2a_dd" href="https://www.addtoany.com/share"></a>-->
+					<a class="a2a_button_facebook"></a>
+					<a class="a2a_button_twitter"></a>
+					<a class="a2a_button_email"></a>
+					<a class="a2a_button_whatsapp"></a>
+					<a class="a2a_button_linkedin"></a>
+					<a class="a2a_button_telegram"></a>
+					<a class="a2a_button_google_gmail"></a>
+					<a class="a2a_button_reddit"></a>
+				</div>
+			</div>
+		</div>
 	</div>	
 <!-- Projects -->
 	<div class="projects" id="projectsid">
 		<h1>Work</h1>
 		<div class="projectCategory" id="projectCategoryid">
-			<button onclick="projectView(this)" id="temp" title="Click to view Templates" style="font-weight: bold;">Templates</button>
-			<!-- <button onclick="projectView(this)" id="ac" title="Click to view Academic projects">Academic</button> -->
-			<button onclick="projectView(this)" id="my" title="Click to view timeline of this website">This</button>
+			<button onclick="projectView(this)" id="temp" title="Click to view Designs" style="font-weight: bold;">Designs</button>
+			<button onclick="projectView(this)" id="collect" title="Click to view Collections">Collections</button>
+			<button onclick="projectView(this)" id="tictac" title="Click to view Tic Tac Toe project">Tic Tac Toe</button>
 		</div>
 		<div class="projectTemplate" id="projectTemplateid">
-			<!--<div class="pt1">
-				<h3>August, 2020 - <br>currently ongoing</h3>
-				<p>Academic project on "Facial Recogniton based Attendance System".</p>
-			</div>-->
-			<?php include 'formTemplates.html'; ?>
-			<?php include 'searchTemplates.html'; ?>
+			<section id="formTemplates">
+				<?php include 'formTemplates.html'; ?>
+			</section>
+			<section id="searchTemplates">
+				<?php include 'searchTemplates.html'; ?>
+			</section>
+			<section id="navigationTempId">
+				<?php include 'navBars.html'; ?>
+			</section>
+			<section id="videoPlayers">
+				<?php //include 'VideoPlayers/videoPlayers.html'; ?>
+			</section>
+			<!--<?php //include 'collections.html'; ?>-->
 		</div>
+		<div class="collect" id="collectid">
+			<?php include 'collections.html'; ?>
+		</div>
+		<div class="ticTac" id="ticTacid"></div>
 		<!-- <div class="projectAcademic" id="projectAcademicid">
 			<div class="pa1">
 				<h3>August, 2020 - <br>currently ongoing</h3>
@@ -216,74 +261,8 @@
 				<p>Academic project on "Facial Recogniton based Attendance System".</p>
 			</div>
 		</div> -->
-		<div class="projectTimeline" id="projectTimelineid">
-  			<div class="container left" id="l">
-    			<div class="content">
-      				<button onclick="version(this)" title="Click to view this version" id="v1"><h2>January, 2021</h2></button>
-      				<p>Initial release.</p>
-    			</div>
-  			</div>
-  			<div class="container right" id="r">
-    			<div class="content">
-      				<button onclick="version(this)" title="Click to view this version" id="v2"><h2>February, 2021</h2></button>
-      				<p>Major UI update.</p>
-    			</div>
-  			</div>
-  			<div class="container left" id="l">
-    			<div class="content">
-      				<button onclick="version(this)" title="Click to view this version" id="v3"><h2>May, 2021</h2></button>
-      				<p>Major UI update.</p><p>Added Contact Form.</p><p>Detailed Work Profile.</p>
-    			</div>
-  			</div>
-  			<div class="container right" id="r">
-    			<div class="content">
-      				<button onclick="" title="TBA" disabled=""><h2>Later, 2021</h2></button>
-      				<p>TBA.</p>
-    			</div>
-  			</div>
-		</div>
+		<!--<div class="projectTimeline" id="projectTimelineid"></div>-->
 	</div>	
-<!-- Timeline -->
-	<!--<div class="timeline" id="timelineid">
-		<h1>Timeline</h1>
-		<div class="timelineTime" id="timelineTimeid">
-  			<div class="container left" id="l">
-    			<div class="content">
-      				<h3>August, 2018</h3>
-      				<br><i class="material-icons">school</i>
-      				<p>Started Under-Graduation <br>at DIT university</p>
-    			</div>
-  			</div>
-  			<div class="container right" id="r">
-    			<div class="content">
-      				<h3>March, 2018</h3>
-      				<br><i class="material-icons">grade</i>
-      				<p>Completed 12th standard</p>
-    			</div>
-  			</div>
-  			<div class="container left" id="l">
-    			<div class="content">
-      				<h3>March, 2016</h3>
-      				<br><i class="material-icons">grade</i>
-      				<p>Completed 10th standard</p>
-    			</div>
-  			</div>
-  			<div class="container right" id="r">
-    			<div class="content">
-      				<h3>April, 2007</h3>
-      				<br><i class="material-icons">school</i>
-      				<p>Started school <br>at Modern Era Public School</p>
-    			</div>
-  			</div>
-  			<div class="container left" id="l">
-    			<div class="content">
-      				<h3>January 12, 2000</h3>
-      				<br><i class="material-icons">cake</i>
-      				<p>Born on this day</p>
-    			</div>
-  			</div>
-		</div>
-	</div>	-->
 <!-- Gallery -->
 	<div class="gallery" id="gallid">
 		<div class="galleryHeading" id="galleryHeadingid">
@@ -291,13 +270,20 @@
 		</div>
 		<div class="elfsight-app-961a2392-5e74-4f11-8cd4-3cb86a7a554b" id="i1"></div>
 	</div>	
-<!-- Upward Scroll Button -->		
-	<button onclick="scrollbtn()" id="pagescrollup" title="go to top"><i class="material-icons">arrow_upward</i></button>
-	<button onclick="scrollbtn2()" id="pagescrolldown" title="go to bottom"><i class="material-icons">arrow_downward</i></button>
+<!-- Upward Scroll Button -->
+	<button onclick="" id="extraMenu"><i class="material-icons" id="extraMenu">menu</i></button>
+	<div class="extraBtn">		
+		<button id="pagescrollup" title="go to top"><i class="material-icons" id="pagescrollup">arrow_upward</i></button>
+		<button id="pagescrolldown" title="go to bottom"><i class="material-icons" id="pagescrolldown">arrow_downward</i></button>
+		<button id="smb1"><i class="material-icons" id="smb1">fullscreen</i></button>
+		<button id="smb2"><i class="material-icons" id="smb2">fullscreen_exit</i></button>
+		<button><a href="" title="Click to view" id="inf"><i class="material-icons">info</i></a></button>
+		<!--<button onclick="return false;" id="extraM"><i class="material-icons" id="extraM">menu</i></button>-->
+	</div>	
 <!-- Footer -->
 	<div class="footer" id="footerid">
 		<h2>Want to say something ?</h2>
-		<form action="myForm.php" method="POST" target="_parent" onsubmit="return false;" id="form1">
+		<form action="FeedbackHandeler.php" method="POST" target="_parent" onsubmit="return false;" id="form1">
 			<div id="f1">
 				<label>Name:</label><br>
 				<input type="text" name="Name" placeholder="Your Name..." required="" autocomplete="off" size="50">
@@ -320,19 +306,20 @@
 			</div>
 		</form>
 		<p>Replies can be expected within 24 hours.</p>
-		<div class="details" id="detailsid">
+		<!--<div class="details" id="detailsid">
 			<details>
 				<summary>Some Important Info</summary>
-				<p><a href="" title="Click to view">Info</a></p>
+				<p><a href="" title="Click to view" id="inf">Info</a></p>
 			</details>
-		</div>
+		</div>-->
 	</div>
 	<script>
+
 		$(document).ready(function()
 		{
-			$.ajaxSetup({cache: false});
-			setInterval(displayNextImage,5000);
-			setInterval(quotesL, 20000);
+			$.ajaxSetup({cache: false}); //default values for future AJAX requests, browser will not cache the requested pages.
+			//setInterval(displayNextImage,5000);
+			setInterval(quotesL, 2000);
 
 			var img1 = document.createElement("img"); 
 			img1.src = "Images/Yash Agarwal.png"; 
@@ -340,7 +327,10 @@
 			img1.id = "hI";
 			src.appendChild(img1);
 
+
 			$('img').bind('contextmenu', function(e){ return false;});
+			$('video').bind('contextmenu', function(e){ return false;});
+			//$('.extraBtn').hide();
 		});
 
 		function displayNextImage() 
@@ -356,8 +346,12 @@
 
 		function displayNextImage() 
 		{
+			//$('#hI').animate({borderColor: 'purple'});
             x = (x === images.length - 1) ? 0 : x + 1;
+            //$('#hI').slideUp();
             document.getElementById("hI").src = images[x];
+            //$('#homeImageid').slideToggle(1000);
+            //$('#hI').fadeIn(1000);
         }
         var images = [], x = -1;
         images[0] = "Images/YashAgarwal_1.png";
@@ -376,38 +370,19 @@
 					$('#quotez').html(response);
 				}
 			});
+			//$('#quotez').load('quotes.php');
 		}
-		//Form Handling
-		$("#form1").submit(function(e) {
-			e.preventDefault(); // avoid to execute the actual submit of the form.
 
-			var badWords = [
-				"fuck", "stfu", "crap", "shit", "trash", "bitch", "bc", "bullshit", "cuss", "hell", "curse", "getlost", "moth", "fath", "douche", "abuse"
-				];
-			var name = $("[name='Name']").val().toLowerCase();
-			var msg = $("[name='Message']").val().toLowerCase();
-			if ($.inArray(name, badWords) !== -1 || $.inArray(msg, badWords) !== -1) 
-			{
-				alert("You Message contains bad words, Kindly remove them.");
-			}
-			else 
-			{
-				var form = $(this);
-    			var Url = form.attr('action');
-    			$.ajax({
-    			       type: "POST",
-    			       url: Url,
-    			       data: form.serialize(), // serializes the form's elements.
-    			       success: function(datal)
-    			       {
-    			       		$(":selected").val('');
-    			       		$("#footerid > h2").hide();
-    			       		$("#form1").text(/*"Your Message is delivered."*/datal);
-    			           	//alert("Form Successfully submitted"); // show response from the php script.
-    			       }
-    	    	});
-    		}
-		});
+		document.getElementById('inf').href = "info.html";
+
+		var tic = document.createElement('iframe');
+		tic.src = 'TicTacToe.html';
+		tic.id = 'TicTacToeId';
+		var ticsrc = document.getElementById('ticTacid');
+		ticsrc.appendChild(tic);
+
 	</script>
+	<script async src="https://static.addtoany.com/menu/page.js"></script>
+	<script src="myscript.js"></script>
 </body>
 </html>

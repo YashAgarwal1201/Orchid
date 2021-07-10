@@ -1,18 +1,19 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Form Templates</title>
-	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-	<!--<script src="myscript.js"></script>-->
-</head>
-<body>
-	<h2>Form Templates</h2>
-	<div class="mainContainer">
-		<div class="subContainer" id="sub1">
+
+	<div style="display: flex; flex-flow: row wrap; justify-content: space-between; align-items: center;">
+		<h2>Forms</h2>
+		<div style="display: flex; flex-flow: row wrap; justify-content: space-evenly; align-items: center;">
+			<button class="scroll" id="Backb1">
+				<i class="material-icons" title="Scroll Back" id="Backb1">arrow_backward</i>
+			</button>
+			<button class="scroll" id="Aheadb1">
+				<i class="material-icons" title="Scroll Ahead" id="Aheadb1">arrow_forward</i>
+			</button>
+		</div>
+	</div>
+	<div class="mainContainer" id="sub1">
+		<div class="subContainer" id="sub1f">
 			<div class="container">
-				<!--<img src="Images/ft1_P_b.png" alt="image1" class="thumbnail" id="fimg1" />-->
-				<div  id="fimg1" class="thumbnail" onclick='$("#mc1").css("display", "block");' title="click to view this"></div>
+				<div  id="fimg1" class="thumbnail" title="click to view this"></div>
 				<div class="middle">
 					<div class="text">
 						<p>Feedback Form 1</p>
@@ -20,8 +21,7 @@
 				</div>
 			</div>
 			<div class="container">
-				<!--<img src="Images/ft2_P.png" alt="image1" class="thumbnail" id="fimg2"/>-->
-				<div id="fimg2" class="thumbnail" onclick='$("#mc2").css("display", "block");' title="click to view this"></div>
+				<div id="fimg2" class="thumbnail" title="click to view this"></div>
 				<div class="middle">
 					<div class="text">
 						<p>Feedback Form 2</p>
@@ -29,8 +29,7 @@
 				</div>
 			</div>
 			<div class="container">
-				<!--<img src="Images/ft3_P_b.png" alt="image1" class="thumbnail" id="fimg3"/>-->
-				<div  id="fimg3" class="thumbnail" onclick='$("#mc3").css("display", "block");' title="click to view this"></div>
+				<div  id="fimg3" class="thumbnail" title="click to view this"></div>
 				<div class="middle">
 					<div class="text">
 						<p>Feedback Form 3</p>
@@ -38,8 +37,7 @@
 				</div>
 			</div>
 			<div class="container">
-				<!--<img src="Images/ft1_P_b.png" alt="image1" class="thumbnail" id="fimg4"/>-->
-				<div  id="fimg4" class="thumbnail" onclick='$("#mc4").css("display", "block");' title="click to view this"></div>
+				<div  id="fimg4" class="thumbnail" title="click to view this"></div>
 				<div class="middle">
 					<div class="text">
 						<p>Login Form 1</p>
@@ -47,126 +45,521 @@
 				</div>
 			</div>
 			<div class="container">
-				<!--<img src="Images/ft2_P.png" alt="image1" class="thumbnail" id="fimg5"/>-->
-				<div  id="fimg5" class="thumbnail" onclick='$("#mc5").css("display", "block");' title="click to view this"></div>
+				<div  id="fimg5" class="thumbnail" title="click to view this"></div>
 				<div class="middle">
 					<div class="text">
-						<p>Form Template 3</p>
+						<p>Login Form 2</p>
 					</div>
 				</div>
 			</div>
 			<div class="container">
-				<!--<img src="Images/ft3_P_b.png" alt="image1" class="thumbnail" id="fimg6"/>-->
-				<div  id="fimg6" class="thumbnail" onclick='$("#mc6").css("display", "block");' title="click to view this"></div>
+				<div  id="fimg6" class="thumbnail" title="click to view this"></div>
 				<div class="middle">
 					<div class="text">
-						<p>Form Template 3</p>
+						<p>Feedback Form 4</p>
+					</div>
+				</div>
+			</div>
+			<div class="container">
+				<div  id="fimg7" class="thumbnail" title="click to view this"></div>
+				<div class="middle">
+					<div class="text">
+						<p>Feedback Form 5</p>
+					</div>
+				</div>
+			</div>
+			<div class="container">
+				<div  id="fimg8" class="thumbnail" title="click to view this"></div>
+				<div class="middle">
+					<div class="text">
+						<p>Register Form 1</p>
+					</div>
+				</div>
+			</div>
+			<div class="container">
+				<div  id="fimg9" class="thumbnail" title="click to view this"></div>
+				<div class="middle">
+					<div class="text">
+						<p>Register Form 2</p>
+					</div>
+				</div>
+			</div>
+			<div class="container">
+				<div  id="fimg10" class="thumbnail" title="click to view this"></div>
+				<div class="middle">
+					<div class="text">
+						<p>Register Form 3</p>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-	<div class="modalContainer" id="mc1">
-		<div class="modalContent">
-			<button onclick="$('#mc1').css('display', 'none');" title="Close this modal"><i class="material-icons">close</i></button>
-			<p id="fm1">Feedback Form 1<br>
-				<script>
-					var x = document.createElement("iframe");
-					x.src = "formTemplate1.html";
-					var src = document.getElementById('fm1');
-					src.appendChild(x);
-				</script>
-				Languages: HTML & CSS.<br>
-			</p>
+
+	<div class="modalContainerCollection" id="mc1">
+		<div class="modalContentCollection">
+			<button onclick="$('#mc1').slideUp();" title="Close this modal"><i class="material-icons">close</i></button>
+			<h2>Feedback Form 1</h2>
+			<div>
+				<section id="fm1"></section>
+				<section>
+					<p>CSS:</p>
+					<content id="fm1c1"></content>
+					<p>HTML & JavaScript:</p>
+					<content id="fm1c2"></content>
+				</section>
+			</div>
+			<p>Languages: HTML & CSS<br>Created: June, 2020</p>
 		</div>
 	</div>
-	<div class="modalContainer" id="mc2">	
-		<div class="modalContent">
-			<button onclick="$('#mc2').css('display', 'none');" title="Close this modal"><i class="material-icons">close</i></button>
-			<p id="fm2">Feedback Form 2<br>
-				<script>
-					var x = document.createElement("iframe");
-					x.src = "formTemplate2.html";
-					var src = document.getElementById('fm2');
-					src.appendChild(x);
-				</script>
-				Languages:HTML & CSS.<br>
-			</p>
+
+	<div class="modalContainerCollection" id="mc2">	
+		<div class="modalContentCollection">
+			<button onclick="$('#mc2').slideUp();" title="Close this modal"><i class="material-icons">close</i></button>
+			<h2>Feedback Form 2</h2>
+			<div>
+				<section id="fm2"></section>
+				<section>
+					<p>CSS:</p>
+					<content id="fm2c1"></content>
+					<p>HTML & JavaScript:</p>
+					<content id="fm2c2"></content>
+				</section>
+			</div>
+			<p>Languages: HTML & CSS<br>Created: June, 2020</p>
 		</div>
 	</div>
-	<div class="modalContainer" id="mc3">
-		<div class="modalContent">
-			<button onclick="$('#mc3').css('display', 'none');" title="Close this modal"><i class="material-icons">close</i></button>
-			<p id="fm3">Feedback Form 3<br> 
-				<script>
-					var x = document.createElement("iframe");
-					x.src = "formTemplate3.html";
-					var src = document.getElementById('fm3');
-					src.appendChild(x);
-				</script>
-				Languages: HTML, CSS & JavaScript.<br>
-			</p>
+	<div class="modalContainerCollection" id="mc3">
+		<div class="modalContentCollection">
+			<button onclick="$('#mc3').slideUp();" title="Close this modal"><i class="material-icons">close</i></button>
+			<h2>Feedback Form 3</h2>
+			<div>
+				<section id="fm3"></section>
+				<section>
+					<p>CSS:</p>
+					<content id="fm3c1"></content>
+					<p>HTML & JavaScript:</p>
+					<content id="fm3c2"></content>
+				</section>
+			</div>
+			<p>Languages: HTML, CSS & JavaScript<br>Created: January, 2021</p>
 		</div>
 	</div>
-	<div class="modalContainer" id="mc4">	
-		<div class="modalContent">
-			<button onclick="$('#mc4').css('display', 'none');" title="Close this modal"><i class="material-icons">close</i></button>
-			<p id="fm4">Login Form 1<br> 
-				<script>
-					var x = document.createElement("iframe");
-					x.src = "login1.html";
-					var src = document.getElementById('fm4');
-					src.appendChild(x);
-				</script>
-				Languages: HTML and CSS.<br>
-			</p>
+	<div class="modalContainerCollection" id="mc4">	
+		<div class="modalContentCollection">
+			<button onclick="$('#mc4').slideUp();" title="Close this modal"><i class="material-icons">close</i></button>
+			<h2>Login Form 1</h2>
+			<div>
+				<section id="fm4"></section>
+				<section>
+					<p>CSS:</p>
+					<content id="fm4c1"></content>
+					<p>HTML & JavaScript:</p>
+					<content id="fm4c2"></content>
+				</section>
+			</div>
+			<p>Languages: HTML & CSS<br>Created: July, 2020</p>
 		</div>
 	</div>
-	<div class="modalContainer" id="mc5">	
-		<div class="modalContent">
-			<button onclick="$('#mc5').css('display', 'none');" title="Close this modal"><i class="material-icons">close</i></button>
-			<p>This is some text 5</p>
+	<div class="modalContainerCollection" id="mc5">	
+		<div class="modalContentCollection">
+			<button onclick="$('#mc5').slideUp();" title="Close this modal"><i class="material-icons">close</i></button>
+			<h2>Login Form 2</h2>
+			<div>
+				<section id="fm5"></section>
+				<section>
+					<p>CSS:</p>
+					<content id="fm5c1"></content>
+					<p>HTML & JavaScript:</p>
+					<content id="fm5c2"></content>
+				</section>
+			</div>
+			<p>Languages: HTML, CSS and Javascript<br>Created: March, 2021</p>
 		</div>
 	</div>
-	<div class="modalContainer" id="mc6">
-		<div class="modalContent">
-			<button onclick="$('#mc6').css('display', 'none');" title="Close this modal"><i class="material-icons">close</i></button>
-			<p>This is some text 6</p>
+	<div class="modalContainerCollection" id="mc6">
+		<div class="modalContentCollection">
+			<button onclick="$('#mc6').slideUp();" title="Close this modal"><i class="material-icons">close</i></button>
+			<h2>Feedback Form 4</h2>
+			<div>
+				<section id="fm6"></section>
+				<section>
+					<p>CSS:</p>
+					<content id="fm6c1"></content>
+					<p>HTML & JavaScript:</p>
+					<content id="fm6c2"></content>
+				</section>
+			</div>
+			<p>Languages: HTML, CSS and Javascript<br>Created: January, 2021</p>
+		</div>
+	</div>
+	<div class="modalContainerCollection" id="mc7">
+		<div class="modalContentCollection">
+			<button onclick="$('#mc7').slideUp();" title="Close this modal"><i class="material-icons">close</i></button>
+			<h2>Feedback Form 5</h2>
+			<div>
+				<section id="fm7"></section>
+				<section>
+					<p>CSS:</p>
+					<content id="fm7c1"></content>
+					<p>HTML & JavaScript:</p>
+					<content id="fm7c2"></content>
+				</section>
+			</div>
+			<p>Languages: HTML, CSS and Javascript<br>Created: March, 2021</p>
+		</div>
+	</div>
+	<div class="modalContainerCollection" id="mc8">
+		<div class="modalContentCollection">
+			<button onclick="$('#mc8').slideUp();" title="Close this modal"><i class="material-icons">close</i></button>
+			<h2>Feedback Form 5</h2>
+			<div>
+				<section id="fm8"></section>
+				<section>
+					<p>CSS:</p>
+					<content id="fm8c1"></content>
+					<p>HTML & JavaScript:</p>
+					<content id="fm8c2"></content>
+				</section>
+			</div>
+			<p>Languages: HTML, CSS and Javascript<br>Created: March, 2021</p>
+		</div>
+	</div>
+	<div class="modalContainerCollection" id="mc9">
+		<div class="modalContentCollection">
+			<button onclick="$('#mc9').slideUp();" title="Close this modal"><i class="material-icons">close</i></button>
+			<h2>Feedback Form 5</h2>
+			<div>
+				<section id="fm9"></section>
+				<section>
+					<p>CSS:</p>
+					<content id="fm9c1"></content>
+					<p>HTML & JavaScript:</p>
+					<content id="fm9c2"></content>
+				</section>
+			</div>
+			<p>Languages: HTML, CSS and Javascript<br>Created: March, 2021</p>
+		</div>
+	</div>
+	<div class="modalContainerCollection" id="mc10">
+		<div class="modalContentCollection">
+			<button onclick="$('#mc10').slideUp();" title="Close this modal"><i class="material-icons">close</i></button>
+			<h2>Feedback Form 5</h2>
+			<div>
+				<section id="fm10"></section>
+				<section>
+					<p>CSS:</p>
+					<content id="fm10c1"></content>
+					<p>HTML & JavaScript:</p>
+					<content id="fm10c2"></content>
+				</section>
+			</div>
+			<p>Languages: HTML, CSS and Javascript<br>Created: March, 2021</p>
 		</div>
 	</div>
 	<script>
-		$(document).ready(function()
+		$('#formTemplates').ready(function()
 		{
-			var img1 = document.createElement("img"); 
-			img1.src = "FormsTemplates/Temp1.png"; 
+			/*var img1 = document.createElement("img"); 
+			img1.src = "FormsTemplates/FormsTemplatesImages/Temp1.png"; 
 			var src = document.getElementById('fimg1');
-			src.appendChild(img1);
+			src.appendChild(img1);*/
 
-			var img2 = document.createElement("img");
-			img2.src = "FormsTemplates/Temp2.png"; 
-			var src = document.getElementById('fimg2');
-			src.appendChild(img2);
+			$.ajax({
+				type: 'GET',
+				url: 'imageSrc.php',
+				cache: false,
+				dataType: 'json',
+				data: { fname: 'formTemp'},
+				success: function (datal) 
+				{
+					var x1 = [], x2 = [];
+					var farr = $('[id^="fimg"]');
+					for (var i = 0; i < datal.length; i++) 
+					{
+						x1[i] = document.createElement('img');
+						x1[i].src = datal[i];
+						x2[i] = farr[i];
+						x2[i].appendChild(x1[i]);
+					}
+				}
+			});
 
-			var img3 = document.createElement("img");
-			img3.src = "FormsTemplates/Temp3.png"; 
-			var src = document.getElementById('fimg3');
-			src.appendChild(img3);
+		}).click(function (event) {
+			
+			var pos = $('#sub1').scrollLeft();
+			if (event.target.matches('#Aheadb1')) 
+			{
+				//alert($('.mainContainer').scrollLeft());
+				$('#sub1').scrollLeft(pos + 1000);
+			}
+			else if (event.target.matches('#Backb1')) 
+			{
+				//alert($('.mainContainer').scrollLeft());
+				$('#sub1').scrollLeft(pos - 1000);
+			}
+			else if (event.target.matches('#fimg1, #fimg1 *')) 
+			{
+				//$('body').css('overflow', 'hidden');
+				$('#extraMenu').hide(10);
+				$('#fm1').empty();
+				if ($('#fm1').length == 1) 
+				{
+					var x = document.createElement("iframe");
+					x.src = "FormsTemplates/formTemplate1.html";
+					var src = document.getElementById('fm1');
+					src.appendChild(x); 
+				}
+				$('#mc1').slideDown();
+				$.ajax({
+					type: 'POST',
+					url: 'formCodes.php',
+					dataType: 'json',
+					data: { suc: 'formTemplate1.html' },
+					success: function (datal) 
+					{
+						$('#fm1c1').html(datal.a);
+						$('#fm1c2').html(datal.b);
+					}
+				});
+			}
+			else if (event.target.matches('#fimg2, #fimg2 *'))
+			{
+				//$('body').css('overflow', 'hidden');
+				$('#extraMenu').hide(10);
+				$('#fm2').empty();
+				if ($('#fm2').length == 1) 
+				{
+					var x = document.createElement("iframe");
+					x.src = "FormsTemplates/formTemplate2.html";
+					var src = document.getElementById('fm2');
+					src.appendChild(x);
+				}
+				$('#mc2').slideDown();
+				$.ajax({
+					type: 'POST',
+					url: 'formCodes.php',
+					dataType: 'json',
+					data: { suc: 'formTemplate2.html' },
+					success: function (datal) 
+					{
+						$('#fm2c1').html(datal.a);
+						$('#fm2c2').html(datal.b);
+					}
+				});
+			}
+			else if (event.target.matches('#fimg3, #fimg3 *'))
+			{
+				//$('body').css('overflow', 'hidden');
+				$('#extraMenu').hide(10);
+				$('#fm3').empty();
+				if ($('#fm3').length == 1) 
+				{
+					var x = document.createElement("iframe");
+					x.src = "FormsTemplates/formTemplate3.html";
+					var src = document.getElementById('fm3');
+					src.appendChild(x);
+				}
+				$('#mc3').slideDown();
+				$.ajax({
+					type: 'POST',
+					url: 'formCodes.php',
+					dataType: 'json',
+					data: { suc: 'formTemplate3.html' },
+					success: function (datal) 
+					{
+						$('#fm3c1').html(datal.a);
+						$('#fm3c2').html(datal.b);
+					}
+				});
+			}
+			else if (event.target.matches('#fimg4, #fimg4 *'))
+			{
+				//$('body').css('overflow', 'hidden');
+				$('#extraMenu').hide(10);
+				$('#fm4').empty();
+				if ($('#fm4').length == 1) 
+				{
+					var x = document.createElement("iframe");
+					x.src = "FormsTemplates/login1.html";
+					var src = document.getElementById('fm4');
+					src.appendChild(x);
+				}	
+				$('#mc4').slideDown();
+				$.ajax({
+					type: 'POST',
+					url: 'formCodes.php',
+					dataType: 'json',
+					data: { suc: 'login1.html' },
+					success: function (datal) 
+					{
+						$('#fm4c1').html(datal.a);
+						$('#fm4c2').html(datal.b);
+					}
+				});
+			}
+			else if (event.target.matches('#fimg5, #fimg5 *'))
+			{
+				//$('body').css('overflow', 'hidden');
+				$('#extraMenu').hide(10);
+				$('#fm5').empty();
+				if ($('#fm5').length == 1) 
+				{
+					var x = document.createElement("iframe");
+					x.src = "FormsTemplates/login2.html";
+					var src = document.getElementById('fm5');
+					src.appendChild(x);
+				}
+				$('#mc5').slideDown();
+				$.ajax({
+					type: 'POST',
+					url: 'formCodes.php',
+					dataType: 'json',
+					data: { suc: 'login2.html' },
+					success: function (datal) 
+					{
+						$('#fm5c1').html(datal.a);
+						$('#fm5c2').html(datal.b);
+					}
+				});
+			}
+			else if (event.target.matches('#fimg6, #fimg6 *'))
+			{
+				//$('body').css('overflow', 'hidden');
+				$('#extraMenu').hide(10);
+				$('#fm6').empty();
+				if ($('#fm6').length == 1) 
+				{
+					var x = document.createElement("iframe");
+					x.src = "FormsTemplates/formTemplate4.html";
+					var src = document.getElementById('fm6');
+					src.appendChild(x);
+				}
+				$('#mc6').slideDown();
+				$.ajax({
+					type: 'POST',
+					url: 'formCodes.php',
+					dataType: 'json',
+					data: { suc: 'formTemplate4.html' },
+					success: function (datal) 
+					{
+						$('#fm6c1').html(datal.a);
+						$('#fm6c2').html(datal.b);
+					}
+				});
+			}
+			else if (event.target.matches('#fimg7, #fimg7 *'))
+			{
+				//$('body').css('overflow', 'hidden');
+				$('#extraMenu').hide(10);
+				$('#fm7').empty();
+				if ($('#fm7').length == 1) 
+				{
+					var x = document.createElement("iframe");
+					x.src = "FormsTemplates/formTemplate5.html";
+					var src = document.getElementById('fm7');
+					src.appendChild(x);
+				}
+				$('#mc7').slideDown();
+				$.ajax({
+					type: 'POST',
+					url: 'formCodes.php',
+					dataType: 'json',
+					data: { suc: 'formTemplate5.html' },
+					success: function (datal) 
+					{
+						$('#fm7c1').html(datal.a);
+						$('#fm7c2').html(datal.b);
+					}
+				});
+			}
+			else if (event.target.matches('#fimg8, #fimg8 *'))
+			{
+				//$('body').css('overflow', 'hidden');
+				$('#extraMenu').hide(10);
+				$('#fm8').empty();
+				if ($('#fm8').length == 1) 
+				{
+					var x = document.createElement("iframe");
+					x.src = "FormsTemplates/register3.html";
+					var src = document.getElementById('fm8');
+					src.appendChild(x);
+				}
+				$('#mc8').slideDown();
+				$.ajax({
+					type: 'POST',
+					url: 'formCodes.php',
+					dataType: 'json',
+					data: { suc: 'register3.html' },
+					success: function (datal) 
+					{
+						$('#fm8c1').html(datal.a);
+						$('#fm8c2').html(datal.b);
+					}
+				});
+			}
+			else if (event.target.matches('#fimg9, #fimg9 *'))
+			{
+				//$('body').css('overflow', 'hidden');
+				$('#extraMenu').hide(10);
+				$('#fm9').empty();
+				if ($('#fm9').length == 1) 
+				{
+					var x = document.createElement("iframe");
+					x.src = "FormsTemplates/register2.html";
+					var src = document.getElementById('fm9');
+					src.appendChild(x);
+				}
+				$('#mc9').slideDown();
+				$.ajax({
+					type: 'POST',
+					url: 'formCodes.php',
+					dataType: 'json',
+					data: { suc: 'register2.html' },
+					success: function (datal) 
+					{
+						$('#fm9c1').html(datal.a);
+						$('#fm9c2').html(datal.b);
+					}
+				});
+			}
+			else if (event.target.matches('#fimg10, #fimg10 *'))
+			{
+				//$('body').css('overflow', 'hidden');
+				$('#extraMenu').hide(10);
+				$('#fm10').empty();
+				if ($('#fm10').length == 1) 
+				{
+					var x = document.createElement("iframe");
+					x.src = "FormsTemplates/register1.html";
+					var src = document.getElementById('fm10');
+					src.appendChild(x);
+				}
+				$('#mc10').slideDown();
+				$.ajax({
+					type: 'POST',
+					url: 'formCodes.php',
+					dataType: 'json',
+					data: { suc: 'register1.html' },
+					success: function (datal) 
+					{
+						$('#fm10c1').html(datal.a);
+						$('#fm10c2').html(datal.b);
+					}
+				});
+			}
+			else
+			{
+				//$('body').css('overflow', 'scroll');
+				$('#extraMenu').show(10);
+			}
 
-			var img4 = document.createElement("img");
-			img4.src = "FormsTemplates/Temp4.png"; 
-			var src = document.getElementById('fimg4');
-			src.appendChild(img4);
-
-			var img5 = document.createElement("img");
-			img5.src = "FormsTemplates/Temp2.png"; 
-			var src = document.getElementById('fimg5');
-			src.appendChild(img5);
-
-			var img6 = document.createElement("img");
-			img6.src = "FormsTemplates/Temp3.png"; 
-			var src = document.getElementById('fimg6');
-			src.appendChild(img6);
+			if (event.target.matches('.modalContainerCollection, .modalContainerCollection *')) 
+			{
+				$('#extraMenu').hide();
+			}
+			else
+			{
+				$('#extraMenu').show();
+			}
 		});
-	</script>
-</body>
-</html>
+	</script>	

@@ -1,0 +1,485 @@
+
+	<h2>Search Bars</h2>
+	<div class="mainContainer">
+		<div class="subContainer" id="sub1">
+			<div class="container">
+				<!--<img src="Images/ft1_P_b.png" alt="image1" class="thumbnail" id="fimg1" />-->
+				<div  id="simg1" class="thumbnail" title="click to view this" onclick='$("#smc1").slideDown();'></div>
+				<div class="middle">
+					<div class="text">
+						<p>Search Template 1</p>
+					</div>
+				</div>
+			</div>
+			<div class="container">
+				<!--<img src="Images/ft2_P.png" alt="image1" class="thumbnail" id="fimg2"/>-->
+				<div id="simg2" class="thumbnail" title="click to view this" onclick='$("#smc2").slideDown();'></div>
+				<div class="middle">
+					<div class="text">
+						<p>Search Template 2</p>
+					</div>
+				</div>
+			</div>
+			<div class="container">
+				<!--<img src="Images/ft3_P_b.png" alt="image1" class="thumbnail" id="fimg3"/>-->
+				<div  id="simg3" class="thumbnail" title="click to view this" onclick='$("#smc3").slideDown();'></div>
+				<div class="middle">
+					<div class="text">
+						<p>Search Template 3</p>
+					</div>
+				</div>
+			</div>
+			<div class="container">
+				<!--<img src="Images/ft1_P_b.png" alt="image1" class="thumbnail" id="fimg4"/>-->
+				<div  id="simg4" class="thumbnail" title="click to view this" onclick='$("#smc4").slideDown();'></div>
+				<div class="middle">
+					<div class="text">
+						<p>Search Template 4</p>
+					</div>
+				</div>
+			</div>
+			<div class="container">
+				<!--<img src="Images/ft2_P.png" alt="image1" class="thumbnail" id="fimg5"/>-->
+				<div  id="simg5" class="thumbnail" title="click to view this" onclick='$("#smc5").slideDown();'></div>
+				<div class="middle">
+					<div class="text">
+						<p>Search Template 5</p>
+					</div>
+				</div>
+			</div>
+			<div class="container">
+				<!--<img src="Images/ft3_P_b.png" alt="image1" class="thumbnail" id="fimg6"/>-->
+				<div  id="simg6" class="thumbnail" title="click to view this" onclick='$("#smc6").slideDown();'></div>
+				<div class="middle">
+					<div class="text">
+						<p>Search Template 6</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="modalContainer" id="smc1">
+		<div class="modalContent">
+			<button onclick="$('#smc1').slideUp();" title="Close this modal"><i class="material-icons">close</i></button>
+			<p id="sm1">Search Bar 1<br><br>
+				<script>
+					var i = document.createElement("iframe"); 
+					i.src = "SearchTemplates/searchTemplate1.html"; 
+					var src = document.getElementById('sm1');
+					src.appendChild(i);
+				</script>
+				<br><br>Languages: HTML & CSS<br>Created: August, 2020 
+			</p>
+		</div>
+	</div>
+	<div class="modalContainer" id="smc2">	
+		<div class="modalContent">
+			<button onclick="$('#smc2').slideUp();" title="Close this modal"><i class="material-icons">close</i></button>
+			<p id="sm2">Search Bar 2<br><br>
+				<script>
+					var i = document.createElement("iframe"); 
+					i.src = "SearchTemplates/searchTemplate2.html"; 
+					var src = document.getElementById('sm2');
+					src.appendChild(i);
+				</script>
+				<br><br>Languages: HTML & CSS<br>Created: August, 2020 
+			</p>
+		</div>
+	</div>
+	<div class="modalContainer" id="smc3">
+		<div class="modalContent">
+			<button onclick="$('#smc3').slideUp();" title="Close this modal"><i class="material-icons">close</i></button>
+			<p id="sm3">Search Bar 3<br><br>
+				<script>
+					var i = document.createElement("iframe"); 
+					i.src = "SearchTemplates/searchTemplate3.html"; 
+					var src = document.getElementById('sm3');
+					src.appendChild(i);
+				</script>
+				<br><br>Languages: HTML, CSS and Javascript<br>Created: December, 2020 
+			</p>
+		</div>
+	</div>
+	<div class="modalContainer" id="smc4">	
+		<div class="modalContent">
+			<button onclick="$('#smc4').slideUp();" title="Close this modal"><i class="material-icons">close</i></button>
+			<p id="sm4">Search Bar 4<br><br>
+				<script>
+					var i = document.createElement("iframe"); 
+					i.src = "SearchTemplates/searchTemplate4.html"; 
+					var src = document.getElementById('sm4');
+					src.appendChild(i);
+				</script>
+				<br><br>Languages: HTML, CSS and Javascript<br>Created: January, 2021 
+			</p>
+		</div>
+	</div>
+	<div class="modalContainer" id="smc5">	
+		<div class="modalContent">
+			<button onclick="$('#smc5').slideUp();" title="Close this modal"><i class="material-icons">close</i></button>
+			<p id="sm5">Search Bar 5<br><br>
+				<script>
+					var i = document.createElement("iframe"); 
+					i.src = "SearchTemplates/searchTemplate5.html"; 
+					var src = document.getElementById('sm5');
+					src.appendChild(i);
+				</script>
+				<br><br>Languages: HTML, CSS and Javascript<br>Created: June, 2021 
+			</p>
+		</div>
+	</div>
+	<div class="modalContainer" id="smc6">
+		<div class="modalContent">
+			<button onclick="$('#smc6').slideUp();" title="Close this modal"><i class="material-icons">close</i></button>
+			<p id="sm6">Search Bar 6<br><br>
+				<script>
+					var i = document.createElement("iframe"); 
+					i.src = "SearchTemplates/searchTemplate6.html"; 
+					var src = document.getElementById('sm6');
+					src.appendChild(i);
+				</script>
+				<br><br>Languages: HTML, CSS and Javascript<br>Created: June, 2021 
+			</p>
+		</div>
+	</div>
+	<script>
+		$(document).ready(function()
+		{
+			var img1 = document.createElement("img"); 
+			img1.src = "SearchTemplates/SearchTemplatesImages/sTemp1.png"; 
+			var src = document.getElementById('simg1');
+			src.appendChild(img1);
+
+			var img2 = document.createElement("img");
+			img2.src = "SearchTemplates/SearchTemplatesImages/sTemp2.png"; 
+			var src = document.getElementById('simg2');
+			src.appendChild(img2);
+
+			var img3 = document.createElement("img");
+			img3.src = "SearchTemplates/SearchTemplatesImages/sTemp3.png"; 
+			var src = document.getElementById('simg3');
+			src.appendChild(img3);
+
+			var img4 = document.createElement("img");
+			img4.src = "SearchTemplates/SearchTemplatesImages/sTemp4.png"; 
+			var src = document.getElementById('simg4');
+			src.appendChild(img4);
+
+			var img5 = document.createElement("img");
+			img5.src = "SearchTemplates/SearchTemplatesImages/sTemp5.png"; 
+			var src = document.getElementById('simg5');
+			src.appendChild(img5);
+
+			var img6 = document.createElement("img");
+			img6.src = "SearchTemplates/SearchTemplatesImages/sTemp6.png"; 
+			var src = document.getElementById('simg6');
+			src.appendChild(img6);
+		});
+	</script>
+
+
+
+<!--<h2>Search Bars</h2>
+	<div class="mainContainer">
+		<div class="subContainer" id="sub1">
+			<div class="container">
+				<div  id="simg1" class="thumbnail" title="click to view this"></div>
+				<div class="middle">
+					<div class="text">
+						<p>Search Template 1</p>
+					</div>
+				</div>
+			</div>
+			<div class="container">
+				<div id="simg2" class="thumbnail" title="click to view this"></div>
+				<div class="middle">
+					<div class="text">
+						<p>Search Template 2</p>
+					</div>
+				</div>
+			</div>
+			<div class="container">
+				<div  id="simg3" class="thumbnail" title="click to view this"></div>
+				<div class="middle">
+					<div class="text">
+						<p>Search Template 3</p>
+					</div>
+				</div>
+			</div>
+			<div class="container">
+				<div  id="simg4" class="thumbnail" title="click to view this"></div>
+				<div class="middle">
+					<div class="text">
+						<p>Search Template 4</p>
+					</div>
+				</div>
+			</div>
+			<div class="container">
+				<div  id="simg5" class="thumbnail" title="click to view this"></div>
+				<div class="middle">
+					<div class="text">
+						<p>Search Template 5</p>
+					</div>
+				</div>
+			</div>
+			<div class="container">
+				<div  id="simg6" class="thumbnail" title="click to view this"></div>
+				<div class="middle">
+					<div class="text">
+						<p>Search Template 6</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modalContainerCollection" id="smc1">
+		<div class="modalContentCollection">
+			<button onclick="$('#smc1').slideUp();" title="Close this modal"><i class="material-icons">close</i></button>
+			<h2>Search Bar 1</h2>
+			<div>
+				<section id="sm1"></section>
+				<section>
+					<p>Code:</p>
+					<content id="sm1Content"></content>
+				</section>
+			</div>
+			<script>
+				var x = document.createElement("iframe");
+				x.src = "SearchTemplates/searchTemplate1.html";
+				var src = document.getElementById('sm1');
+				src.appendChild(x);
+			</script>
+			<br><br>Languages: HTML & CSS<br>Created: August, 2020
+		</div>
+	</div>
+	<div class="modalContainerCollection" id="smc2">	
+		<div class="modalContentCollection">
+			<button onclick="$('#smc2').slideUp();" title="Close this modal"><i class="material-icons">close</i></button>
+			<h2>Search Bar 2</h2>
+			<div>
+				<section id="sm2"></section>
+				<section>
+					<p>Code:</p>
+					<content id="sm2Content"></content>
+				</section>
+			</div>
+			<script>
+				var x = document.createElement("iframe");
+				x.src = "SearchTemplates/searchTemplate2.html";
+				var src = document.getElementById('sm2');
+				src.appendChild(x);
+			</script>
+			<br><br>Languages: HTML & CSS<br>Created: August, 2020
+		</div>
+	</div>
+	<div class="modalContainerCollection" id="smc3">
+		<div class="modalContentCollection">
+			<button onclick="$('#smc3').slideUp();" title="Close this modal"><i class="material-icons">close</i></button>
+			<h2>Search Bar 3</h2>
+			<div>
+				<section id="sm3"></section>
+				<section>
+					<p>Code:</p>
+					<content id="sm3Content"></content>
+				</section>
+			</div>
+			<script>
+				var x = document.createElement("iframe");
+				x.src = "SearchTemplates/searchTemplate3.html";
+				var src = document.getElementById('sm3');
+				src.appendChild(x);
+			</script>
+			<br><br>Languages: HTML, CSS and Javascript<br>Created: December, 2020
+		</div>
+	</div>
+	<div class="modalContainerCollection" id="smc4">	
+		<div class="modalContentCollection">
+			<button onclick="$('#smc4').slideUp();" title="Close this modal"><i class="material-icons">close</i></button>
+			<h2>Search Bar 4</h2>
+			<div>
+				<section id="sm4"></section>
+				<section>
+					<p>Code:</p>
+					<content id="sm4Content"></content>
+				</section>
+			</div>
+			<script>
+				var x = document.createElement("iframe");
+				x.src = "SearchTemplates/searchTemplate4.html";
+				var src = document.getElementById('sm4');
+				src.appendChild(x);
+			</script>
+			<br><br>Languages: HTML, CSS and Javascript<br>Created: January, 2021
+		</div>
+	</div>
+	<div class="modalContainerCollection" id="smc5">	
+		<div class="modalContentCollection">
+			<button onclick="$('#smc5').slideUp();" title="Close this modal"><i class="material-icons">close</i></button>
+			<h2>Search Bar 5</h2>
+			<div>
+				<section id="sm5"></section>
+				<section>
+					<p>Code:</p>
+					<content id="sm5Content"></content>
+				</section>
+			</div>
+			<script>
+				var x = document.createElement("iframe");
+				x.src = "SearchTemplates/searchTemplate5.html";
+				var src = document.getElementById('sm5');
+				src.appendChild(x);
+			</script>
+			<br><br>Languages: HTML, CSS and Javascript<br>Created: June, 2021
+		</div>
+	</div>
+	<div class="modalContainerCollection" id="smc6">
+		<div class="modalContentCollection">
+			<button onclick="$('#smc6').slideUp();" title="Close this modal"><i class="material-icons">close</i></button>
+			<h2>Search Bar 6</h2>
+			<div>
+				<section id="sm6"></section>
+				<section>
+					<p>Code:</p>
+					<content id="sm6Content"></content>
+				</section>
+			</div>
+			<script>
+				var x = document.createElement("iframe");
+				x.src = "SearchTemplates/searchTemplate6.html";
+				var src = document.getElementById('sm6');
+				src.appendChild(x);
+			</script>
+			<br><br>Languages: HTML, CSS and Javascript<br>Created: June, 2021
+		</div>
+	</div>
+	<script>
+		$('#searchTemplates').ready(function()
+		{
+			var img1 = document.createElement("img"); 
+			img1.src = "SearchTemplates/SearchTemplatesImages/sTemp1.png"; 
+			var src = document.getElementById('simg1');
+			src.appendChild(img1);
+
+			var img2 = document.createElement("img");
+			img2.src = "SearchTemplates/SearchTemplatesImages/sTemp2.png"; 
+			var src = document.getElementById('simg2');
+			src.appendChild(img2);
+
+			var img3 = document.createElement("img");
+			img3.src = "SearchTemplates/SearchTemplatesImages/sTemp3.png"; 
+			var src = document.getElementById('simg3');
+			src.appendChild(img3);
+
+			var img4 = document.createElement("img");
+			img4.src = "SearchTemplates/SearchTemplatesImages/sTemp4.png"; 
+			var src = document.getElementById('simg4');
+			src.appendChild(img4);
+
+			var img5 = document.createElement("img");
+			img5.src = "SearchTemplates/SearchTemplatesImages/sTemp5.png"; 
+			var src = document.getElementById('simg5');
+			src.appendChild(img5);
+
+			var img6 = document.createElement("img");
+			img6.src = "SearchTemplates/SearchTemplatesImages/sTemp6.png"; 
+			var src = document.getElementById('simg6');
+			src.appendChild(img6);
+
+		}).click(function (event) {
+			if (event.target.matches('#simg1, #simg1 *')) 
+			{
+				$('#smc1').slideDown();
+				$.ajax({
+					type: 'GET',
+					url: 'experiment.php',
+					data: { suc: 'searchTemplate1.html' },
+					success: function (datal) 
+					{
+						$('#sm1Content').html(datal);
+					}
+				});
+			}
+			else if (event.target.matches('#simg2, #simg2 *'))
+			{
+				$('#smc2').slideDown();
+				$.ajax({
+					type: 'GET',
+					url: 'experiment.php',
+					data: { suc: 'searchTemplate2.html' },
+					success: function (datal) 
+					{
+						$('#sm2Content').html(datal);
+					}
+				});
+			}
+			else if (event.target.matches('#simg3, #simg3 *'))
+			{
+				$('#smc3').slideDown();
+				$.ajax({
+					type: 'GET',
+					url: 'experiment.php',
+					data: { suc: 'searchTemplate3.html' },
+					success: function (datal) 
+					{
+						$('#sm3Content').html(datal);
+					}
+				});
+			}
+			else if (event.target.matches('#simg4, #simg4 *'))
+			{
+				$('#smc4').slideDown();
+				$.ajax({
+					type: 'GET',
+					url: 'experiment.php',
+					data: { suc: 'searchTemplate4.html' },
+					success: function (datal) {
+						$('#sm4Content').html(datal);
+					}
+				});
+			}
+			else if (event.target.matches('#simg5, #simg5 *'))
+			{
+				$('#smc5').slideDown();
+				$.ajax({
+					type: 'GET',
+					url: 'experiment.php',
+					data: { suc: 'searchTemplate5.html' },
+					success: function (datal) 
+					{
+						$('#sm5Content').html(datal);
+					}
+				});
+			}
+			else if (event.target.matches('#simg6, #simg6 *'))
+			{
+				$('#smc6').slideDown();
+				$.ajax({
+					type: 'GET',
+					url: 'experiment.php',
+					data: { suc: 'searchTemplate6.html' },
+					success: function (datal) 
+					{
+						$('#sm6Content').html(datal);
+					}
+				});
+			}
+			/*else if (event.target.matches('#simg7, #simg7 *'))
+			{
+				$('#smc7').slideDown();
+				$.ajax({
+					type: 'POST',
+					url: 'experiment.php',
+					data: { suc: 'formTemplate5.html' },
+					success: function (datal) 
+					{
+						$('#sm7Content').html(datal);
+					}
+				});
+			}*/
+			else
+			{
+
+			}
+		});
+	</script>-->

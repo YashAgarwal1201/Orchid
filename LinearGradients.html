@@ -1,0 +1,82 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Gradients</title>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<style>
+		* { 
+			box-sizing: border-box;
+			line-height: 1.5; }
+		body { 
+			font-family: monospace;
+			font-size: 15px; }	
+
+		.mainContainer { 
+			padding: 10px;
+			display: flex; 
+			flex-flow: row wrap;
+			justify-content: flex-start;
+			align-items: center; }
+		.sec { 
+			width: 300px; 
+			height: 400px;
+			margin: 15px;
+			display: flex;
+			flex-flow: column wrap;
+			justify-content: space-around;
+			align-items: center;
+			border-radius: 10px;
+			box-shadow: 5px 5px 10px grey;  }	
+		.sec div { 
+			border-radius: 10px 10px 0px 0px;
+			width: 100%; 
+			height: 80%;  }	
+		.sec p { 
+			background: wheat;
+			margin: 0px;
+			padding: 10px;
+			border-radius: 0px 0px 10px 10px;
+			width: 100%;
+			height: 20%; }	
+		#c1 { background: linear-gradient(120deg, #ffef96, #50394c); }
+		#c2 { background: linear-gradient(120deg, #f18973, #bc5a45); }
+		#c3	{ background: linear-gradient(120deg, #bc5a45, #50394c); }
+		#c4 { background: linear-gradient(120deg, #f18973, #50394c); }
+		#c5	{ background: linear-gradient(120deg, #bc5a45, #ffef96); }
+		#c6 { background: linear-gradient(120deg, #f18973, #ffef96); }
+	</style>
+</head>
+<body>
+	<div class="mainContainer" id="mainContainerId">
+		<section class="sec" id="s1">
+			<div id="c1"></div>
+			<p>background: linear-gradient(120deg, #ffef96, #50394c);</p>
+		</section>
+		<section class="sec" id="s2">
+			<div id="c2"></div>
+			<p>background: linear-gradient(120deg, #f18973, #bc5a45);</p>
+		</section>
+		<section class="sec" id="s3">
+			<div id="c3"></div>
+			<p>background: linear-gradient(120deg, #bc5a45, #50394c);</p>
+		</section>
+		<section class="sec" id="s4">
+			<div id="c4"></div>
+			<p>background: linear-gradient(120deg, #f18973, #50394c);</p>
+		</section>
+		<section class="sec" id="s5">
+			<div id="c5"></div>
+			<p>background: linear-gradient(120deg, #bc5a45, #ffef96);</p>
+		</section>
+		<section class="sec" id="s6">
+			<div id="c6"></div>
+			<p>background: linear-gradient(120deg, #f18973, #ffef96);</p>
+		</section>
+	</div>
+</body>
+</html>

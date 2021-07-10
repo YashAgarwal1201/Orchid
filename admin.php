@@ -101,12 +101,15 @@
 			flex-flow: row wrap;
 			justify-content: space-between;
 			align-items: flex-start; }
-		.pResp1, .pResp2 { 
-			width: 49%;
+		.pResp1, .pResp2 {
 			padding: 10px;
 			background-color: #405d27;
 			border-radius: 25px;
 			height: 500px; }
+		.pResp1 { 
+			width: 60%; }
+		.pResp2 { 
+			width: 39%; }		
 
 		.pResp2 form { 
 			padding: 5px; }
@@ -121,7 +124,19 @@
 			border: 2px solid black;
 			width: 100%; 
 			padding: 5px; }
-		.pResp2 textarea { height: 200px; }											
+		.pResp2 textarea { 
+			height: 200px; }
+
+		.pResp1 table { 
+			width: 100%;
+			border: 2px solid black;
+			border-collapse: collapse; }
+		.pResp1 td { 
+			font-family: Rubik, sans-serif;
+			padding: 5px;
+			color: white;
+			border: 2px solid black; 
+			border-collapse: collapse; }													
 	</style>
 </head>
 <body>
@@ -162,9 +177,40 @@
 				<div class="pResp1">
 					<h3>Messages Received</h3>
 					<?php 
-						$fp = fopen('quotes.php', 'r');
-						echo $fp;
+						/*$fp = fopen('form.csv', 'r');
+						fgetcsv($fp);
+						fclose($fp);*/
+						/*$row = 1;
+						if (($handle = fopen("form.csv", "r")) !== FALSE) 
+						{
+  							while (($data = fgetcsv($handle, ",")) !== FALSE) 
+  							{
+  								echo '<br>';
+    							$num = count($data);
+    							$row++;
+    							for ($c=0; $c < $num; $c++) 
+    							{
+        							echo $data[$c] . "\n";
+    							}
+  							}
+  							fclose($handle);
+						}*/
+						echo "<table>\n\n";
+						$fp = fopen("form.csv", "r");
+						if ( $fp !== false )
+						{
+						 	while (($line = fgetcsv($fp)) !== false) 
+						  	{
+        						echo "<tr>";
+        						foreach ($line as $cell) 
+        						{
+                					echo "<td>" . htmlspecialchars($cell) . "</td>";
+        						}
+        						echo "</tr>\n";
+							}
+						}
 						fclose($fp);
+						echo "\n</table>";
 					?>
 				</div>
 				<div class="pResp2">
@@ -236,7 +282,7 @@
 				data: form.serialize(),
 				success: function(datal)
 				{
-					alert('sucess');
+					alert(datal);
 					$(':selected').val('');
 				}
 			})

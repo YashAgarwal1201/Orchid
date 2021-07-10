@@ -1,7 +1,6 @@
 .mainContainerA { 
 	scrollbar-width: 0px;
 	-webkit-scrollbar-width: 0px;
-	font-family: "verdana", sans-serif;
 	width: 100%;
 	overflow-x: scroll;
 	overflow-y: none; }
@@ -20,7 +19,7 @@
   	position: absolute;
   	width: 100%;
   	height: 6px;
-  	background-color: grey;
+  	background-color: #c84b31;
   	top: 0;
   	bottom: 0;}  	
 .mainContainerA .containerA {
@@ -29,14 +28,14 @@
 	height: 15%; 
 	width: 20%;  }
 .containerA { 
-	color: #132020;
+	color: #161616;
 	border-radius: 25px;
 	position: relative;
 	margin-left: 15px;
 	margin-right: 15px;
 	text-align: center;
-	border: 2px solid #132020;
-	background: grey;
+	border: 2px solid #161616;
+	background: #346751;
 	position: relative; }
 .mainContainerA .subContainerA .containerA::after {
   	content: '';
@@ -44,8 +43,8 @@
   	width: 25px;
   	height: 25px;
   	left: 49%;
-  	background-color: #132020;
-  	border: 2px dashed grey;
+  	background-color: #346751;
+  	border: 2px dashed #ecdbba;
   	top: -45px;
   	border-radius: 50%;
   	z-index: 1; } 
@@ -58,18 +57,18 @@
   	z-index: 1;
   	margin-left: auto;
   	margin-right: auto;
-  	border: medium solid #132020;
+  	border: medium solid #ecdbba;
   	border-width: 0px 10px 10px 10px;
-  	border-color: transparent transparent grey transparent;
+  	border-color: transparent transparent #346751 transparent;
   	/*border-left: 15px solid transparent;
   	border-right: 15px solid transparent;
   	border-bottom: 15px solid white;*/ }
 .containerA h3 { 
-	border-bottom: 2px solid white; }  	
+	border-bottom: 2px solid #346751; }  	
 .containerA:hover, .containerA h3:hover, .arrow:hover::before { 
-	border-bottom-color: white; }  	  	 		
+	border-bottom-color: #c84b31; }  	  	 		
 .containerA:hover { 
-	border-color: white; }		
+	border-color: #c84b31; }		
 .mainContainerA::-webkit-scrollbar { 
   	width: 0px; }
 
@@ -122,8 +121,8 @@
   	text-align: left; 
   	white-space: nowrap;}
 .container:hover .thumbnail img {
-  	border-top-right-radius: 25%;
-  	border-bottom-left-radius: 25%;
+  	border-top-right-radius: 50px;
+  	border-bottom-left-radius: 50px;
 	z-index: 1;
   	opacity: 0.5;	}
 .container:hover .middle {
@@ -149,7 +148,7 @@
 	top: 0; 
 	z-index: 1; 
 	width: 100%; 
-	background-color: darkslategrey; 
+	background-color: #132020; 
 	padding: 5%; 
 	overflow: auto;
 	height: 100%; }
@@ -184,4 +183,8 @@
 	color: white; 
 	border-color: white; }	
 .modalContent button i { 
-	vertical-align: middle; }		  	
+	vertical-align: middle; }	
+
+.modalContent img { 
+	width: 100%; 
+	height: 100%; }				  	

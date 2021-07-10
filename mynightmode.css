@@ -4,30 +4,32 @@
 /* Style for all elements */
 * { 
 	box-sizing: border-box;
-	font-family: "Monospace", Monospace;
 	line-height: 1.5; }
 html { 
 	scroll-behavior: smooth; }
 body { 
 	font-size: 20px; 
 	margin: 0.0; 
-	background: #132020; }
+	background: #161616; }
+h1, h2, h3, i { 
+	font-family: Spectral, serif; }
+p, button, a, span, summary, details, .dateTime, .datetime2, label, #quotez, ul, li { 
+	font-family: Rubik, sans-serif; }	
 
-h1, h2 { color: white; }		
+h1, h2 { 
+	color: #ecdbba; }		
+
+@media screen and (max-width: 1024px)
+{
+	body { 
+		font-size: 16px;  }
+}
 
 @media screen and (max-width: 769px)
 {
 	body { 
-		font-size: 15px;
-		margin: 5px; }	
+		font-size: 15px;	}
 }	
-
-@media screen and (max-width: 481px)
-{
-	body { 
-		margin: 1px; 
-		background-color: grey; }
-}
 
 /* Navigation Bar */
 .topnav {
@@ -46,57 +48,65 @@ h1, h2 { color: white; }
 	font-size: 19px;
 	display: inline-block; 
 	outline: none;
-	border: none;  
+	border: none;
+	border-bottom: 2px solid #161616;  
 	background: none; 
 	padding: 20px; }
 .topnav #b1 { 
-	background-color: grey;
-	color: #132020; }	
+	background-color: #c84b31;
+	color: #161616; }	
 .topnav #b1:hover { 
 	border-top-right-radius: 20px;
 	border-bottom-left-radius: 20px; 
 	border: none; }			
 .topnav .navigation button:hover { 
-	color: white; 
+	color: #ecdbba; 
 	cursor: pointer;
-	border-bottom: 2px solid white; }	
+	border-bottom: 2px solid #ecdbba; }	
 .topnav .dateTime { 
-	color: grey;
+	color: #c84b31;
 	padding: 20px; 
 	padding-bottom: 10px; }	
 .topnav .searchbar { 
 	padding: 20px; }
-.topnav .searchbar input[type=search], button { 
-	color: grey;
+.topnav .searchbar input[type=search], .topnav button { 
+	color: #c84b31;
 	background: none; 
 	outline: none; 
 	border: none;
 	line-height: 25px; }	
 .topnav .searchbar input[type=search] { 
-	border-bottom: 2px solid grey;
+	display: none;
 	width: 150px;
-	transition: width 0.2s ease; }
+	/*border-bottom: 2px solid grey;
+	width: 150px;
+	transition: width 0.2s ease;*/ }
 .topnav .searchbar input[type=search]:focus {
-	color: white; 
-	width: 250px; 
-	border-bottom: 2px solid white; }
+	color: #c84b31; 
+	/*width: 250px; 
+	border-bottom: 2px solid white;*/ }
 input[type=search]::placeholder { 
 	vertical-align: middle;
-	color: grey; }	
-.topnav .searchbar button:hover { 
+	color: #346751; }	
+.topnav .searchbar span:hover { 
 	cursor: pointer; 
-	color: white; }
-.topnav .searchbar button i { 
+	color: #ecdbba; }
+.topnav .searchbar span i { 
+	color: #c84b31;
 	vertical-align: middle; }
 
-.topnav2 { 
+.topnav2 {
 	display: none;
+	background-color: grey;
+	color: #132020;
 	flex-flow: row wrap;
 	justify-content: space-between;
 	position: relative;
 	align-items: center; }
 .topnav2 *{ 
-	font-size: 19px; }	
+	vertical-align: middle;
+	color: #132020;
+	font-size: 16px; }	
 .topnav2 .nav { 
 	display: none; 
 	flex-flow: column wrap; 
@@ -104,13 +114,16 @@ input[type=search]::placeholder {
 	align-items: center;
 	background-color: grey;
 	color: #132020;
+	border-radius: 0px 0px 25px 25px;
 	width: 100%;
 	position: absolute;
-	top: 45px;
+	top: 65px;
 	left: 0px; }
 .topnav2 .nav * { 
 	text-align: left;
-	color: #132020; }		
+	color: #132020; }
+.topnav2 .dateTime2 { 
+	color: #132020; }				
 .topnav2 button, .topnav2 .nav button { 
 	cursor: pointer;
 	font-size: 19px;
@@ -119,23 +132,69 @@ input[type=search]::placeholder {
 	border: none;  
 	background: none; 
 	padding: 20px; }
-.topnav .nav button { 
+.topnav2 .nav button { 
 	width: 100%; }	
 .topnav2 .nav button:hover { 
 	background: white; }		
 .topnav2 .dateTime { 
 	color: grey;
 	padding: 20px; 
-	padding-bottom: 10px; }	
+	padding-bottom: 10px; }
+
 .topnav2 .searchbar { 
 	padding: 20px; }
+.topnav2 .searchbar input[type=search], button { 
+	color: grey;
+	line-height: 25px;
+	background: none; 
+	outline: none; 
+	border: none; }	
+.topnav2 .searchbar input[type=search] { 
+	display: none;
+	width: 200px; }
+.topnav2 .searchbar span:hover { 
+	cursor: pointer; 
+	color: white; }	
+.topnav2 .searchbar span i { 
+	vertical-align: middle; }	
+
+.searchDisplay { 
+	display: none;
+	background-color: #c84b31;
+	width: 100%;
+	position: sticky;
+	top: 0;
+	left: 0;
+	z-index: 5;
+	padding: 25px; }
+.searchDisplay button, .searchDisplay p, .searchDisplay span, .searchDisplay a {
+	color: #161616;
+	text-decoration: none; 
+	cursor: pointer;
+	font-size: 19px; }
+.searchDisplay button:hover, .searchDisplay p:hover, .searchDisplay a:hover, .searchDisplay span:hover { 
+	text-decoration: underline; 
+	color: white; }
+
+@media screen and (max-width:  1024px)
+{
+	.topnav { 
+		margin: 15px 25px; 
+		font-size: 16px; }
+}
 
 @media screen and (max-width: 769px)
 {
 	.topnav { 
 		display: none; }	
 	.topnav2 { 
-		display: flex; }		
+		display: flex; 
+		position: sticky;
+		top: 0;
+		left: 0;
+		z-index: 5; }
+	.topnav2 .datetime2 { 
+		display: none; }			
 }		
 
 /*@media screen and (max-width: 481px)
@@ -145,11 +204,14 @@ input[type=search]::placeholder {
 
 /* Style Home */
 .home { 
+	background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.com/svgjs' width='1440' height='567' preserveAspectRatio='none' viewBox='0 0 1440 567'%3e%3cg mask='url(%26quot%3b%23SvgjsMask1005%26quot%3b)' fill='none'%3e%3crect width='1440' height='567' x='0' y='0' fill='rgba(22%2c 22%2c 22%2c 1)'%3e%3c/rect%3e%3cpath d='M1488 567L0 567 L0 346.02Q128.43 354.45%2c 120 482.88Q185.35 428.23%2c 240 493.57Q250.57 432.14%2c 312 442.71Q321.08 379.79%2c 384 388.87Q419.5 304.37%2c 504 339.87Q556.78 320.65%2c 576 373.44Q644.4 369.84%2c 648 438.24Q729.9 400.14%2c 768 482.04Q773.38 415.43%2c 840 420.81Q863.39 372.2%2c 912 395.59Q963.83 327.41%2c 1032 379.24Q1047.4 322.64%2c 1104 338.05Q1173.55 287.6%2c 1224 357.15Q1314.89 376.04%2c 1296 466.93Q1290.64 341.58%2c 1416 336.22Q1478.6 326.82%2c 1488 389.42z' fill='rgba(52%2c 103%2c 81%2c 1)'%3e%3c/path%3e%3cpath d='M1488 567L0 567 L0 465.89Q117.42 463.31%2c 120 580.73Q124.15 512.88%2c 192 517.04Q203.51 456.55%2c 264 468.07Q333.93 418%2c 384 487.93Q425.26 457.19%2c 456 498.45Q549.45 519.9%2c 528 613.35Q486.97 500.32%2c 600 459.29Q694.84 434.13%2c 720 528.96Q808.62 497.58%2c 840 586.2Q842.12 516.32%2c 912 518.44Q927.89 462.34%2c 984 478.23Q1035.19 409.42%2c 1104 460.61Q1160.33 444.94%2c 1176 501.27Q1262.32 467.59%2c 1296 553.9Q1317.5 503.4%2c 1368 524.9Q1418.4 455.3%2c 1488 505.71z' fill='rgba(200%2c 75%2c 49%2c 1)'%3e%3c/path%3e%3c/g%3e%3cdefs%3e%3cmask id='SvgjsMask1005'%3e%3crect width='1440' height='567' fill='white'%3e%3c/rect%3e%3c/mask%3e%3c/defs%3e%3c/svg%3e");
+	background-repeat: no-repeat;
+	background-size: 101% 101%;
 	display: flex; 
 	flex-flow: row wrap;
 	justify-content: space-around;
 	align-items: center;
-	margin-bottom: 150px;
+	padding-bottom: 200px;
 	margin-top: 100px; }
 .home .homeHeading { 
 	width: 50%;
@@ -157,27 +219,46 @@ input[type=search]::placeholder {
 	flex-flow: column wrap;
 	justify-content: space-around;
 	align-items: flex-end;
-	color: grey;
+	color: #c84b31;
 	text-align: right; }
 .home .homeImage img { 
 	width: 70%; 
 	height: auto; 
 	position: relative;
-	border: 50px solid grey; }
+	border: 50px solid #c84b31; }
 .home .homeImageBtn { 
 	width: 100px;
 	position: absolute;
-	top: 230px;
-	right: 375px; }	
+	/*top: 230px;
+	right: 775px;*/ }	
+.home .homeImageBtn .prev {
+	position: absolute; 
+	left: 180px; }
+.home .homeImageBtn .nex {
+	position: absolute; 
+	left: 550px; }		
 .home .homeImageBtn i {
 	cursor: pointer; 
-	color: #132020; } 	
-.home #quotez { 
-	font-family: "Lucida Handwriting", cursive; }
+	color: #132020; }
+#quotez { 
+	color: #ecdbba; }	 	
+
+@media screen and (max-width:  1024px)
+{
+	.home { 
+		background-size: 151 101%; }
+	.home .homeHeading { 
+		width: 40%; }
+	.home .homeImage img { 
+		width: 50%;
+		margin: auto; }		
+		
+}	
 
 @media screen and (max-width: 769px)
 {
 	.home { 
+		background-size: 201% 101%;
 		display: flex;
 		flex-flow: column wrap;
 		align-items: center;
@@ -203,33 +284,27 @@ input[type=search]::placeholder {
 		margin-right: auto; 
 		margin-left: auto; }
 	.home .homeImageBtn { 
-		display: none;
-		top: 950px; 
-		left: 330px;}		
+		display: none; }		
 	.home .homeImageBtn i { 
 		color: grey; }				
 }
 
-/*@media screen and (max-width: 481px)
+@media screen and (max-width: 380px)
 {
-
-}*/
+	.home .homeImage img { width: 80%; }
+}
 
 /* Style footer */
 .footer { 
 	display: block; 
 	padding: 15px;
-	background-color: grey;
-	font-family: "Tahoma", sans-serif;
-	border: 3px solid #132020;
+	background-color: #c84b31;
 	transition: border 0.3s ease;  }
-.footer *{
-	font-family: "Tahoma", sans-serif; }
 .footer h2 { 
-	color: black; }			
+	color: #161616; }			
 .footer form { 
 	margin: 50px;
-	color: #132020;
+	color: #161616;
 	display: flex;
 	flex-flow: row wrap;
 	justify-content: space-around;
@@ -243,13 +318,13 @@ input[type=search]::placeholder {
 	outline: none; 
 	background: none; 
 	border: none; 
-	border-bottom: 2px solid #132020; 
+	border-bottom: 3px solid #161616; 
 	width: 50%; 
 	padding-top: 10px;
 	transition: width 0.2s ease-in-out; }
 .footer #f1 input:focus, #f2 input:focus { 
 	width: 100%; 
-	border-bottom: 2px solid black; }
+	border-color: #346751; }
 .footer #f3 { 
 	padding: 15px; 
 	width: 100%; }	
@@ -257,14 +332,13 @@ input[type=search]::placeholder {
 	display: inline-block; 
 	outline: none; 
 	background: none;
-	font-family: "Lucida Console", Monospace;
 	resize: none; 
 	border: none; 
-	border-bottom: 2px solid #132020; 
+	border-bottom: 3px solid #161616; 
 	width: 100%; 
 	padding-top: 13px; }
 .footer #f3 textarea:focus { 
-	border-bottom: 2px solid black; }
+	border-color: #346751; }
 .footer #f1 input:hover, #f2 input:hover, #f3 textarea:hover { 
 	cursor: pointer; }				
 .footer #f4 { 
@@ -274,20 +348,21 @@ input[type=search]::placeholder {
 	display: inline-block; 
 	outline: none;
 	border: none; 
-	background-color: #132020; 
-	color: grey; 
+	background-color: #161616; 
+	color: #c84b31; 
 	width: 15%; 
 	height: 50px; }		
 .footer #f4 button:hover {
 	cursor: pointer;
-	color: white;  }
+	color: #ecdbba;
+	background-color: #346751;  }
 .footer #f1 input, #f2 input, #f3 textarea, #f4 button { 
 	line-height: 30px; }
 .footer #f1 input::placeholder,#f2 input::placeholder, #f3 textarea::placeholder { 
 	vertical-align: middle;
 	font-size: 15px;
 	font-family: sans-serif;
-	color: #132020; }
+	color: #ecdbba; }
 .footer button i { 
 	vertical-align: middle; }	
 .footer #f9 { 
@@ -298,11 +373,13 @@ input[type=search]::placeholder {
 	width: 200px;
 	font-size: 18px; }
 .footer .details a { 
-	color: black; 
+	color: #161616; 
 	text-decoration: none; }
-.footer .details summary:hover, a:hover { 
+.footer .details summary { 
+	color: #346751; }	
+.footer .details summary:hover, .details a:hover { 
 	cursor: pointer; 
-	color: white; }		
+	color: #ecdbba; }		
 
 @media screen and (max-width: 481px)
 {
@@ -335,18 +412,17 @@ input[type=search]::placeholder {
   	border: none;
   	outline: none;
   	line-height: 30px;
-  	background-color: #132020;
-  	color: white;
+  	background-color: #ecdbba;
   	cursor: pointer;
   	border-radius: 50%;	}
 #pagescrollup i { 
 	vertical-align: middle;
-	color: white; }
+	color: #161616; }
 #pagescrollup:hover {
-  background-color: black;	}
+  background-color: #346751;	}
 
  #pagescrolldown {
- 	display: none;
+ 	display: block;
   	position: fixed;
   	bottom: 25px;
   	right: 65px;
@@ -354,49 +430,50 @@ input[type=search]::placeholder {
   	border: none;
   	outline: none;
   	line-height: 30px;
-  	background-color: #132020;
-  	color: white;
+  	background-color: #ecdbba;
   	cursor: pointer;
   	border-radius: 50%;	}
 #pagescrolldown i { 
 	vertical-align: middle;
-	color: white; }
+	color: #161616; }
 #pagescrolldown:hover {
-  background-color: black;	}
+  background-color: #346751;	}
 
 /* Style Bio */
 .bio { 
 	display: none;
-	color: grey;
+	color: #ecdbba;
 	flex-flow: column wrap;
 	justify-content: space-around;
 	align-items: flex-start;
 	padding: 25px; }
-.bio .bioCertification div, .bioEducation div, .bioAcademic div, .bioContact div, .bioSkills div { 
+.bio .bioCertification div, .bioEducation div, .bioAcademic div, .bioContact div, .bioSkills div, .bioShare div { 
 	display: flex; 
 	flex-flow: row wrap; 
 	justify-content: flex-start; 
 	align-items: center; 
 	padding: 25px; }
 .bio h2 { 
-	color: white; }	
+	color: #ecdbba; }	
 .bio .bioCertification div h3:hover, .bioEducation div h3:hover, .bioAcademic div h3:hover, .bioContact div h3:hover {
-	color: white; 
+	color: #ecdbba; 
 	text-decoration: underline; }	
 .bio .bioCertification div h3, .bioEducation div h3, .bioAcademic div h3, .bioContact div h3 { 
+	color: #346751;
+	border-right: 3px solid #346751;
 	position: relative;
 	padding: 20px;  }		
-.bio .bioCertification div h3::after, .bioEducation div h3::after, .bioAcademic div h3::after, .bioContact div h3::after { 
+/*.bio .bioCertification div h3::after, .bioEducation div h3::after, .bioAcademic div h3::after, .bioContact div h3::after { 
 	content: ' '; 
 	position: absolute;
   	width: 3px;
   	background-color: grey;
   	top: 0;
   	bottom: 0;
-  	margin: 10px; }
+  	margin: 10px; }*/
  .bio .bioCertification div p, .bioEducation div p, .bioAcademic div p, .bioContact div p {
  	text-decoration: none;
- 	color: grey; 
+ 	color: #ecdbba; 
  	margin-left: 25px; } 	
 .bio .bioContact div a:hover { 
 	text-decoration: underline; 
@@ -411,14 +488,15 @@ input[type=search]::placeholder {
 	font-size: 30px; 
 	padding: 10px;}
 .bioSkills table h3 { 
+	color: #346751;
 	padding: 10px; 
 	text-align: right; }	
-.bioSkills tr:hover { 
-	color: white; 
+.bioSkills tr:hover h3 { 
+	color: #c84b31; 
 	cursor: pointer; }
 .bioSkills tr:hover td i{ 
 	transform: scale(2,2);
-	color: white; }
+	color: #c84b31; }
 
 @media screen and (max-width: 769px)
 {
@@ -446,14 +524,46 @@ input[type=search]::placeholder {
 
 }
 
-/*@media screen and (max-width: 481px)
+@media screen and (max-width: 481px)
 {
-	
-}*/
+	.bio { 
+		padding: 5px; }
+	.bio .bioCertification div, .bioEducation div, .bioAcademic div, .bioContact div, .bioSkills div { 
+		flex-flow: column wrap;
+		justify-content: flex-start;
+		align-items: flex-start; }
+	.bio .bioCertification div h3, .bioEducation div h3, .bioAcademic div h3, .bioContact div h3 { 
+		padding: 25px 0px 25px 0px;
+		border-right: 0px;
+		border-bottom: 3px solid grey; }
+	.bio .bioCertification div p, .bioEducation div p, .bioAcademic div p, .bioContact div p { 
+		margin-left: 0px; }	
+	.subContainerA { 
+		margin-left: 10px; 
+		width: 320%; }
+	.bioSkills table { 
+		width: 100%;
+		margin-left: 0px;
+		line-height: 0.5; }	
+	.bioSkills table h3 { 
+		text-align: left;
+		padding: 5px; }	
+	.bioSkills table td i { 
+		font-size: 20px;
+		padding: 5px;
+		margin: 5px 10px 5px 10px; }	
+}
+
+@media screen and (max-width: 380px)
+{
+	.subContainerA { 
+		margin-left: 10px; 
+		width: 420%; }
+}
 
 /* Style Projects */
 .projects { 
-	color: grey;
+	/*color: grey;*/
 	display: none; 
 	flex-flow: column wrap; 
 	justify-content: space-between; 
@@ -465,82 +575,32 @@ input[type=search]::placeholder {
 	font-size: 17px;
 	display: inline-block; 
 	outline: none;
-	border-bottom: 2px solid #132020;  
+	border-bottom: 2px solid #161616;
+	color: #346751;  
 	background: none; 
 	padding: 20px; }	
 .projects .projectCategory button:hover { 
-	color: white; 
+	color: #ecdbba; 
 	cursor: pointer;
 	border-bottom: 2px solid white; }
-.projects .projectTimeline {
-	display: none;
-  	position: relative;
-  	max-width: 1200px;
-  	margin-left: auto;
-  	margin-right: auto;
-  	/*margin: 0 auto;*/ }
-/* The actual timeline (the vertical ruler) */
-.projects .projectTimeline::after {
-  	content: '';
-  	position: absolute;
-  	width: 6px;
-  	background-color: grey;
-  	top: 0;
-  	bottom: 0;
-  	left: 50%;
-  	margin-left: -3px; }
-/* Container around content */ 
-.projects .projectTimeline .container {
-  	padding: 25px;
-  	position: relative;
-  	background-color: inherit;
-  	width: 100%; }
-/* Place the container to the left */ 
-.projects .projectTimeline .left {
-  	left: -50%; }
-/* Place the container to the right*/
-.projects .projectTimeline .right {
-  	left: 50%; }  	
-/* The circles on the timeline */
-.projects .projectTimeline .container::after {
-  	content: '';
-  	position: absolute;
-  	width: 25px;
-  	height: 25px;
-  	right: -15px;
-  	background-color: #132020;
-  	border: 2px dashed grey;
-  	top: 15px;
-  	border-radius: 50%;
-  	z-index: 1; }
-/* Fix the circle for containers on the right side */
-.projects .projectTimeline .right::after {
-  	left: -15px; }  	
-.projects .projectTimeline .container .content {
-	text-align: center;
-	color: #132020;
-  	padding: 25px;
-  	background-color: grey;
-  	position: relative;
-  	border: 2px solid #132020;
-  	border-bottom-right-radius: 10%;
-  	border-bottom-left-radius: 10%; }
-.projects .projectTimeline .container .content:hover { 
-	border: 2px solid white; }
-.projects .projectTimeline .container .content button { 
-	text-align: center;
-	color: #132020;
-	display: inline-block;  }
-.projects .projectTimeline .container .content button:hover { 
-	color: white; }
-.projects .projectTemplate .pt1{ 
+.projects .ticTac { 
+	margin-top: 20px;
+	width: 100%;
+	display: none; }
+.projects .ticTac iframe { 
+	width: 100%; 
+	height: 700px; 
+	display: inline-block; 
+	outline: none; 
+	border: none;}			
+/*.projects .projectTemplate .pt1{ 
 	display: flex; 
 	flex-flow: row wrap; 
 	justify-content: flex-start; 
 	align-items: center; 
 	padding: 25px; }	
 .projects .pa1 h3, .pt1 h3 { 
-	color: grey;
+	color: black;
 	position: relative;
 	padding: 20px;  }
 .projects .pa1 h3:hover, .pt1 h3:hover { 
@@ -550,12 +610,12 @@ input[type=search]::placeholder {
 	content: ' '; 
 	position: absolute;
   	width: 3px;
-  	background-color: grey;
+  	background-color: crimson;
   	top: 0;
   	bottom: 0;
   	margin: 10px; }
 .projects .pa1 p, .pt1 p { 
-	margin-left: 25px; }
+	margin-left: 25px; }*/
 
 @media screen and (max-width: 769px)
 {
@@ -576,7 +636,7 @@ input[type=search]::placeholder {
 		width: 90%; }		
 }
 
-/*@media screen and (max-width: 481px)
+@media screen and (max-width: 481px)
 {
 	.projects { 
 		padding: 10px; }
@@ -584,17 +644,23 @@ input[type=search]::placeholder {
 		width: 480%; }	
 	.modalContainer { 
 		padding: 1px; }		
-	.modalContainer .modalContent { 
+	.modalContainer .modalContent {
+		color: white; 
+		background-color: inherit;
 		width: 100%;
 		padding: 0px;
 		margin: 0px;
-		border-top-right-radius: 50px;
-		border-bottom-left-radius: 50px; }	
+		border-radius: 0px; }	
 	.modalContent iframe { 
 		width: 100%;
 		margin: 0px; }
-}*/
+}
 
+@media screen and (max-width:  380px)
+{
+	.subContainer { 
+		width: 600%; }
+}
 
 /* Style Social */
 .gallery { 
@@ -612,3 +678,107 @@ body::-webkit-scrollbar { width: 10px; }
 body::-webkit-scrollbar-track { border-radius: 5px; }
 body::-webkit-scrollbar-track:hover { background-color: #132020; }
 body::-webkit-scrollbar-thumb { background-color: grey; border:1px solid #132020; border-radius: 5px; }	
+
+.infoClass1 { 
+	margin: 10px;
+	color: #ecdbba; }	
+.infoClass1 h3 { 
+	color: #c84b31; }	
+.infoClass1 li:hover { 
+	color: #346751; }	
+
+.infoClass2 { 
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: flex-start;
+	align-items: center; }	
+.infoClass2 * { 
+	cursor: pointer;
+	color: #346751;
+	font-size: 19px; }
+.infoClass2 *:hover { 
+	color: #ecdbba; }	
+
+.infoClass1 .projectTimeline { 
+	padding: 25px;
+	display: none;
+  	position: relative;
+  	/*width: 100%;*/
+  	margin-left: 40%;
+  	margin-top: 100px;
+  	/*margin-right: auto;*/ }
+/* The actual timeline (the vertical ruler) */ 
+.infoClass1 .projectTimeline::after {
+  	content: '';
+  	position: absolute;
+  	width: 6px;
+  	background-color: #c84b31;
+  	top: 0;
+  	bottom: 0;
+  	left: 50%;
+  	right: 50%;
+  	margin-left: -3px; }
+/* Container around content */ 
+.infoClass1 .projectTimeline .container {
+  	padding: 25px;
+  	position: relative;
+  	background-color: inherit;
+  	width: 100%; }
+/* Place the container to the left */ 
+.infoClass1 .projectTimeline .left {
+  	left: -50%; }
+/* Place the container to the right */ 
+.infoClass1 .projectTimeline .right {
+  	left: 50%; }  	
+/* The circles on the timeline */ 
+.infoClass1 .projectTimeline .container::after {
+  	content: '';
+  	position: absolute;
+  	width: 25px;
+  	height: 25px;
+  	right: -15px;
+  	background-color: #ecdbba;
+  	border: 3px dashed #346751;
+  	top: 15px;
+  	border-radius: 50%;
+  	z-index: 1; }
+/* Fix the circle for containers on the right side*/ 
+.infoClass1 .projectTimeline .right::after {
+  	left: -15px; }  	
+.infoClass1 .projectTimeline .container .content {
+		text-align: center;
+		color: #161616;
+  	padding: 25px;
+  	background-color: #346751;
+  	position: relative;
+  	border: 2px solid #161616;
+  	border-bottom-right-radius: 10%;
+  	border-bottom-left-radius: 10%; }
+.infoClass1 .projectTimeline .container .content li { 
+	text-align: left; } 
+.infoClass1 .projectTimeline .container .content li:hover { 
+	color: #161616; }	 			
+.infoClass1 .projectTimeline .container .content:hover { 
+	border: 2px solid #c84b31; }
+.infoClass1 .projectTimeline .container .content button { 
+	text-align: center;
+	color: black;
+	border-bottom: 2px solid #346751;
+	display: inline-block;  }
+.infoClass1 .projectTimeline .container .content button:hover { 
+	color: #c84b31;
+	border-bottom: 2px solid #c84b31; }	
+
+@media screen and (max-width: 769px)
+{
+	.infoClass1 .projectTimeline {
+		margin-left: 3%; }
+	.infoClass1 .projectTimeline:after { 
+		left: 10%; }	
+	.infoClass1 .projectTimeline .left { 
+		left: 10%; }
+	.infoClass1 .projectTimeline .right { 
+		left: 10%; }	
+	.infoClass1 .projectTimeline .container::after { 
+		left: -35px; }	
+}			

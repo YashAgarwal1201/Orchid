@@ -1,0 +1,204 @@
+
+	<h2>Collections</h2>
+	<div class="collection">
+		<div id="collection1"></div>
+		<div id="collection2"></div>
+		<div id="collection3"></div>
+		<div id="collection4"></div>
+	</div>
+
+	<div class="modalContainerCollection" id="mcCollection1">
+		<div class="modalContentCollection">
+			<button onclick="$('#mcCollection1').slideUp();" title="Close this modal"><i class="material-icons">close</i></button>
+			<h2>Collection 1</h2>
+			<div>
+				<section id="sect1"></section>
+				<section id="sect">
+					<h3>Feedback Form</h3>
+					<p>Code:</p>
+					<content id="sect1Content"></content>
+				</section>
+				<!--<section id="sect2"></section>-->
+			</div>
+			<script>
+				var x = document.createElement("iframe");
+				x.src = "FormsTemplates/formTemplate1.html";
+				var src = document.getElementById('sect1');
+				src.appendChild(x);
+
+				/*var y = document.createElement("iframe");
+				y.src = "FormsTemplates/formTemplate2.html";
+				var src = document.getElementById('sect');
+				src.appendChild(y);	*/
+			</script>
+		</div>
+	</div>
+
+	<div class="modalContainerCollection" id="mcCollection2">
+		<div class="modalContentCollection">
+			<button onclick="$('#mcCollection2').slideUp();" title="Close this modal"><i class="material-icons">close</i></button>
+			<div>
+				<!--<section id="sect1"></section>-->
+				<section id="sect2"></section>
+			</div>
+			<script>
+				var x = document.createElement("iframe");
+				x.src = "FormsTemplates/formTemplate1.html";
+				var src = document.getElementById('sect2');
+				src.appendChild(x);
+
+				/*var y = document.createElement("iframe");
+				y.src = "FormsTemplates/formTemplate2.html";
+				var src = document.getElementById('sect2');
+				src.appendChild(y);	*/
+			</script>
+		</div>
+	</div>
+	<script>
+		$(document).ready(function()
+		{
+			var img1 = document.createElement("img"); 
+			img1.src = "Collections/Collection1/Collection 1 a.png";
+			img1.id = "collection1img"; 
+			var src = document.getElementById('collection1');
+			src.appendChild(img1);
+
+			var img2 = document.createElement("img"); 
+			img2.src = "Collections/Collection2/Collection 2.png"; 
+			img2.id = "collection2img";
+			var src = document.getElementById('collection2');
+			src.appendChild(img2);
+
+			var img3 = document.createElement("img"); 
+			img3.src = "Collections/Collection3/Collection 3.png"; 
+			img3.id = "collection3img";
+			var src = document.getElementById('collection3');
+			src.appendChild(img3);
+
+			var img4 = document.createElement("img"); 
+			img4.src = "Collections/Collection2/Collection 2.png"; 
+			img4.id = "collection4img";
+			var src = document.getElementById('collection4');
+			src.appendChild(img4);
+
+			/*var frame2 = document.createElement("iframe"); 
+			frame2.src = "formTemplate5.html"; 
+			frame2.id = "collframe2";
+			var src = document.getElementById('coll2');
+			src.appendChild(frame2);*/
+		});
+
+		$('.collection *').mouseover(function (event) {
+			if (event.target.matches('#collection1, #collection1 *')) 
+			{
+				var images = [], x = -1;
+        		//images[0] = 'Collections/Collection1/Collection 1 a.png';//"Images/YashAgarwal_1.png";
+        		images[0] = 'Collections/Collection1/search1a.png';
+        		images[1] = 'Collections/Collection1/login1a.png';
+        		images[2] = 'Collections/Collection1/register1a.png';
+        		images[3] = 'Collections/Collection1/feedback1a.png';
+				zooby = setInterval(function () { 
+					x = (x === images.length - 1) ? 0 : x + 1;
+            		document.getElementById("collection1img").src = images[x]; 
+            	}, 1000);
+			}
+			else if (event.target.matches('#collection2, #collection2 *')) 
+			{
+				var images = [], x = -1;
+        		images[0] = 'Collections/Collection2/search2a.png';
+        		images[1] = 'Collections/Collection2/login2a.png';
+        		images[2] = 'Collections/Collection2/register2a.png';
+        		images[3] = 'Collections/Collection2/feedback2a.png';
+				zooby = setInterval(function () { 
+					x = (x === images.length - 1) ? 0 : x + 1;
+            		document.getElementById("collection2img").src = images[x]; 
+            	}, 1000);
+			}
+			else if (event.target.matches('#collection3, #collection3 *')) 
+			{
+				var images = [], x = -1;
+        		images[0] = 'Collections/Collection3/search3a.png';
+        		images[1] = 'Collections/Collection3/login3a.png';
+        		images[2] = 'Collections/Collection3/register3a.png';
+        		images[3] = 'Collections/Collection3/feedback3a.png';
+				zooby = setInterval(function () { 
+					x = (x === images.length - 1) ? 0 : x + 1;
+            		document.getElementById("collection3img").src = images[x]; 
+            	}, 1000);
+			}
+			else
+			{
+
+			}
+		}).mouseout(function (event) {
+			if (event.target.matches('#collection1, #collection1 *')) 
+			{
+				clearInterval(zooby);
+				$('#collection1img').prop('src', "Collections/Collection1/Collection 1 a.png");
+			}
+			else if (event.target.matches('#collection2, #collection2 *')) 
+			{
+				clearInterval(zooby);
+				$('#collection2img').prop('src', 'Collections/Collection2/Collection 2.png');
+			}
+			else if (event.target.matches('#collection3, #collection3 *')) 
+			{
+				clearInterval(zooby);
+				$('#collection3img').prop('src', "Collections/Collection3/Collection 3.png");
+			}
+			else
+			{
+
+			}
+			$('[id^="collection"]').css('border', 'none');
+		}).click(function (event) {
+			//alert('booby');
+			if (event.target.matches('#collection1, #collection1 *')) 
+			{
+				$('#mcCollection1').slideDown();
+				$.ajax({
+					type: 'POST',
+					url: 'experiment2.php',
+					data: { suc: 'suc' },
+					success: function (datal) {
+						/*var hell = $('#sect').text() + '<br><br>' + datal;
+						$('#sect').text(hell);*/
+						//var hell = $('#sect1content').text() + '<pre>' + datal + '</pre>';
+						$('#sect1Content').html(datal);
+					}
+				});
+			}
+			else if (event.target.matches('#collection2, #collection2 *')) 
+			{
+				$('#mcCollection2').slideDown();
+			}
+			else if (event.target.matches('#collection3, #collection3 *')) 
+			{
+				//alert(this);
+			}
+			else
+			{
+
+			}
+		});
+
+		/*function displayCollection(argument) 
+		{
+			var x = argument;
+			var ids = document.querySelectorAll("#collection1, #collection2, #collection3, #collection4");
+			var idsArray = [...ids];
+			var y = $('button[id^=colb]');
+			for (var i = 0, j = 0; i < y.length, j < idsArray.length ; i++, j++)
+			{
+				y[i].style.fontWeight = "normal";
+				idsArray[j].style.display = "none";
+				if (y[i].id == x.id && i == j) 
+				{
+					y[i].style.fontWeight = "bold";
+					idsArray[j].style.display = "block";
+					//continue;
+				}
+			}
+			//var y = x.getElementsByTagName('button');
+		}*/
+	</script>	

@@ -1,19 +1,19 @@
 
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Form Templates</title>
-	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-	<!--<script src="myscript.js"></script>-->
-</head>
-<body>
-	<h2>Search Templates</h2>
-	<div class="mainContainer">
-		<div class="subContainer" id="sub1">
+	<div style="display: flex; flex-flow: row wrap; justify-content: space-between; align-items: center;">
+		<h2>Search Bars</h2>
+		<div style="display: flex; flex-flow: row wrap; justify-content: flex-end; align-items: center;">
+			<button class="scroll" id="Backb2">
+				<i class="material-icons" title="Scroll Back" id="Backb2">arrow_backward</i>
+			</button>
+			<button class="scroll" id="Aheadb2">
+				<i class="material-icons" title="Scroll Ahead" id="Aheadb2">arrow_forward</i>
+			</button>
+		</div>
+	</div>
+	<div class="mainContainer" id="sub2">
+		<div class="subContainer" id="sub2s">
 			<div class="container">
-				<!--<img src="Images/ft1_P_b.png" alt="image1" class="thumbnail" id="fimg1" />-->
-				<div  id="simg1" class="thumbnail" title="click to view this" onclick='$("#smc1").css("display", "block");'></div>
+				<div  id="simg1" class="thumbnail" title="click to view this"></div>
 				<div class="middle">
 					<div class="text">
 						<p>Search Template 1</p>
@@ -21,8 +21,7 @@
 				</div>
 			</div>
 			<div class="container">
-				<!--<img src="Images/ft2_P.png" alt="image1" class="thumbnail" id="fimg2"/>-->
-				<div id="simg2" class="thumbnail" title="click to view this" id="sb2" onclick='$("#smc2").css("display", "block");'></div>
+				<div id="simg2" class="thumbnail" title="click to view this"></div>
 				<div class="middle">
 					<div class="text">
 						<p>Search Template 2</p>
@@ -30,8 +29,7 @@
 				</div>
 			</div>
 			<div class="container">
-				<!--<img src="Images/ft3_P_b.png" alt="image1" class="thumbnail" id="fimg3"/>-->
-				<div  id="simg3" class="thumbnail" onclick='$("#smc3").css("display", "block");' title="click to view this"></div>
+				<div  id="simg3" class="thumbnail" title="click to view this"></div>
 				<div class="middle">
 					<div class="text">
 						<p>Search Template 3</p>
@@ -39,127 +37,331 @@
 				</div>
 			</div>
 			<div class="container">
-				<!--<img src="Images/ft1_P_b.png" alt="image1" class="thumbnail" id="fimg4"/>-->
-				<div  id="simg4" class="thumbnail" title="click to view this" onclick='$("#smc4").css("display", "block");'></div>
+				<div  id="simg4" class="thumbnail" title="click to view this"></div>
 				<div class="middle">
 					<div class="text">
-						<p>Search Template 3</p>
+						<p>Search Template 4</p>
 					</div>
 				</div>
 			</div>
 			<div class="container">
-				<!--<img src="Images/ft2_P.png" alt="image1" class="thumbnail" id="fimg5"/>-->
-				<div  id="simg5" class="thumbnail" title="click to view this" onclick='$("#smc5").css("display", "block");'></div>
+				<div  id="simg5" class="thumbnail" title="click to view this"></div>
 				<div class="middle">
 					<div class="text">
-						<button><p>Search Template 3</p></button>
+						<p>Search Template 5</p>
 					</div>
 				</div>
 			</div>
 			<div class="container">
-				<!--<img src="Images/ft3_P_b.png" alt="image1" class="thumbnail" id="fimg6"/>-->
-				<div  id="simg6" class="thumbnail" title="click to view this" onclick='$("#smc6").css("display", "block");'></div>
+				<div  id="simg6" class="thumbnail" title="click to view this"></div>
 				<div class="middle">
 					<div class="text">
-						<p>Search Template 3</p>
+						<p>Search Template 6</p>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-	<div class="modalContainer" id="smc1">
-		<div class="modalContent">
-			<button onclick="$('#smc1').css('display', 'none');" title="Close this modal"><i class="material-icons">close</i></button>
-			<p id="sm1">Search Bar 1<br>
-				<script>
-					var i = document.createElement("iframe"); 
-					i.src = "searchTemplate1.html"; 
-					var src = document.getElementById('sm1');
-					src.appendChild(i);
-				</script>
-				Languages: HTML & CSS.<br> 
-			</p>
+
+	<div class="modalContainerCollection" id="smc1">
+		<div class="modalContentCollection">
+			<button onclick="$('#smc1').slideUp();" title="Close this modal"><i class="material-icons">close</i></button>
+			<h2>Search Bar 1</h2>
+			<div>
+				<section id="sm1"></section>
+				<section>
+					<p>CSS:</p>
+					<content id="sm1c1"></content>
+					<p>HTML & JavaScript:</p>
+					<content id="sm1c2"></content>
+				</section>
+			</div>
+			<p>Languages: HTML & CSS<br>Created: August, 2020</p>
 		</div>
 	</div>
-	<div class="modalContainer" id="smc2">	
-		<div class="modalContent">
-			<button onclick="$('#smc2').css('display', 'none');" title="Close this modal"><i class="material-icons">close</i></button>
-			<p id="sm2">Search Bar 2<br>
-				<script>
-					var i = document.createElement("iframe"); 
-					i.src = "searchTemplate2.html"; 
-					var src = document.getElementById('sm2');
-					src.appendChild(i);
-				</script>
-				Languages: HTML & CSS.<br> 
-			</p>
+	<div class="modalContainerCollection" id="smc2">	
+		<div class="modalContentCollection">
+			<button onclick="$('#smc2').slideUp();" title="Close this modal"><i class="material-icons">close</i></button>
+			<h2>Search Bar 2</h2>
+			<div>
+				<section id="sm2"></section>
+				<section>
+					<p>CSS:</p>
+					<content id="sm2c1"></content>
+					<p>HTML & JavaScript:</p>
+					<content id="sm2c2"></content>
+				</section>
+			</div>
+			<p>Languages: HTML & CSS<br>Created: August, 2020</p>
 		</div>
 	</div>
-	<div class="modalContainer" id="smc3">
-		<div class="modalContent">
-			<button onclick="$('#smc3').css('display', 'none');" title="Close this modal"><i class="material-icons">close</i></button>
-			<p id="sm3">Search Bar 2<br>
-				<script>
-					var i = document.createElement("iframe"); 
-					i.src = "searchTemplate3.html"; 
-					var src = document.getElementById('sm3');
-					src.appendChild(i);
-				</script>
-				Languages: HTML, CSS and Javascript.<br> 
-			</p>
+	<div class="modalContainerCollection" id="smc3">
+		<div class="modalContentCollection">
+			<button onclick="$('#smc3').slideUp();" title="Close this modal"><i class="material-icons">close</i></button>
+			<h2>Search Bar 3</h2>
+			<div>
+				<section id="sm3"></section>
+				<section>
+					<p>CSS:</p>
+					<content id="sm3c1"></content>
+					<p>HTML & JavaScript:</p>
+					<content id="sm3c2"></content>
+				</section>
+			</div>
+			<p>Languages: HTML, CSS and Javascript<br>Created: December, 2020</p>
 		</div>
 	</div>
-	<div class="modalContainer" id="smc4">	
-		<div class="modalContent">
-			<button onclick="$('#smc4').css('display', 'none');" title="Close this modal"><i class="material-icons">close</i></button>
-			<p>This is some text 4</p>
+	<div class="modalContainerCollection" id="smc4">	
+		<div class="modalContentCollection">
+			<button onclick="$('#smc4').slideUp();" title="Close this modal"><i class="material-icons">close</i></button>
+			<h2>Search Bar 4</h2>
+			<div>
+				<section id="sm4"></section>
+				<section>
+					<p>CSS:</p>
+					<content id="sm4c1"></content>
+					<p>HTML & JavaScript:</p>
+					<content id="sm4c2"></content>
+				</section>
+			</div>
+			<p>Languages: HTML, CSS and Javascript<br>Created: January, 2021</p>
 		</div>
 	</div>
-	<div class="modalContainer" id="smc5">	
-		<div class="modalContent">
-			<button onclick="$('#smc5').css('display', 'none');" title="Close this modal"><i class="material-icons">close</i></button>
-			<p>This is some text 5</p>
+	<div class="modalContainerCollection" id="smc5">	
+		<div class="modalContentCollection">
+			<button onclick="$('#smc5').slideUp();" title="Close this modal"><i class="material-icons">close</i></button>
+			<h2>Search Bar 5</h2>
+			<div>
+				<section id="sm5"></section>
+				<section>
+					<p>CSS:</p>
+					<content id="sm5c1"></content>
+					<p>HTML & JavaScript:</p>
+					<content id="sm5c2"></content>
+				</section>
+			</div>
+			<p>Languages: HTML, CSS and Javascript<br>Created: June, 2021</p>
 		</div>
 	</div>
-	<div class="modalContainer" id="smc6">
-		<div class="modalContent">
-			<button onclick="$('#smc6').css('display', 'none');" title="Close this modal"><i class="material-icons">close</i></button>
-			<p>This is some text 6</p>
+	<div class="modalContainerCollection" id="smc6">
+		<div class="modalContentCollection">
+			<button onclick="$('#smc6').slideUp();" title="Close this modal"><i class="material-icons">close</i></button>
+			<h2>Search Bar 6</h2>
+			<div>
+				<section id="sm6"></section>
+				<section>
+					<p>CSS:</p>
+					<content id="sm6c1"></content>
+					<p>HTML & JavaScript:</p>
+					<content id="sm6c2"></content>
+				</section>
+			</div>
+			<p>Languages: HTML, CSS and Javascript<br>Created: June, 2021</p>
 		</div>
 	</div>
 	<script>
-		$(document).ready(function()
+		$('#searchTemplates').ready(function()
 		{
-			var img1 = document.createElement("img"); 
-			img1.src = "SearchTemplates/sTemp1.png"; 
+			/*var img1 = document.createElement("img"); 
+			img1.src = "SearchTemplates/SearchTemplatesImages/sTemp1.png"; 
 			var src = document.getElementById('simg1');
-			src.appendChild(img1);
+			src.appendChild(img1);*/
 
-			var img2 = document.createElement("img");
-			img2.src = "SearchTemplates/sTemp2.png"; 
-			var src = document.getElementById('simg2');
-			src.appendChild(img2);
+			$.ajax({
+				type: 'GET',
+				url: 'imageSrc.php',
+				cache: false,
+				dataType: 'json',
+				data: { fname: 'searchTemp'},
+				success: function (datal) 
+				{
+					var x1 = [], x2 = [];
+					var sarr = $('[id^="simg"]');
+					for (var i = 0; i < datal.length; i++) 
+					{
+						x1[i] = document.createElement('img');
+						x1[i].src = datal[i];
+						x2[i] = sarr[i];
+						x2[i].appendChild(x1[i]);
+					}
+				}
+			});
 
-			var img3 = document.createElement("img");
-			img3.src = "SearchTemplates/sTemp3.png"; 
-			var src = document.getElementById('simg3');
-			src.appendChild(img3);
+		}).click(function (event) {
 
-			var img4 = document.createElement("img");
-			img4.src = "SearchTemplates/sTemp2.png"; 
-			var src = document.getElementById('simg4');
-			src.appendChild(img4);
+			var pos = $('#sub2').scrollLeft();
+			if (event.target.matches('#Aheadb2')) 
+			{
+				$('#sub2').scrollLeft(pos + 1000);
+			}
+			else if (event.target.matches('#Backb2')) 
+			{
+				//alert($('.mainContainer').scrollLeft());
+				$('#sub2').scrollLeft(pos - 1000);
+			}
+			else if (event.target.matches('#simg1, #simg1 *')) 
+			{
+				//$('body').css('overflow', 'hidden');
+				$('#extraMenu').hide(10);
+				$('#sm1').empty();
+				if ($('#sm1').length == 1) 
+				{
+					var x = document.createElement("iframe");
+					x.src = "SearchTemplates/searchTemplate1.html";
+					var src = document.getElementById('sm1');
+					src.appendChild(x);
+				}
+				$('#smc1').slideDown();
+				$.ajax({
+					type: 'GET',
+					url: 'searchCodes.php',
+					dataType: 'json',
+					data: { suc: 'searchTemplate1.html' },
+					success: function (datal) 
+					{
+						$('#sm1c1').html(datal.a);
+						$('#sm1c2').html(datal.b);
+					}
+				});
+			}
+			else if (event.target.matches('#simg2, #simg2 *'))
+			{
+				//$('body').css('overflow', 'hidden');
+				$('#extraMenu').hide(10);
+				$('#sm2').empty();
+				if ($('#sm2').length == 1) 
+				{
+					var x = document.createElement("iframe");
+					x.src = "SearchTemplates/searchTemplate2.html";
+					var src = document.getElementById('sm2');
+					src.appendChild(x);
+				}
+				$('#smc2').slideDown();
+				$.ajax({
+					type: 'GET',
+					url: 'searchCodes.php',
+					dataType: 'json',
+					data: { suc: 'searchTemplate2.html' },
+					success: function (datal) 
+					{
+						$('#sm2c1').html(datal.a);
+						$('#sm2c2').html(datal.b);
+					}
+				});
+			}
+			else if (event.target.matches('#simg3, #simg3 *'))
+			{
+				//$('body').css('overflow', 'hidden');
+				$('#extraMenu').hide(10);
+				$('#sm3').empty();
+				if ($('#sm3').length == 1) 
+				{
+					var x = document.createElement("iframe");
+					x.src = "SearchTemplates/searchTemplate3.html";
+					var src = document.getElementById('sm3');
+					src.appendChild(x);
+				}
+				$('#smc3').slideDown();
+				$.ajax({
+					type: 'GET',
+					url: 'searchCodes.php',
+					dataType: 'json',
+					data: { suc: 'searchTemplate3.html' },
+					success: function (datal) 
+					{
+						$('#sm3c1').html(datal.a);
+						$('#sm3c2').html(datal.b);
+					}
+				});
+			}
+			else if (event.target.matches('#simg4, #simg4 *'))
+			{
+				//$('body').css('overflow', 'hidden');
+				$('#extraMenu').hide(10);
+				$('#sm4').empty();
+				if ($('#sm4').length == 1) 
+				{
+					var x = document.createElement("iframe");
+					x.src = "SearchTemplates/searchTemplate4.html";
+					var src = document.getElementById('sm4');
+					src.appendChild(x);
+				}
+				$('#smc4').slideDown();
+				$.ajax({
+					type: 'GET',
+					url: 'searchCodes.php',
+					dataType: 'json',
+					data: { suc: 'searchTemplate4.html' },
+					success: function (datal) 
+					{
+						$('#sm4c1').html(datal.a);
+						$('#sm4c2').html(datal.b);
+					}
+				});
+			}
+			else if (event.target.matches('#simg5, #simg5 *'))
+			{
+				//$('body').css('overflow', 'hidden');
+				$('#extraMenu').hide(10);
+				$('#sm5').empty();
+				if ($('#sm5').length == 1) 
+				{
+					var x = document.createElement("iframe");
+					x.src = "SearchTemplates/searchTemplate5.html";
+					var src = document.getElementById('sm5');
+					src.appendChild(x);
+				}
+				$('#smc5').slideDown();
+				$.ajax({
+					type: 'GET',
+					url: 'searchCodes.php',
+					dataType: 'json',
+					data: { suc: 'searchTemplate5.html' },
+					success: function (datal) 
+					{
+						$('#sm5c1').html(datal.a);
+						$('#sm5c2').html(datal.b);
+					}
+				});
+			}
+			else if (event.target.matches('#simg6, #simg6 *'))
+			{
+				//$('body').css('overflow', 'hidden');
+				$('#extraMenu').hide(10);
+				$('#sm6').empty();
+				if ($('#sm6').length == 1) 
+				{
+					var x = document.createElement("iframe");
+					x.src = "SearchTemplates/searchTemplate6.html";
+					var src = document.getElementById('sm6');
+					src.appendChild(x);
+				}
+				$('#smc6').slideDown();
+				$.ajax({
+					type: 'GET',
+					url: 'searchCodes.php',
+					dataType: 'json',
+					data: { suc: 'searchTemplate6.html' },
+					success: function (datal) 
+					{
+						$('#sm6c1').html(datal.a);
+						$('#sm6c2').html(datal.b);
+					}
+				});
+			}
+			else
+			{
+				//$('body').css('overflow', 'scroll');
+				$('#extraMenu').show(10);
+			}
 
-			var img5 = document.createElement("img");
-			img5.src = "SearchTemplates/sTemp2.png"; 
-			var src = document.getElementById('simg5');
-			src.appendChild(img5);
-
-			var img6 = document.createElement("img");
-			img6.src = "SearchTemplates/sTemp2.png"; 
-			var src = document.getElementById('simg6');
-			src.appendChild(img6);
+			if (event.target.matches('.modalContainerCollection, .modalContainerCollection *')) 
+			{
+				$('#extraMenu').hide();
+			}
+			else
+			{
+				$('#extraMenu').show();
+			}
 		});
-	</script>
-</body>
-</html>
+	</script>	

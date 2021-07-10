@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>exp</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<!--<style>
+		* { box-sizing: border-box; }
+		.c { 
+			width: 400px; 
+			height: 400px; 
+			margin: 200px; 
+			background: 
+linear-gradient(135deg, #c1946a 50px, transparent 50px) -50px 0,
+linear-gradient(225deg, #c1946a 50px, transparent 50px) -50px 0,
+linear-gradient(315deg, #c1946a 50px, transparent 50px),
+linear-gradient(45deg, #c1946a 50px, transparent 50px);	
+background-size: 50px 100%;
+background-color: #82b74b; 
+			border-top: 7px solid grey;
+			border-right: 7px solid pink;
+			border-bottom: 7px solid black;
+			border-left: 7px solid blue;   }
+
+	</style>-->
+
+	<style>
+		body { background: plum; }
+	</style>
+</head>
+<body>
+	<h1>hi</h1>
+	<button id="b1"><i class="material-icons" id="b1">fullscreen</i></button>
+	<button id="b2"><i class="material-icons" id="b2">fullscreen_exit</i></button>
+	<div id="s1">
+		
+	</div>
+	<div id="s2">
+		
+	</div>
+	<script>
+		$(document).ready(function () {
+			$.ajax({
+				type: 'POST',
+				url: 'experiment2.php',
+				dataType: 'json',
+				data: { suc: 'formTemplate1.html' },
+				success: function (datal) {
+					//$('#s1').text(datal);
+					var hell = '<pre>' + datal.a + '</pre>';
+					$('#s1').html(hell);
+					var ell = '<pre>' + datal.b + '</pre>';
+					$('#s2').html(ell);
+					
+				}
+			});
+			$('#b2').hide();
+		});
+
+		$('button, button i').click(function (event) {
+			if (event.target.matches('#b1')) 
+			{
+				document.documentElement.requestFullscreen();
+				document.documentElement.webkitRequestFullscreen();
+				$('#b1').hide();
+				$('#b2').show();
+			}
+			else if (event.target.matches('#b2'))
+			{
+				document.exitFullscreen();
+				$('#b2').hide();
+				$('#b1').show();
+			}
+			else
+			{
+
+			}
+		})
+	</script>
+</body>
+</html>
