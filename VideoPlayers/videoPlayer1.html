@@ -1,0 +1,279 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Video Player 1</title>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<style>
+		* { 
+			box-sizing: border-box; }
+		body { 
+			font-family: 'tahoma', sans-serif;
+			background: burlywood;
+			text-align: center;
+			margin: 2px; }
+
+		.videoPlayer { ;
+			position: relative;
+			width: 35%;
+			padding: 10px;
+			margin: auto;
+			background: peru;
+			border-radius: 10px; }	
+
+		.video video{
+			border-radius: 10px;
+			width: 100%; }	
+
+		.videoControls { 
+			position: absolute;
+			width: 90%;
+			top: 25px;
+			left: 25px;
+			background: linear-gradient(to bottom, rgba(205, 133, 63, 0.3), transparent);
+			display: none;
+			z-index: 1; }	
+		.videoControls button { 
+			cursor: pointer;
+			display: inline-block; 
+			outline: none; 
+			background: none; 
+			border: none;
+			padding: 10px; 
+			line-height: 30px;
+			font-size: 19px; }
+		.videoControls button:hover i { 
+			color: white; }	
+		.videoControls i { 
+			vertical-align: middle;
+			color: black;
+			font-size: 30px; }
+
+		.videoProg { 
+			width: 90%;
+			display: flex;
+			flex-flow: row wrap;
+			justify-content: space-around;
+			align-items: center; }	
+		.videoProg progress{ 
+			width: 70%; }
+		.videoProg span {
+			color: black;
+			width: 10%; }	
+		.changeVol { 
+			display: flex; }
+		.changeVol input { 
+			display: none; }	
+		.videoDesc { 
+			padding: 5px;
+			text-align: left; }
+
+		progress[value] {
+			-webkit-appearance: none;
+			height: 8px; }
+		progress[value]::-webkit-progress-bar { 
+			background: peru;
+			border-radius: 8px; }
+		progress[value]::-webkit-progress-value { 
+			background: black;
+			border-radius: 8px; }
+		/*video::-webkit-media-controls {
+  			display:none !important;
+		}*/							
+	</style>
+</head>
+<body>
+	<h1>Video Player</h1>
+	<div class="videoPlayer">
+		<div class="video">
+			<video id="videoId" disablepictureinpicture controlslist='nodownload noremoteplayback'>
+				<source src='' type="video/mp4">
+				Your Browser Doesn't Support 'video' Tag. 
+			</video>
+		</div>
+		<div class="videoControls">
+			<div class="videoProg" style="width: 100%;">
+				<span id="timePassId">00:00</span>
+				<progress value="0" max="0" id="progressId">Hi</progress>
+				<span id="timeLeftId">00:00</span>
+			</div>
+			<button title="Click to Play" id="playId">
+				<i class="material-icons" id="playId">play_circle_filled</i>
+			</button>
+			<button title="Click to Pause" id="pauseId" style="display: none;">
+				<i class="material-icons" id="pauseId">pause_circle_filled</i>
+			</button>
+			<div class="changeVol" id="changeVol">
+				<button title="Click to Change Volume" id="changeVolId">
+					<i class="material-icons" id="changeVolId">volume_up</i>
+				</button>
+				<input type="range" name="vol" min="0" max="10" id="vol" value="5">
+			</div>
+			<button title="Click to view in fullscreen" id="fullinId">
+				<i class="material-icons" id="fullinId">fullscreen</i>
+			</button>
+		</div>
+		<div class="videoDesc">
+			<h2>Video Title</h2>
+			<p>Video Description</p>
+		</div>
+	</div>
+	<script>
+
+		$('#videoId source').prop('src', 'myproject/Chopta 1.mp4');
+		var vid = document.getElementById('videoId');//$('#videoId');
+		vid.volume = 0.5;
+
+		$(document).on('keyup',function(event) { 
+    		if (event.which == 27) 
+      		{	
+      			//event.preventDefault();
+      			fullscreenExit();
+      			//event.stopPropagation();
+			}
+			if (event.which == 70) 
+			{
+				//event.preventDefault();
+				fullscreenEnter();
+			}
+		});
+
+		$('#changeVol').mouseover(function () {
+			$('#vol').show();
+		}).mouseout(function () {
+			$('#vol').hide();
+		})
+
+		$('.videoPlayer').mouseover(function () {
+
+			$('.videoControls').css({'display':'flex', 'flex-flow':'column wrap', 'justify-content':'space-between', 'align-items':'flex-start'});
+		
+		}).mouseout(function () {
+
+			$('.videoControls').hide();
+		
+		}).click(function (event) {
+
+			if (event.target.matches('#playId')) 
+			{
+				$('#pauseId').show();
+				vid.play();
+				$('#playId').hide();
+			}
+			else if (event.target.matches('#pauseId')) 
+			{
+				$('#playId').show();
+				vid.pause();
+				$('#pauseId').hide();
+			}
+			else if (event.target.matches('#changeVolId')) 
+			{
+				//$('#vol').toggle();
+				if (vid.volume != 0.0)
+					vid.volume = 0.0;
+				else
+					vid.volume = ($('#vol').val())/10;
+			}
+			else if (event.target.matches('#videoId')) 
+			{
+				if (vid.paused) 
+				{
+					$('#pauseId').show();
+					vid.play();
+					$('#playId').hide();
+				} 
+				else 
+				{
+					$('#playId').show();
+					vid.pause();
+					$('#pauseId').hide();
+				}
+			}
+			else if (event.target.matches('#vol'))
+			{
+				vid.volume = ($('#vol').val())/10;
+				//alert(vid.volume);
+			}
+			else if (event.target.matches('#fullinId')) 
+			{
+				fullscreenEnter();
+			}
+			else if (event.target.matches('#fulloutId')) 
+			{
+				fullscreenExit();
+			}
+			else
+			{
+				alert('STFU');
+			}
+		}).ready(function() {
+
+			setInterval(timeremain,1000);
+			setInterval(timepassed,1000);
+			setInterval(progress,1000);
+			if (!vid.paused) 
+			{
+				//vid.load();
+				$('#playId').hide();
+				$('#pauseId').show();
+			}
+			if (vid.currentTime <= '3') 
+			{
+				$('#videoControls').css('background', 'background: rgba(205, 133, 63, 0.3)');
+			}
+
+		});
+
+		function timepassed() 
+		{
+			$('#timePassId').text('00.'+Math.round(vid.currentTime));
+			//$('#timePassId').text(vid.currentTime.toFixed(2));
+		}
+		function timeremain() 
+		{
+			$('#timeLeftId').text('00.'+Math.round(vid.duration - vid.currentTime));	
+		}
+		function progress() 
+		{
+			$('#progressId').attr('value', Math.round(vid.currentTime));
+			$('#progressId').attr('max', Math.round(vid.duration));
+		}
+
+		function fullscreenEnter() 
+		{
+			//$('#fulloutId').show();
+			//$('#fullinId').hide();
+			vid.webkitRequestFullscreen();
+			vid.msRequestFullscreen();
+			vid.mozRequestFullScreen();
+			vid.requestFullscreen();
+			//document.documentElement.webkitRequestFullscreen();
+			//document.documentElement.requestFullscreen();
+			//document.documentElement.mozRequestFullScreen();
+			//document.documentElement.msRequestFullscreen();
+			/*var w = (97/100) * window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;//window.screen.width;//$(window).width();
+			$('.videoPlayer').width(w);
+			var h = (97/100) * window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;//window.screen.height;//$(window).innerHeight();
+			$('#videoId').height(h);
+			$('h1').hide();
+			$('.videoDesc').hide();*/
+		}
+		function fullscreenExit()
+		{
+			//$('#fulloutId').hide();
+			//$('#fullinId').show();
+			//$('h1').show();
+			document.webkitExitFullscreen();
+			//document.mozCancelFullScreen();
+			//document.msExitFullscreen();
+			//document.exitFullscreen();
+			/*$('.videoPlayer').width('35%');
+			$('#videoId').height('auto');
+			$('.videoDesc').show();*/
+		}
+
+	</script>
+</body>
+</html>

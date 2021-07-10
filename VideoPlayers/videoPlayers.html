@@ -1,0 +1,170 @@
+
+	<h2>Video Player skins</h2>
+	<div class="mainContainer">
+		<div class="subContainer" id="sub1">
+			<div class="container">
+				<!--<img src="Images/ft1_P_b.png" alt="image1" class="thumbnail" id="fimg1" />-->
+				<div  id="vimg1" class="thumbnail" title="click to view this" onclick='$("#vmc1").css("display", "block");'></div>
+				<div class="middle">
+					<div class="text">
+						<p>Video Player skin 1</p>
+					</div>
+				</div>
+			</div>
+			<div class="container">
+				<!--<img src="Images/ft2_P.png" alt="image1" class="thumbnail" id="fimg2"/>-->
+				<div id="vimg2" class="thumbnail" title="click to view this" onclick='$("#vmc2").css("display", "block");'></div>
+				<div class="middle">
+					<div class="text">
+						<p>Video Player skin 1</p>
+					</div>
+				</div>
+			</div>
+			<div class="container">
+				<!--<img src="Images/ft3_P_b.png" alt="image1" class="thumbnail" id="fimg3"/>-->
+				<div  id="vimg3" class="thumbnail" title="click to view this" onclick='$("#vmc3").css("display", "block");'></div>
+				<div class="middle">
+					<div class="text">
+						<p>Video Player skin 1</p>
+					</div>
+				</div>
+			</div>
+			<div class="container">
+				<!--<img src="Images/ft1_P_b.png" alt="image1" class="thumbnail" id="fimg4"/>-->
+				<div  id="vimg4" class="thumbnail" title="click to view this" onclick='$("#vmc4").css("display", "block");'></div>
+				<div class="middle">
+					<div class="text">
+						<p>Video Player skin 1</p>
+					</div>
+				</div>
+			</div>
+			<div class="container">
+				<!--<img src="Images/ft2_P.png" alt="image1" class="thumbnail" id="fimg5"/>-->
+				<div  id="vimg5" class="thumbnail" title="click to view this" onclick='$("#vmc5").css("display", "block");'></div>
+				<div class="middle">
+					<div class="text">
+						<p>Video Player skin 1</p>
+					</div>
+				</div>
+			</div>
+			<div class="container">
+				<!--<img src="Images/ft3_P_b.png" alt="image1" class="thumbnail" id="fimg6"/>-->
+				<div  id="vimg6" class="thumbnail" title="click to view this" onclick='$("#vmc6").css("display", "block");'></div>
+				<div class="middle">
+					<div class="text">
+						<p>Video Player skin 1</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="modalContainer" id="smc1">
+		<div class="modalContent">
+			<button onclick="$('#vmc1').css('display', 'none');" title="Close this modal"><i class="material-icons">close</i></button>
+			<p id="vm1">Search Bar 1<br>
+				<script>
+					var i = document.createElement("iframe"); 
+					i.src = "searchTemplate1.html"; 
+					var src = document.getElementById('vm1');
+					src.appendChild(i);
+				</script>
+				Languages: HTML & CSS.<br> 
+			</p>
+		</div>
+	</div>
+	<div class="modalContainer" id="smc2">	
+		<div class="modalContent">
+			<button onclick="$('#smc2').css('display', 'none');" title="Close this modal"><i class="material-icons">close</i></button>
+			<p id="vm2">Search Bar 2<br>
+				<script>
+					var i = document.createElement("iframe"); 
+					i.src = "searchTemplate2.html"; 
+					var src = document.getElementById('vm2');
+					src.appendChild(i);
+				</script>
+				Languages: HTML & CSS.<br> 
+			</p>
+		</div>
+	</div>
+	<div class="modalContainer" id="smc3">
+		<div class="modalContent">
+			<button onclick="$('#smc3').css('display', 'none');" title="Close this modal"><i class="material-icons">close</i></button>
+			<p id="vm3">Search Bar 2<br>
+				<script>
+					var i = document.createElement("iframe"); 
+					i.src = "searchTemplate3.html"; 
+					var src = document.getElementById('vm3');
+					src.appendChild(i);
+				</script>
+				Languages: HTML, CSS and Javascript.<br> 
+			</p>
+		</div>
+	</div>
+	<div class="modalContainer" id="smc4">	
+		<div class="modalContent">
+			<button onclick="$('#smc4').css('display', 'none');" title="Close this modal"><i class="material-icons">close</i></button>
+			<p id="vm4">Search Bar 2<br>
+				<script>
+					var i = document.createElement("iframe"); 
+					i.src = "searchTemplate4.html"; 
+					var src = document.getElementById('vm4');
+					src.appendChild(i);
+				</script>
+				Languages: HTML, CSS and Javascript.<br> 
+			</p>
+		</div>
+	</div>
+	<div class="modalContainer" id="smc5">	
+		<div class="modalContent">
+			<button onclick="$('#smc5').css('display', 'none');" title="Close this modal"><i class="material-icons">close</i></button>
+			<p id="vm5">Search Bar 2<br>
+				<script>
+					var i = document.createElement("iframe"); 
+					i.src = "searchTemplate5.html"; 
+					var src = document.getElementById('vm5');
+					src.appendChild(i);
+				</script>
+				Languages: HTML, CSS and Javascript.<br> 
+			</p>
+		</div>
+	</div>
+	<div class="modalContainer" id="smc6">
+		<div class="modalContent">
+			<button onclick="$('#vmc6').css('display', 'none');" title="Close this modal"><i class="material-icons">close</i></button>
+			<p>This is some text 6</p>
+		</div>
+	</div>
+	<script>
+		$(document).ready(function()
+		{
+			var img1 = document.createElement("img"); 
+			img1.src = "SearchTemplates/sTemp1.png"; 
+			var src = document.getElementById('vimg1');
+			src.appendChild(img1);
+
+			var img2 = document.createElement("img");
+			img2.src = "SearchTemplates/sTemp2.png"; 
+			var src = document.getElementById('vimg2');
+			src.appendChild(img2);
+
+			var img3 = document.createElement("img");
+			img3.src = "SearchTemplates/sTemp3.png"; 
+			var src = document.getElementById('vimg3');
+			src.appendChild(img3);
+
+			var img4 = document.createElement("img");
+			img4.src = "SearchTemplates/sTemp4.png"; 
+			var src = document.getElementById('vimg4');
+			src.appendChild(img4);
+
+			var img5 = document.createElement("img");
+			img5.src = "SearchTemplates/sTemp5.png"; 
+			var src = document.getElementById('vimg5');
+			src.appendChild(img5);
+
+			var img6 = document.createElement("img");
+			img6.src = "SearchTemplates/sTemp2.png"; 
+			var src = document.getElementById('vimg6');
+			src.appendChild(img6);
+		});
+	</script>
