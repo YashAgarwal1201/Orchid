@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Navigation 1</title>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<style>
+		* { 
+			box-sizing: border-box;
+			font-size: 19px;
+			font-family: monospace; }
+		body {
+			width: 100%;
+			margin: 0.0; 
+			background: linear-gradient(90deg, orchid, darkorchid) no-repeat; }	
+		.navigation { 
+			display: flex; 
+			flex-flow: row wrap; 
+			justify-content: space-between; 
+			align-items: center;
+			margin: 40px 70px; }
+		.navigation button { 
+			cursor: pointer;
+			display: inline-block; 
+			padding: 15px;
+			background: none; 
+			outline: none; 
+			border: none;  }
+		.navigation button:hover { 
+			color: white;  }
+		.navBtn { 
+			display: flex; 
+			flex-flow: row wrap; 
+			justify-content: space-around; 
+			align-items: center;}
+		#b1 { 
+			background-color: darkorchid;
+			padding: 25px; 
+			border-radius: 50%; }					
+	</style>
+</head>
+<body>
+	<div class="navigation">
+		<div class="navBtn" id="navBtnId">
+			<button title="Click To View Home Page" id="b1"><i class="material-icons">home</i></button>
+			<button title="Click To View Work">Work</button>
+			<button title="Click To View About">About</button>
+			<button title="Click To View Contact Form">Contact</button>
+		</div>
+		<div class="dateTime" id="dateTimeId"></div>
+	</div>
+
+	<script>
+		function display_date() 
+		{
+			var x = new Date();
+
+			var ampm = x.getHours( ) >= 12 ? ' PM' : ' AM';
+			hours = x.getHours( ) % 12;
+			hours = hours ? hours : 12;
+			hours = hours.toString().length ==1 ? 0+hours.toString() : hours;
+
+			var minutes = x.getMinutes().toString();
+			minutes = minutes.length ==1 ? 0+minutes : minutes;
+			
+			var seconds = x.getSeconds().toString();
+			seconds = seconds.length == 1 ? 0+seconds : seconds;
+			
+			var month = (x.getMonth()).toString();
+			month = month.length == 1 ? 0+month : month;
+			
+			var dt = x.getDate().toString();
+			dt = dt.length == 1 ? 0+dt : dt;
+			
+			var monthName = 
+				["January","Februrary","March","April","May","June","July","August","September","October","November","December"];
+			for (var i = 0; i < monthName.length; i++) 
+			{
+				if (i == month) 
+					var x1 = monthName[i] + " " + dt + ", " + x.getFullYear();					
+			}
+			x1 = x1 + " - " +  hours + ":" +  minutes + ":" +  seconds + " " + ampm;
+			
+			$('[id="dateTimeId"]').text(x1);
+			display_datetime();
+		}
+		function display_datetime()
+		{
+			var refresh=1000; // Refresh rate in milli seconds
+			mytime=setTimeout('display_date()',refresh);
+		}
+		display_datetime();
+	</script>
+</body>
+</html>
