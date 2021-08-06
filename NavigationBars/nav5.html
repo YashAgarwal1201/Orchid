@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Navigation 5</title>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<style>
+		* { 
+			box-sizing: border-box;
+			font-size: 17px;
+			font-family: monospace; }
+		body {
+			width: 100%;
+			margin: 0.0; 
+			background: linear-gradient(120deg, #ecdbba, #346751) no-repeat; }
+		.navigation { 
+			position: relative;
+			display: flex; 
+			flex-flow: row wrap; 
+			justify-content: space-between; 
+			align-items: center;
+			margin: 40px 70px; }
+		.navigation button { 
+			height: 100%;
+			cursor: pointer;
+			display: inline-block;
+			padding: 20px;
+			background: none; 
+			outline: none; 
+			border: none;  }
+		.navBtn { 
+			display: flex; 
+			flex-flow: row wrap; 
+			justify-content: space-around; 
+			align-items: center;}
+		.search { 
+			padding: 10px; }
+		.other	{ 
+			display: flex;
+			flex-flow: row wrap;
+			justify-content: space-evenly;
+			align-items: center; }					
+		input, button, span { 
+			line-height: 30px;
+			display: inline-block; 
+			outline: none; 
+			border: none; 
+			background: none; }	
+		input::placeholder { 
+			font-size: 14px;
+			color: black;
+			vertical-align: middle; }
+		input:focus::placeholder { 
+			color: white; }	
+		button i, span i { 
+			border: 2px solid transparent;
+			cursor: pointer;
+			vertical-align: middle; }
+		button:hover { 
+			color: white; }	
+		#b1 { 
+			background: linear-gradient( transparent 0% 5%, black 5% 8%, transparent 8% 92%, black 92% 96%, transparent 96% 100%);  
+			font-size: 19px;
+			font-family: cursive; }
+		#b1:hover { 
+			color: black; }
+		.menu { 
+			position: absolute;
+			text-align: left;
+			top: 130px;
+			right: 80px;
+			width: 250px;
+			display: none;
+			background-color: #346751; }
+		.menu button { 
+			text-align: left;			
+			width: 100%;
+			cursor: pointer; 
+			padding: 15px 15px 15px 30px; }		
+	</style>
+</head>
+<body>
+	<div class="navigation">
+		<div class="navBtn" id="navBtnId">
+			<button title="Home Page" id="b1"><i>Your Logo</i></button>
+			<button title="Click..." id="b2">Link 1</button>
+			<button title="Click..." id="b3">Link 2</button>
+			<button title="Click..." id="b4">Link 3</button>
+			<button title="Click..." id="b5">Link 4</button>
+		</div>
+		<div class="other">
+			<div class="search" id="searchContainerId">
+				<form>
+					<input type="search" name="search" id="searchId" placeholder="Search..." autocomplete="off" style="display: none;">
+					<span><i class="material-icons" id="searchButtonId" title="Search Bar">search</i></span>
+				</form>
+			</div>
+			<button id="b6"><i class="material-icons" id="b6">account_circle</i></button>
+		</div>
+	</div>
+	<div class="menu" id="idMenu">
+		<button title="Click...">Account Settings</button>
+		<button title="Click...">General Settings</button>
+		<button title="Click...">Log In</button>
+		<button title="Click...">About</button>
+	</div>
+
+	<script>
+		$('#searchContainerId').keypress( function(event) {
+    		if (event.which == '13') 
+      			event.preventDefault();
+		});
+
+		window.onclick = function (event) {
+			if (event.target.matches('#b6')) 
+			{
+				$('#idMenu').slideToggle(300);
+			}
+			else if (event.target.matches('#searchButtonId ,#searchId'))
+			{	
+				$('#searchId').show(300);
+				$('#searchContainerId').css({'border': '3px solid black', 'border-top': '3px solid black'});
+				$('#searchButtonId').hide(300);
+			}
+			else
+			{
+				$('#idMenu').slideUp(300);
+				$('#searchId').hide(300);
+				$('#searchContainerId').css('border-color', 'transparent');
+				$('#searchButtonId').show(300);
+			}
+		};
+	</script>
+</body>
