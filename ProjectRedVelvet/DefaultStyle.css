@@ -1,0 +1,33 @@
+
+* {
+	scroll-behavior: smooth;
+	box-sizing: border-box;
+}
+body {
+	margin: 0.0;
+	font-size: 17px;
+	/*background-image: linear-gradient(120deg, #a71d31, #3f0d12);
+	color: white;*/
+}
+body::-webkit-scrollbar { width: 8px; height: 0px; }
+body::-webkit-scrollbar-thumb { background-color: #3f0d12; border: 1px solid black; border-radius: 15px; }
+body::-webkit-scrollbar-track { background: #a71d31; }
+
+button, input, iframe {
+	display: inline-block;
+	outline: none;
+	background: none;
+	border: none;
+}
+
+a {
+	text-decoration: none;
+}
+
+a, button, input, p {
+	font-family: verdana, sans-serif;
+}
+
+h1, h2, h3, h4 {
+	font-family: garamond, serif;
+}
