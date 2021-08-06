@@ -1,0 +1,85 @@
+
+	<div class="navigation">
+		<div class="navBtn" id="navBtnId">
+			<button id="b1"><i class="material-icons" id="b1">menu</i></button>
+			<button title="Home Page" id="logoBtn"><i>Service Logo</i></button>
+			<div class="menu" id="idMenu">
+				<button title="Click to view your account" id="menuB1" onclick="$('#accountMenuId').slideDown();">
+					<i class="material-icons">account_circle</i>Profile
+				</button>
+				<button title="Click to view settings" id="menuB2" onclick="$('#settingsMenuId').slideDown();">
+					<i class="material-icons">settings</i>Settings
+				</button>
+				<button title="Click to login/logout" id="menuB3">
+					<i class="material-icons">login</i>Log In
+				</button>
+				<button title="Click to view help section" id="menuB4">
+					<i class="material-icons">help</i>Help
+				</button>
+			</div>
+			<button title="Click to view Shows" id="b3">Shows</button>
+			<button title="Click to view Movies" id="b4">Movies</button>
+			<button title="Click to view Sports" id="b5">Sports</button>
+			<button title="Click to view Premium offerings" id="b6">Premium</button>
+			<button title="Click to view Channels" id="b7">Channels</button>
+		</div>
+		<div class="search" id="searchContainerId">
+			<form>
+				<input type="search" name="search" id="searchId" placeholder="Search..." autocomplete="off" style="display: none;">
+				<span><i class="material-icons" id="searchButtonId" title="Search Bar">search</i></span>
+			</form>
+		</div>
+	</div>
+
+	<div class="searchRes" id="searchResId">
+		<h1>Search Results</h1>
+			<div id="searchContId"></div>
+	</div>
+
+	<div class="accountMenu" id="accountMenuId">
+		<button onclick="$('#accountMenuId').slideUp();"><i class="material-icons">close</i></button>
+		<div>
+			<h1>Profile</h1>
+			<section title="Click to choose this profile">
+				<h2>Profile 1</h2>
+				<p>Name One</p>
+			</section>
+			<section title="Click to choose this profile">
+				<h2>Profile 2</h2>
+				<p>Name Two</p>
+			</section>
+		</div>
+	</div>
+
+	<div class="settingsMenu" id="settingsMenuId">
+		<button onclick="$('#settingsMenuId').slideUp();"><i class="material-icons">close</i></button>
+		<div>
+			<h1>Settings</h1>
+			<section>
+				<h2>Profile Details</h2>
+				<section>TBD</section>
+			</section>
+			<section>
+				<h2>Content Rating</h2>
+				<section>TBD</section>
+			</section>
+			<section>
+				<h2>Parental Lock</h2>
+				<section>TBD</section>
+			</section>
+		</div>
+	</div>
+
+	<button id="extraMenu"><i class="material-icons" id="extraMenu">menu</i></button>
+	<div class="extraBtn">		
+		<button id="pagescrollup" title="go to top"><i class="material-icons" id="pagescrollup">arrow_upward</i></button>
+		<button id="pagescrolldown" title="go to bottom"><i class="material-icons" id="pagescrolldown">arrow_downward</i></button>
+		<button id="smb1"><i class="material-icons" id="smb1">fullscreen</i></button>
+		<button id="smb2"><i class="material-icons" id="smb2">fullscreen_exit</i></button>
+		<button><a href="" title="Click to view" id="inf"><i class="material-icons">info</i></a></button>
+	</div>
+
+	<footer>
+		<h3>This is a Footer</h3>
+		<button title="Home Page" id="logoBtn"><i>Service Logo</i></button>
+	</footer>

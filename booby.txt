@@ -1,8 +1,11 @@
 
 	<div class="navigation">
 		<div class="navBtn" id="navBtnId">
-			<button title="Click To View Menu" id="b1"><i class="material-icons" id="b1">menu</i></button>
-			<button title="Home Page" id="b2"><i>Your Logo</i></button>
+			<button title="Home Page" id="b1"><i>Your Logo</i></button>
+			<button title="Click...">Link 1</button>
+			<button title="Click...">Link 2</button>
+			<button title="Click...">Link 3</button>
+			<button title="Click...">Link 4</button>
 		</div>
 		<div class="search" id="searchContainerId">
 			<form>
@@ -10,12 +13,6 @@
 				<span><i class="material-icons" id="searchButtonId" title="Search Bar">search</i></span>
 			</form>
 		</div>
-	</div>
-	<div class="menu" id="idMenu">
-		<button title="Click...">Link 1</button>
-		<button title="Click...">Link 2</button>
-		<button title="Click...">Link 3</button>
-		<button title="Click...">Link 4</button>
 	</div>
 
 	<script>
@@ -25,19 +22,14 @@
 		});
 
 		window.onclick = function (event) {
-			if (event.target.matches('#b1')) 
-			{
-				$('#idMenu').slideToggle(300);
-			}
-			else if (event.target.matches('#searchButtonId ,#searchId'))
+			if (event.target.matches('#searchButtonId ,#searchId'))
 			{	
 				$('#searchId').show(300);
-				$('#searchContainerId').css('border-bottom', '2px solid white');
+				$('#searchContainerId').css({'border-bottom': '3px solid black', 'border-top': '3px solid black'});
 				$('#searchButtonId').hide(300);
 			}
 			else
 			{
-				$('#idMenu').slideUp(300)
 				$('#searchId').hide(300);
 				$('#searchContainerId').css('border-color', 'transparent');
 				$('#searchButtonId').show(300);

@@ -80,20 +80,17 @@
 	overflow-x: scroll;
 	overflow-y: none; }
 .subContainer {
-	display: flex;
-	flex-flow: row nowrap;
 	margin-left: 50px;
-	justify-content: flex-start;
-	align-items: flex-start;
-	margin: 20px;
 	white-space: nowrap; }
-#sub1f { width: 320%; }
-#sub2s { width: 190%; }	
-#sub3n { width: 320%; }
 .mainContainer .container {
+	height: 35%;
+	width: 35%;
+	display: inline-block;
 	padding-right: 15px; 
-	position: relative;
-	/*width: 25%;*/  }
+	position: relative; }
+#sub3n .container { 
+	height: 50%; 
+	width: 90%; }	
 .mainContainer .container:hover {
 	cursor: pointer;
 	z-index: 1;
@@ -175,7 +172,8 @@ button[class='scroll']:hover {
 	width: 100%;
 	margin-right: auto; 
 	margin-left: auto; 
-	background-color: #82b74b;
+	/*background-color: #82b74b;*/
+	background: linear-gradient(120deg, #82b74b, #405d27);
 	position: relative; }
 .modalContainerCollection .modalContentCollection div { 
 	display: flex; 
@@ -224,7 +222,7 @@ button[class='scroll']:hover {
 	width: 60px;
 	border-radius: 40px;
 	color: #3e4444; 
-	background: #82b74b;
+	background: transparent;
 	border: 2px solid #3e4444; }  
 .modalContentCollection button:hover { 
 	background: #3e4444;
@@ -241,6 +239,55 @@ button[class='scroll']:hover {
 	width: 100%; }
 #navigationTempId .modalContainerCollection iframe { 
 	width: 100%; 
-	height: auto;
-	overflow: hidden; }	
+	background: #3e4444;
+	overflow: hidden;
+	overflow-y: hidden; }	
 	
+
+
+		.mainContainerGrad { 
+			box-sizing: border-box;
+			padding: 10px;
+			display: flex; 
+			flex-flow: row wrap;
+			justify-content: flex-start;
+			align-items: center; }
+		.sec { 
+			width: 300px; 
+			height: 400px;
+			margin: 15px;
+			display: flex;
+			flex-flow: column wrap;
+			justify-content: space-around;
+			align-items: center;
+			border-radius: 10px;
+			box-shadow: 5px 5px 10px black;  }	
+		.sec div { 
+			border-radius: 10px 10px 0px 0px;
+			width: 100%; 
+			height: 80%;  }	
+		.sec p { 
+			font-size: 15px;
+			background: wheat;
+			margin: 0px;
+			padding: 10px;
+			border-radius: 0px 0px 10px 10px;
+			width: 100%;
+			height: 20%; }	
+		section #c1 { background: linear-gradient(120deg, #ffef96, #50394c); }
+		section #c2 { background: linear-gradient(120deg, #f18973, #bc5a45); }
+		section #c3	{ background: linear-gradient(120deg, #bc5a45, #50394c); }
+		section #c4 { background: linear-gradient(120deg, #f18973, #50394c); }
+		section #c5	{ background: linear-gradient(120deg, #bc5a45, #ffef96); }
+		section #c6 { background: linear-gradient(120deg, #f18973, #ffef96); }
+		section #c7 { background: linear-gradient(120deg, #82b74b, #405d27); }
+		section #c8 { background: linear-gradient(120deg, #c1946a, #82b74b); }
+		section #c9 { background: linear-gradient(120deg, #82b74b, #3e4444); }
+		section #c10 { background: linear-gradient(120deg, #3e4444, #f18973); }
+		section #c11 { background: linear-gradient(120deg, orchid, darkorchid); }
+		section #c12 { background: linear-gradient(120deg, lightblue,skyblue, deepskyblue); }
+		section #c13 { background: linear-gradient(120deg, indianred, crimson); }
+		section #c14 { background: linear-gradient(120deg, #ecdbba, #346751); }
+		section #c15 { background: linear-gradient(120deg, #abcdef, #123456); }
+		section #c16 { background: linear-gradient(120deg, #afbecd, #192837); }	
+		section #c17 { background: linear-gradient(120deg, #a71d31, #3f0d12); }

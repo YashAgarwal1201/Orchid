@@ -3,10 +3,9 @@
 
 /* Style for all elements */
 * { 
+	scroll-behavior: smooth;
 	box-sizing: border-box;
 	line-height: 1.5; }
-html { 
-	scroll-behavior: smooth; }
 body { 
 	font-size: 20px; 
 	margin: 0.0; 
@@ -22,7 +21,7 @@ h1, h2 {
 @media screen and (max-width: 1024px)
 {
 	body { 
-		font-size: 16px;  }
+		font-size: 17px;  }
 }
 
 @media screen and (max-width: 769px)
@@ -68,7 +67,7 @@ h1, h2 {
 	padding: 20px; 
 	padding-bottom: 10px; }	
 .topnav .searchbar { 
-	padding: 20px; }
+	padding: 20px 20px 10px 20px; }
 .topnav .searchbar input[type=search], .topnav button { 
 	color: #c84b31;
 	background: none; 
@@ -77,7 +76,7 @@ h1, h2 {
 	line-height: 25px; }	
 .topnav .searchbar input[type=search] { 
 	display: none;
-	width: 150px;
+	width: 200px;
 	/*border-bottom: 2px solid grey;
 	width: 150px;
 	transition: width 0.2s ease;*/ }
@@ -94,6 +93,15 @@ input[type=search]::placeholder {
 .topnav .searchbar span i { 
 	color: #c84b31;
 	vertical-align: middle; }
+
+/*#anime { width: 100%; height: 3px; background-color: pink; }
+#animeC { width: 1%; height: 100%; background-color: black; animation: zz 5s linear infinite alternate; }
+@keyframes zz { 
+	0% { width:1%; } 
+	25% { width:25%; } 
+	50% { width:50%; } 
+	75% { width:75%; } 
+	100% { width:100%; } }*/
 
 .topnav2 {
 	display: none;
@@ -162,6 +170,7 @@ input[type=search]::placeholder {
 	display: none;
 	background-color: #c84b31;
 	width: 100%;
+	height: 100%;
 	position: sticky;
 	top: 0;
 	left: 0;
@@ -175,12 +184,15 @@ input[type=search]::placeholder {
 .searchDisplay button:hover, .searchDisplay p:hover, .searchDisplay a:hover, .searchDisplay span:hover { 
 	text-decoration: underline; 
 	color: white; }
+.searchDisplay::-webkit-scrollbar { width: 0px; height: 0px; }	
 
 @media screen and (max-width:  1024px)
 {
 	.topnav { 
-		margin: 15px 25px; 
-		font-size: 16px; }
+		margin: 15px 20px; 
+		font-size: 17px; }
+	.topnav .navigation button, .topnav i { 
+		font-size: 17px; }	
 }
 
 @media screen and (max-width: 769px)
@@ -231,28 +243,43 @@ input[type=search]::placeholder {
 	position: absolute;
 	/*top: 230px;
 	right: 775px;*/ }	
+.home .homeImageBtn .prev, .nex {
+	color: #161616;
+	position: absolute; 
+	cursor: pointer;
+	line-height: 30px;
+	width: 80px;
+	height: 80px;
+	background-color: #ecdbba;
+	border-radius: 50%; }
+.home .homeImageBtn .prev:hover, .nex:hover	{ 
+	color: #161616;
+	background-color: #346751; }
 .home .homeImageBtn .prev {
-	position: absolute; 
-	left: 180px; }
+	bottom: 10px;
+	left: 555px; }		
 .home .homeImageBtn .nex {
-	position: absolute; 
-	left: 550px; }		
+	/*bottom: 160px;*/
+	left: 555px; }		
 .home .homeImageBtn i {
-	cursor: pointer; 
-	color: #132020; }
-#quotez { 
-	color: #ecdbba; }	 	
+	vertical-align: middle; }	 	
 
 @media screen and (max-width:  1024px)
 {
 	.home { 
-		background-size: 151 101%; }
+		background-size: 151% 101%;
+		justify-content: space-evenly; }
 	.home .homeHeading { 
 		width: 40%; }
-	.home .homeImage img { 
-		width: 50%;
-		margin: auto; }		
-		
+	.home .homeImage { 
+		width: 50%; }
+	.home	.homeImage img { 
+		width: 80%; 
+		margin: auto;}
+	.home .homeImageBtn .prev, .home .homeImageBtn .nex { 
+		width: 70px;
+		height: 70px;
+		left: 385px; }		
 }	
 
 @media screen and (max-width: 769px)
@@ -291,7 +318,8 @@ input[type=search]::placeholder {
 
 @media screen and (max-width: 380px)
 {
-	.home .homeImage img { width: 80%; }
+	.home .homeImage img { 
+		width: 80%; }
 }
 
 /* Style footer */
@@ -403,41 +431,47 @@ input[type=search]::placeholder {
 		font-size: 15px; }		
 }	
 
-#pagescrollup {
- 	display: none;
-  	position: fixed;
-  	bottom: 25px;
-  	right: 25px;
-  	z-index: 99;
-  	border: none;
-  	outline: none;
-  	line-height: 30px;
-  	background-color: #ecdbba;
-  	cursor: pointer;
-  	border-radius: 50%;	}
-#pagescrollup i { 
-	vertical-align: middle;
-	color: #161616; }
-#pagescrollup:hover {
-  background-color: #346751;	}
-
- #pagescrolldown {
- 	display: block;
-  	position: fixed;
-  	bottom: 25px;
-  	right: 65px;
-  	z-index: 99;
-  	border: none;
-  	outline: none;
-  	line-height: 30px;
-  	background-color: #ecdbba;
-  	cursor: pointer;
-  	border-radius: 50%;	}
-#pagescrolldown i { 
-	vertical-align: middle;
-	color: #161616; }
-#pagescrolldown:hover {
-  background-color: #346751;	}
+button[id="extraMenu"] { 
+	display: block;
+	position: fixed;
+	line-height: 30px; 
+	cursor: pointer;
+	color: #161616;
+	bottom: 25px; 
+	right: 25px;
+	background: #ecdbba;
+	z-index: 99;
+	width: 50px;
+	height: 50px;
+	border-radius: 50%; }
+button[id="extraMenu"]:hover { 
+	background: #346751; }	
+button[id="extraMenu"] i { 
+	vertical-align: middle; }	
+.extraBtn { 
+	display: none;
+	position: fixed;
+	bottom: 25px;
+	right: 25px;
+	width: 100px; 
+	height: 100px;
+	z-index: 99; 
+	background: #ecdbba;
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-around;
+	align-items: center;
+	border-radius: 10px; }
+.extraBtn button {
+	color: #161616;
+	cursor: pointer;
+	line-height: 30px;
+	border-radius: 50%;	}
+.extraBtn button:hover { 
+	background-color: #346751; 
+	color: #161616; }	
+.extraBtn i { 
+	vertical-align: middle; }
 
 /* Style Bio */
 .bio { 
@@ -462,15 +496,7 @@ input[type=search]::placeholder {
 	color: #346751;
 	border-right: 3px solid #346751;
 	position: relative;
-	padding: 20px;  }		
-/*.bio .bioCertification div h3::after, .bioEducation div h3::after, .bioAcademic div h3::after, .bioContact div h3::after { 
-	content: ' '; 
-	position: absolute;
-  	width: 3px;
-  	background-color: grey;
-  	top: 0;
-  	bottom: 0;
-  	margin: 10px; }*/
+	padding: 20px;  }	
  .bio .bioCertification div p, .bioEducation div p, .bioAcademic div p, .bioContact div p {
  	text-decoration: none;
  	color: #ecdbba; 
@@ -521,7 +547,6 @@ input[type=search]::placeholder {
 	.mainContainerA .containerA {
 		height: 15%; 
 		width: 50%;  }	
-
 }
 
 @media screen and (max-width: 481px)
@@ -563,7 +588,6 @@ input[type=search]::placeholder {
 
 /* Style Projects */
 .projects { 
-	/*color: grey;*/
 	display: none; 
 	flex-flow: column wrap; 
 	justify-content: space-between; 
@@ -583,39 +607,58 @@ input[type=search]::placeholder {
 	color: #ecdbba; 
 	cursor: pointer;
 	border-bottom: 2px solid white; }
-.projects .ticTac { 
-	margin-top: 20px;
+
+.projects .inspire {
+	width: 100%; 
+	display: none; 
+	color: #ecdbba;
+}.projects .inspire .inspiredA, .inspire .inspiredB {
+	width: 100%;
+	overflow-x: scroll;
+	overflow-y: none;
+}
+.projects .inspire .inspiredA::-webkit-scrollbar, .inspire .inspiredB::-webkit-scrollbar { width: 0px; height: 0px; }
+.projects .inspire .inspiredContainer {
+	width: 100%;
+	white-space: nowrap;
+}
+.projects .inspire .inspiredContainer2 {
+	width: 100%;
+	white-space: normal;
+}
+.projects .inspire .inspiredContainer .inspiredAF, .inspiredContainer .inspiredBF { 
+	display: inline-block; }
+.projects .inspire iframe {
+	margin: 20px;
+	display: inline-block;
+	outline: none;
+	background: none;
+	border: 5px solid #c84b31;
+}
+
+.projects .collect {
+	width: 100%; 
+	display: none; }
+.projects .collection { 
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-between;
+	align-content: space-around;
+	align-items: center;  }
+.projects .collection div { 
+	margin: 20px 10px 50px 10px;
+	width: 30%; }
+.projects .collection div img { 
+	width: 100%; }
+
+.projects .ticTac, .projects .gradient { 
 	width: 100%;
 	display: none; }
-.projects .ticTac iframe { 
+.projects .ticTac iframe, .projects .gradient iframe { 
 	width: 100%; 
-	height: 700px; 
 	display: inline-block; 
 	outline: none; 
-	border: none;}			
-/*.projects .projectTemplate .pt1{ 
-	display: flex; 
-	flex-flow: row wrap; 
-	justify-content: flex-start; 
-	align-items: center; 
-	padding: 25px; }	
-.projects .pa1 h3, .pt1 h3 { 
-	color: black;
-	position: relative;
-	padding: 20px;  }
-.projects .pa1 h3:hover, .pt1 h3:hover { 
-	color: white; 
-	text-decoration: underline; }		
-.projects .pa1 h3::after, .pt1 h3::after { 
-	content: ' '; 
-	position: absolute;
-  	width: 3px;
-  	background-color: crimson;
-  	top: 0;
-  	bottom: 0;
-  	margin: 10px; }
-.projects .pa1 p, .pt1 p { 
-	margin-left: 25px; }*/
+	border: none;}		
 
 @media screen and (max-width: 769px)
 {
@@ -674,10 +717,9 @@ input[type=search]::placeholder {
 	width: 100%; }	
 
 /* Style for main scrollbar */
-body::-webkit-scrollbar { width: 10px; }
+body::-webkit-scrollbar { width: 10px; height: 0px; }
 body::-webkit-scrollbar-track { border-radius: 5px; }
-body::-webkit-scrollbar-track:hover { background-color: #132020; }
-body::-webkit-scrollbar-thumb { background-color: grey; border:1px solid #132020; border-radius: 5px; }	
+body::-webkit-scrollbar-thumb { background-color: #ecdbba; border:1px solid #161616; border-radius: 5px; }	
 
 .infoClass1 { 
 	margin: 10px;

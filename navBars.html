@@ -48,7 +48,7 @@
 				<div  id="nimg5" class="thumbnail" title="click to view this"></div>
 				<div class="middle">
 					<div class="text">
-						<p>Navigation Bar 6</p>
+						<p>Navigation Bar 5</p>
 					</div>
 				</div>
 			</div>
@@ -56,7 +56,7 @@
 				<div  id="nimg6" class="thumbnail" title="click to view this"></div>
 				<div class="middle">
 					<div class="text">
-						<p>Navigation Bar 7</p>
+						<p>Navigation Bar 6</p>
 					</div>
 				</div>
 			</div>
@@ -92,7 +92,7 @@
 					<content id="nm2c2"></content>
 				</section>
 			</div>
-			<p>Languages: HTML & CSS<br>Created: August, 2020</p>
+			<p>Languages: HTML, CSS & Javascript<br>Created: December, 2020</p>
 		</div>
 	</div>
 	<div class="modalContainerCollection" id="nmc3">
@@ -108,7 +108,7 @@
 					<content id="nm3c2"></content>
 				</section>
 			</div>
-			<p>Languages: HTML, CSS and Javascript<br>Created: December, 2020</p>
+			<p>Languages: HTML, CSS and Javascript<br>Created: November, 2020</p>
 		</div>
 	</div>
 	<div class="modalContainerCollection" id="nmc4">	
@@ -140,7 +140,7 @@
 					<content id="nm5c2"></content>
 				</section>
 			</div>
-			<p>Languages: HTML, CSS and Javascript<br>Created: June, 2021</p>
+			<p>Languages: HTML, CSS and Javascript<br>Created: January, 2021</p>
 		</div>
 	</div>
 	<div class="modalContainerCollection" id="nmc6">
@@ -156,7 +156,7 @@
 					<content id="nm6c2"></content>
 				</section>
 			</div>
-			<p>Languages: HTML, CSS and Javascript<br>Created: June, 2021</p>
+			<p>Languages: HTML, CSS and Javascript<br>Created: May, 2021</p>
 		</div>
 	</div>
 	<script>
@@ -165,7 +165,6 @@
 			img1.src = "NavigationBars/NavigationBarsImages/Nav1a.png"; 
 			var src = document.getElementById('nimg1');
 			src.appendChild(img1);*/
-
 			$.ajax({
 				type: 'GET',
 				url: 'imageSrc.php',
@@ -201,7 +200,6 @@
 			else if (event.target.matches('#nimg1, #nimg1 *')) 
 			{
 				//$('body').css('overflow', 'hidden');
-				$('#extraMenu').hide(10);
 				$('#nm1').empty();
 				if ($('#nm1').length == 1) 
 				{
@@ -226,7 +224,6 @@
 			else if (event.target.matches('#nimg2, #nimg2 *'))
 			{
 				//$('body').css('overflow', 'hidden');
-				$('#extraMenu').hide(10);
 				$('#nm2').empty();
 				if ($('#nm2').length == 1) 
 				{
@@ -251,7 +248,6 @@
 			else if (event.target.matches('#nimg3, #nimg3 *'))
 			{
 				//$('body').css('overflow', 'hidden');
-				$('#extraMenu').hide(10);
 				$('#nm3').empty();
 				if ($('#nm3').length == 1) 
 				{
@@ -276,12 +272,11 @@
 			else if (event.target.matches('#nimg4, #nimg4 *'))
 			{
 				//$('body').css('overflow', 'hidden');
-				$('#extraMenu').hide(10);
 				$('#nm4').empty();
 				if ($('#nm4').length == 1) 
 				{
 					var x = document.createElement("iframe");
-					x.src = "NavigationBars/nav1.html";
+					x.src = "NavigationBars/nav4.html";
 					var src = document.getElementById('nm4');
 					src.appendChild(x);
 				}
@@ -290,7 +285,7 @@
 					type: 'GET',
 					url: 'navBarCall.php',
 					dataType: 'json',
-					data: { suc: 'nav1.html' },
+					data: { suc: 'nav4.html' },
 					success: function (datal) 
 					{
 						$('#nm4c1').html(datal.a);
@@ -301,12 +296,11 @@
 			else if (event.target.matches('#nimg5, #nimg5 *'))
 			{
 				//$('body').css('overflow', 'hidden');
-				$('#extraMenu').hide(10);
 				$('#nm5').empty();
 				if ($('#nm5').length == 1) 
 				{
 					var x = document.createElement("iframe");
-					x.src = "NavigationBars/nav1.html";
+					x.src = "NavigationBars/nav5.html";
 					var src = document.getElementById('nm5');
 					src.appendChild(x);
 				}
@@ -315,7 +309,7 @@
 					type: 'GET',
 					url: 'navBarCall.php',
 					dataType: 'json',
-					data: { suc: 'nav1.html' },
+					data: { suc: 'nav5.html' },
 					success: function (datal) 
 					{
 						$('#nm5c1').html(datal.a);
@@ -326,12 +320,11 @@
 			else if (event.target.matches('#nimg6, #nimg6 *'))
 			{
 				//$('body').css('overflow', 'hidden');
-				$('#extraMenu').hide(10);
 				$('#nm6').empty();
 				if ($('#nm6').length == 1) 
 				{
 					var x = document.createElement("iframe");
-					x.src = "NavigationBars/nav1.html";
+					x.src = "NavigationBars/nav6.html";
 					var src = document.getElementById('nm6');
 					src.appendChild(x);
 				}
@@ -340,7 +333,7 @@
 					type: 'GET',
 					url: 'navBarCall.php',
 					dataType: 'json',
-					data: { suc: 'nav1.html' },
+					data: { suc: 'nav6.html' },
 					success: function (datal) 
 					{
 						$('#nm6c1').html(datal.a);
@@ -350,17 +343,7 @@
 			}
 			else
 			{
-				//$('body').css('overflow', 'scroll');
-				$('#extraMenu').show(10);
-			}
-
-			if (event.target.matches('.modalContainerCollection, .modalContainerCollection *')) 
-			{
-				$('#extraMenu').hide();
-			}
-			else
-			{
-				$('#extraMenu').show();
+				//$('body').css('overflow', 'scroll')
 			}
 		});
 	</script>	

@@ -6,7 +6,6 @@
 		<div id="collection3"></div>
 		<div id="collection4"></div>
 	</div>
-
 	<div class="modalContainerCollection" id="mcCollection1">
 		<div class="modalContentCollection">
 			<button onclick="$('#mcCollection1').slideUp();" title="Close this modal"><i class="material-icons">close</i></button>
@@ -54,7 +53,11 @@
 			</script>
 		</div>
 	</div>
+
 	<script>
+
+
+
 		$(document).ready(function()
 		{
 			var img1 = document.createElement("img"); 
@@ -80,6 +83,12 @@
 			img4.id = "collection4img";
 			var src = document.getElementById('collection4');
 			src.appendChild(img4);
+
+			var gradFrame = document.createElement('iframe');
+			gradFrame.src = 'LinearGradients.html';
+			var gradSrc = document.getElementById('gradContentId');
+			gradSrc.appendChild(gradFrame);
+			$('#gradContentId').show();
 
 			/*var frame2 = document.createElement("iframe"); 
 			frame2.src = "formTemplate5.html"; 

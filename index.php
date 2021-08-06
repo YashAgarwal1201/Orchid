@@ -15,8 +15,7 @@
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Spectral|Rubik">
 	<link rel="stylesheet" type="text/css" href="mystyle.css" id="link1">
 	<link rel="stylesheet" type="text/css" href="" id="link2">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-	<!--<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>-->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 	<!--<script src="https://apps.elfsight.com/p/platform.js" defer></script>-->
 </head>
 
@@ -30,8 +29,7 @@
 			<button onclick="fun(this)" id="b1" title="Click to view Home Page"><i class="material-icons">home</i></button>
 			<button onclick="fun(this)" id="b2" title="Click to view Bio Page">Bio</button>
 			<button onclick="fun(this)" id="b3" title="Click to view Work Page">Work</button>
-			<!--<button onclick="fun(this)" id="b4" title="Click to view Timeline Page">Timeline</button>-->
-			<!--<button onclick="fun(this)" id="b5" title="Click to view Gallery Page">Gallery</button>-->
+			<!--<button onclick="fun(this)" id="b4" title="Click to view Gallery Page">Gallery</button>-->
 		</div>
 		<div class="dateTime" id="date"></div>
 		<div class="searchbar" id="s" >
@@ -207,6 +205,13 @@
 				<p>legoyashx@outlook.com</p>
 			</div>
 		</div>
+		<!--<div class="bioRef" id="bioRefid">
+			<h2>Opinions</h2>
+			<div>
+				<h3>TBA</h3>
+				<p>TBA</p>
+			</div>
+		</div>-->
 		<div class="bioShare" id="bioShareid">
 			<h2>Share</h2>
 			<div>
@@ -229,7 +234,9 @@
 		<h1>Work</h1>
 		<div class="projectCategory" id="projectCategoryid">
 			<button onclick="projectView(this)" id="temp" title="Click to view Designs" style="font-weight: bold;">Designs</button>
+			<button onclick="projectView(this)" id="insp" title="Click to view Inspired Designs">Inspired</button>
 			<button onclick="projectView(this)" id="collect" title="Click to view Collections">Collections</button>
+			<button onclick="projectView(this)" id="grad" title="Click to view Gradients">Gradients</button>
 			<button onclick="projectView(this)" id="tictac" title="Click to view Tic Tac Toe project">Tic Tac Toe</button>
 		</div>
 		<div class="projectTemplate" id="projectTemplateid">
@@ -245,12 +252,15 @@
 			<section id="videoPlayers">
 				<?php //include 'VideoPlayers/videoPlayers.html'; ?>
 			</section>
-			<!--<?php //include 'collections.html'; ?>-->
+		</div>
+		<div class="inspire" id="inspireid">
+			<?php include 'inspired.html'; ?>
 		</div>
 		<div class="collect" id="collectid">
 			<?php include 'collections.html'; ?>
 		</div>
-		<div class="ticTac" id="ticTacid"></div>
+		<div class="gradient" id="gradientid"><h2>Gradients</h2><?php include 'LinearGradients.html'; ?></div>
+		<div class="ticTac" id="ticTacid"><h2>Tic Tac Toe</h2><?php include 'TicTacToe.html'; ?></div>
 		<!-- <div class="projectAcademic" id="projectAcademicid">
 			<div class="pa1">
 				<h3>August, 2020 - <br>currently ongoing</h3>
@@ -278,7 +288,6 @@
 		<button id="smb1"><i class="material-icons" id="smb1">fullscreen</i></button>
 		<button id="smb2"><i class="material-icons" id="smb2">fullscreen_exit</i></button>
 		<button><a href="" title="Click to view" id="inf"><i class="material-icons">info</i></a></button>
-		<!--<button onclick="return false;" id="extraM"><i class="material-icons" id="extraM">menu</i></button>-->
 	</div>	
 <!-- Footer -->
 	<div class="footer" id="footerid">
@@ -306,82 +315,10 @@
 			</div>
 		</form>
 		<p>Replies can be expected within 24 hours.</p>
-		<!--<div class="details" id="detailsid">
-			<details>
-				<summary>Some Important Info</summary>
-				<p><a href="" title="Click to view" id="inf">Info</a></p>
-			</details>
-		</div>-->
 	</div>
-	<script>
+	<!--script>
 
-		$(document).ready(function()
-		{
-			$.ajaxSetup({cache: false}); //default values for future AJAX requests, browser will not cache the requested pages.
-			//setInterval(displayNextImage,5000);
-			setInterval(quotesL, 2000);
-
-			var img1 = document.createElement("img"); 
-			img1.src = "Images/Yash Agarwal.png"; 
-			var src = document.getElementById('homeImageid');
-			img1.id = "hI";
-			src.appendChild(img1);
-
-
-			$('img').bind('contextmenu', function(e){ return false;});
-			$('video').bind('contextmenu', function(e){ return false;});
-			//$('.extraBtn').hide();
-		});
-
-		function displayNextImage() 
-		{
-            x = (x === images.length - 1) ? 0 : x + 1;
-            document.getElementById("hI").src = images[x];
-        }
-        function displayPreviousImage() 
-        {
-            x = (x <= 0) ? images.length - 1 : x - 1;
-            document.getElementById("hI").src = images[x];
-        }
-
-		function displayNextImage() 
-		{
-			//$('#hI').animate({borderColor: 'purple'});
-            x = (x === images.length - 1) ? 0 : x + 1;
-            //$('#hI').slideUp();
-            document.getElementById("hI").src = images[x];
-            //$('#homeImageid').slideToggle(1000);
-            //$('#hI').fadeIn(1000);
-        }
-        var images = [], x = -1;
-        images[0] = "Images/YashAgarwal_1.png";
-        images[1] = "Images/Yash Agarwal.png";
-        images[2] = "Images/YashAgarwal_2.png";
-        images[3] = "Images/YA.png";
-
-        function quotesL()
-		{
-			$.ajax({
-				type: "POST",
-				url: "quotes.php",
-				data: { get_quote: "quote" },
-				success: function(response)
-				{
-					$('#quotez').html(response);
-				}
-			});
-			//$('#quotez').load('quotes.php');
-		}
-
-		document.getElementById('inf').href = "info.html";
-
-		var tic = document.createElement('iframe');
-		tic.src = 'TicTacToe.html';
-		tic.id = 'TicTacToeId';
-		var ticsrc = document.getElementById('ticTacid');
-		ticsrc.appendChild(tic);
-
-	</script>
+	</script-->
 	<script async src="https://static.addtoany.com/menu/page.js"></script>
 	<script src="myscript.js"></script>
 </body>

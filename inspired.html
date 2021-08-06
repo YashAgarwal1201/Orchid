@@ -1,0 +1,85 @@
+
+	<h2>Inspired Designs</h2>
+	<p>Below are some designs inspired by other developers and services.</p>
+	<div style="display: flex; flex-flow: row wrap; justify-content: space-between; align-items: center;">
+		<h3>Multi Page Designs</h3>
+		<div style="display: flex; flex-flow: row wrap; justify-content: space-evenly; align-items: center;">
+			<button class="scroll" id="Backb1">
+				<i class="material-icons" title="Scroll Back" id="Backb1i">arrow_backward</i>
+			</button>
+			<button class="scroll" id="Aheadb1">
+				<i class="material-icons" title="Scroll Ahead" id="Aheadb1i">arrow_forward</i>
+			</button>
+			<button class="scroll" id="horzView1i" style="display: none;">
+				<i class="material-icons" title="Horizontal View" id="horzView1i">swap_horiz</i>
+			</button>
+			<button class="scroll" id="vertView1i">
+				<i class="material-icons" title="Vertical View" id="vertView1i">swap_vert</i>
+			</button>
+		</div>
+	</div>
+	<div class="inspiredA">
+		<div class="inspiredContainer" id="inspiredCont1">
+			<div class="inspiredAF" id="inspiredAF1id"></div>
+			<div class="inspiredAF" id="inspiredAF2id"></div>
+		</div>
+	</div>
+	<div style="display: flex; flex-flow: row wrap; justify-content: space-between; align-items: center;">
+		<h3>Single Page Designs</h3>
+		<div style="display: flex; flex-flow: row wrap; justify-content: space-evenly; align-items: center;">
+			<button class="scroll" id="Backb1">
+				<i class="material-icons" title="Scroll Back" id="Backb2i">arrow_backward</i>
+			</button>
+			<button class="scroll" id="Aheadb1">
+				<i class="material-icons" title="Scroll Ahead" id="Aheadb2i">arrow_forward</i>
+			</button>
+			<button class="scroll" id="horzView2i" style="display: none;">
+				<i class="material-icons" title="Horizontal View" id="horzView2i">swap_horiz</i>
+			</button>
+			<button class="scroll" id="vertView2i">
+				<i class="material-icons" title="Vertical View" id="vertView2i">swap_vert</i>
+			</button>
+		</div>
+	</div>
+	<div class="inspiredB">
+		<div class="inspiredContainer" id="inspiredCont2">
+			<div class="inspiredBF" id="inspiredBF1id"></div>
+			<div class="inspiredBF" id="inspiredBF2id"></div>
+			<div class="inspiredBF" id="inspiredBF3id"></div>
+			<div class="inspiredBF" id="inspiredBF4id"></div>
+			<div class="inspiredBF" id="inspiredBF5id"></div>
+			<div class="inspiredBF" id="inspiredBF6id"></div>
+		</div>
+	</div>
+
+	<!--script>
+		$('#inspireid button').click(function (eve) {
+			//alert('hi');
+			var pos = $('.inspiredA').scrollLeft();
+			var pos2 = $('.inspiredB').scrollLeft();
+			//alert(pos2);
+
+			if (eve.target.matches('#Backb2i')) 
+			{
+				$('.inspiredB').scrollLeft(pos2 - 1000);
+			}
+			else if (eve.target.matches('#Backb2i'))
+			{	
+				$('.inspiredB').scrollLeft(pos2 + 1000);
+			}	
+			else if (eve.target.matches('#horzView2i'))
+			{
+				$('#horzView2i').hide();
+				$('#inspiredB #inspiredCont2').css('white-space', 'wrap');
+				$('#vertView2i').show();
+			}
+			else if (eve.target.matches('#vertView2i'))
+			{
+				$('#vertView2i').hide();
+				$('#inspiredB #inspiredCont2').css('white-space', 'nowrap');
+				$('#horzView2i').show();
+			}
+			else
+			{}
+		});
+	</script-->
