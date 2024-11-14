@@ -103,10 +103,15 @@ import { useProductsListStore } from "@/stores/productsListStore";
 import { useShoppingCartStore } from "@/stores/shoppingCartStore";
 import { useWishListStore } from "@/stores/wishlistStore";
 import { Button, Card, Rating, ScrollTop } from "primevue";
+import { onMounted } from "vue";
 
 const store = useProductsListStore();
 const wishListStore = useWishListStore();
 const shoppingCartStore = useShoppingCartStore();
+
+onMounted(() => {
+  store.fetchProducts();
+});
 </script>
 
 <style lang="css">
