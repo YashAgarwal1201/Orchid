@@ -1,0 +1,17 @@
+{
+  "short_name": "Orchid",
+  "name": "Orchid Store",
+  "icons": [
+    {
+      "src": "./logo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ],
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "theme_color": "#A14712",
+  "background_color": "#A14712",
+  "prefer-related-application": true
+}

@@ -1,7 +1,9 @@
 <template>
   <div class="w-full h-full flex flex-col md:flex-row">
     <div class="w-full md:w-[70px] h-[60px] md:h-full"><NavBar /></div>
-    <div class="w-full md:w-[calc(100%-70px)] h-[calc(100%-60px)] md:h-full overflow-auto">
+    <div
+      class="w-full md:w-[calc(100%-70px)] h-[calc(100%-60px)] md:h-full overflow-auto"
+    >
       <slot />
     </div>
   </div>
@@ -11,11 +13,27 @@
     v-on:hide="shoppingCartStore.showShoppingCart = false"
     :dismissable="true"
     position="right"
-    header="Your shopping cart"
     class="w-full md:w-[768px] rounded-none md:!rounded-l-3xl"
   >
+    <template #header>
+      <div class="flex justify-between items-center w-full">
+        <h3 class="text-lg sm:text-xl md:text-2xl">Your Shopping Cart</h3>
+
+        <Button
+          icon="pi pi-heart"
+          class="p-button-text"
+          rounded
+          @click="
+            () => {
+              shoppingCartStore.showShoppingCart = false;
+              wishListStore.showWishList = true;
+            }
+          "
+        />
+      </div>
+    </template>
     <div v-if="shoppingCartStore.items.length > 0" class="w-full h-full">
-      <div
+      <!-- <div
         class="w-full h-[calc(100%-100px)] grid grid-cols-1 xs:grid-cols-2 gap-3 overflow-y-auto"
       >
         <Card
@@ -39,7 +57,9 @@
             <h3 class="font-semibold">
               Price: <span class="text-lg">${{ item.productPrice }}</span>
             </h3>
-            <p class="mt-3 font-semibold">Delivery: {{ item.estimatedDelivery }}</p>
+            <p class="mt-3 font-semibold">
+              Delivery: {{ item.estimatedDelivery }}
+            </p>
           </template>
           <template #footer>
             <div class="flex gap-4 mt-1 product-card">
@@ -51,8 +71,8 @@
                 outlined
                 @click="
                   () => {
-                    wishListStore.addToWishList(item)
-                    shoppingCartStore.removeFromCart(item.productTitle)
+                    wishListStore.addToWishList(item);
+                    shoppingCartStore.removeFromCart(item.productTitle);
                   }
                 "
               />
@@ -67,13 +87,99 @@
         ></Card>
 
         <ScrollTop target="parent" :threshold="200" />
+      </div> -->
+
+      <div class="w-full h-[calc(100%-100px)]">
+        <DataTable
+          :value="shoppingCartStore.items"
+          paginator
+          :rows="10"
+          :rows-per-page-options="[5, 10, 15]"
+          size="small"
+          scrollable
+          scroll-height="flex"
+        >
+          <Column field="productTitle" header="Name" sortable></Column>
+          <Column field="productPrice" header="Price" sortable></Column>
+          <Column field="quantity" header="Quantity" sortable>
+            <template #body="slotProps">
+              <InputNumber
+                v-model="slotProps.data.quantity"
+                inputId="horizontal-buttons"
+                showButtons
+                buttonLayout="horizontal"
+                :step="1"
+                class="!rounded-full w-fit"
+                prefix="x"
+                :max="10"
+                :min="1"
+              >
+                <template #incrementicon>
+                  <span class="pi pi-plus" />
+                </template>
+                <template #decrementicon>
+                  <span class="pi pi-minus" />
+                </template>
+              </InputNumber>
+            </template>
+          </Column>
+          <Column header="Actions">
+            <template #body="slotProps">
+              <Button
+                title="Remove from cart"
+                type="button"
+                icon="pi pi-trash"
+                rounded
+                severity="danger"
+                outlined
+                class="mr-2"
+                @click="
+                  shoppingCartStore.removeFromCart(slotProps.data.productTitle)
+                "
+              />
+              <Button
+                title="move to wish list"
+                type="button"
+                icon="pi pi-heart"
+                rounded
+                outlined
+                @click="
+                  () => {
+                    wishListStore.addToWishList(slotProps.data);
+                    shoppingCartStore.removeFromCart(
+                      slotProps.data.productTitle
+                    );
+                  }
+                "
+              />
+            </template>
+          </Column>
+        </DataTable>
       </div>
       <div class="h-[100px] border-t flex justify-between items-center">
-        <h2 class="text-xl sm:text-2xl md:text-3xl">
-          Your Total : <span class="text-green-500">${{ shoppingCartStore.getTotalPrice() }}</span>
+        <h2 class="text-xl sm:text-2xl md:text-3xl flex items-center gap-x-2">
+          Your Total :
+          <span class="text-green-500"
+            >${{ shoppingCartStore.getTotalPrice() }}</span
+          >
+          <span class="text-sm sm:text-base"
+            >({{
+              shoppingCartStore.items.reduce(
+                (acc, item) => acc + item.quantity,
+                0
+              )
+            }}
+            items)</span
+          >
         </h2>
 
-        <Button icon="pi pi-wallet" label="Continue to pay" rounded class="text-sm sm:text-base" />
+        <Button
+          icon="pi pi-wallet"
+          label="Continue to pay"
+          rounded
+          class="text-sm sm:text-base"
+          @click="router.push('/payment')"
+        />
       </div>
     </div>
 
@@ -90,6 +196,23 @@
     header="Your wishlist"
     class="w-full md:w-[768px] rounded-none md:!rounded-l-3xl"
   >
+    <template #header>
+      <div class="flex justify-between items-center w-full">
+        <h3 class="text-lg sm:text-xl md:text-2xl">Your Wish List</h3>
+
+        <Button
+          icon="pi pi-cart-plus"
+          class="p-button-text"
+          rounded
+          @click="
+            () => {
+              shoppingCartStore.showShoppingCart = true;
+              wishListStore.showWishList = false;
+            }
+          "
+        />
+      </div>
+    </template>
     <div
       v-if="wishListStore.items.length > 0"
       class="w-full h-full grid grid-cols-1 xs:grid-cols-2 gap-x-3"
@@ -115,7 +238,9 @@
           <h3 class="font-semibold">
             Price: <span class="text-lg">${{ item.productPrice }}</span>
           </h3>
-          <p class="mt-3 font-semibold">Delivery: {{ item.estimatedDelivery }}</p>
+          <p class="mt-3 font-semibold">
+            Delivery: {{ item.estimatedDelivery }}
+          </p>
         </template>
         <template #footer>
           <div class="flex gap-4 mt-1 product-card">
@@ -125,7 +250,7 @@
               rounded
               @click="
                 () => {
-                  wishListStore.removeFromWishList(item.productId)
+                  wishListStore.removeFromWishList(item.productId);
                   // wishListStore.showWishList = true
                 }
               "
@@ -136,8 +261,8 @@
               rounded
               @click="
                 () => {
-                  shoppingCartStore.addToCart(item)
-                  wishListStore.removeFromWishList(item.productId)
+                  shoppingCartStore.addToCart(item);
+                  wishListStore.removeFromWishList(item.productId);
                 }
               "
             />
@@ -162,16 +287,28 @@
 </template>
 
 <script lang="ts" setup>
-import NavBar from '@/components/NavBar/NavBar.vue'
-import { useProductsListStore } from '@/stores/productsListStore'
-import { useShoppingCartStore } from '@/stores/shoppingCartStore'
-import { useWishListStore } from '@/stores/wishlistStore'
-import { Button, Card, Dialog, Drawer, ScrollTop } from 'primevue'
+import NavBar from "@/components/NavBar/NavBar.vue";
+import { useRouter } from "vue-router";
+import { useProductsListStore } from "@/stores/productsListStore";
+import { useShoppingCartStore } from "@/stores/shoppingCartStore";
+import { useWishListStore } from "@/stores/wishlistStore";
+import {
+  Button,
+  Card,
+  Column,
+  DataTable,
+  Dialog,
+  Drawer,
+  InputNumber,
+  // ScrollTop,
+} from "primevue";
 // import { computed } from 'vue'
 
-const shoppingCartStore = useShoppingCartStore()
-const productsListStore = useProductsListStore()
-const wishListStore = useWishListStore()
+const shoppingCartStore = useShoppingCartStore();
+const productsListStore = useProductsListStore();
+const wishListStore = useWishListStore();
+
+const router = useRouter();
 
 // const isDrawerVisible = computed(() => {
 //   return shoppingCartStore.showShoppingCart || wishListStore.showWishList
