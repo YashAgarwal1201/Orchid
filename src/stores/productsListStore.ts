@@ -84,10 +84,13 @@ export const useProductsListStore = defineStore("productsList", () => {
 
   const fetchProducts = async () => {
     try {
-      const response = await axios.get("/api/products");
+      const response = await axios.get(
+        "http://localhost:3000/products?_limit=20"
+      );
       console.log(response.data);
       items.value = response.data;
     } catch (error) {
+      items.value = DUMMY_ITEMS;
       console.error("Error fetching products:", error);
     }
   };
