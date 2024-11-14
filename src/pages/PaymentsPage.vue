@@ -49,7 +49,6 @@ import {
                       <FloatLabel>
                         <InputText
                           id="username"
-                          v-model="value"
                           class="!rounded-2xl w-full"
                           required
                           maxlength="70"
@@ -63,7 +62,6 @@ import {
                         <InputText
                           id="email"
                           type="email"
-                          v-model="value"
                           class="!rounded-2xl w-full"
                           required
                           maxlength="70"
@@ -76,7 +74,6 @@ import {
                       <FloatLabel>
                         <Textarea
                           id="username"
-                          v-model="value"
                           class="!rounded-2xl resize-none w-full"
                           required
                           maxlength="750"
