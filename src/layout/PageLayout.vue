@@ -157,28 +157,37 @@
         </DataTable>
       </div>
       <div class="h-[100px] border-t flex justify-between items-center">
-        <h2 class="text-xl sm:text-2xl md:text-3xl flex items-center gap-x-2">
-          Your Total :
-          <span class="text-green-500"
-            >${{ shoppingCartStore.getTotalPrice() }}</span
-          >
-          <span class="text-sm sm:text-base"
-            >({{
-              shoppingCartStore.items.reduce(
-                (acc, item) => acc + item.quantity,
-                0
-              )
-            }}
-            items)</span
-          >
-        </h2>
+        <div
+          class="text-xl sm:text-2xl md:text-3xl flex flex-col sm:flex-row items-center gap-x-2"
+        >
+          <span>Your Total :</span>
+          <div class="flex items-center gap-x-3">
+            <span class="text-green-500"
+              >${{ shoppingCartStore.getTotalPrice() }}</span
+            >
+            <span class="text-sm sm:text-base"
+              >({{
+                shoppingCartStore.items.reduce(
+                  (acc, item) => acc + item.quantity,
+                  0
+                )
+              }}
+              items)</span
+            >
+          </div>
+        </div>
 
         <Button
           icon="pi pi-wallet"
           label="Continue to pay"
           rounded
           class="text-sm sm:text-base"
-          @click="router.push('/payment')"
+          @click="
+            () => {
+              shoppingCartStore.showShoppingCart = false;
+              router.push('/payment');
+            }
+          "
         />
       </div>
     </div>

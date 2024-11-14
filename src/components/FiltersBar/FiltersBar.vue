@@ -22,6 +22,15 @@
       >
       </Select>
 
+      <!-- <MultiSelect
+        v-model="store.selectedCategory"
+        :options="store.categories"
+        placeholder="Category"
+        option-label="name"
+        class="w-[200px] !rounded-full"
+      >
+      </MultiSelect> -->
+
       <Select
         v-model="store.sortBy"
         :options="store.sortByOptions"
