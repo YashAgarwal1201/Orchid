@@ -14,3 +14,5 @@ export type SelectFilterOption = {
   name: string;
   code: string;
 };
+
+export type ModeOfPayment = "upi" | "card";

@@ -9,9 +9,9 @@ const wishListStore = useWishListStore();
 
 <template>
   <div class="w-full h-full p-3 flex flex-row md:flex-col items-center gap-3">
-    <RouterLink to="/" class="p-button p-button-rounded p-button-text"
-      ><span class="pi pi-home"></span
-    ></RouterLink>
+    <RouterLink to="/" class="aspect-square max-h-full rounded-full"
+      ><img src="/logoLight.svg"
+    /></RouterLink>
     <RouterLink to="/products" class="p-button p-button-rounded p-button-text"
       ><span class="pi pi-shop"></span
     ></RouterLink>
@@ -37,15 +37,15 @@ const wishListStore = useWishListStore();
         title="Click to view your shopping cart"
         icon="pi pi-shopping-cart"
         rounded
+        :variant="shoppingCartStore.items.length > 0 ? undefined : 'text'"
         @click="shoppingCartStore.showShoppingCart = true"
       />
+
       <span
         v-if="shoppingCartStore.items.length > 0"
         class="absolute right-0 top-0 w-3 h-3 block animate-pulse rounded-full bg-violet-100"
       ></span>
     </div>
-
-    <img src="/logo.svg" />
   </div>
 </template>
 

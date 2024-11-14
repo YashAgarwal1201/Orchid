@@ -2,9 +2,10 @@ import { defineStore } from "pinia";
 import { ref, computed } from "vue";
 import { DUMMY_ITEMS } from "@/constants/dummyItems";
 import type { Product, SelectFilterOption } from "@/types/types";
+import axios from "axios";
 
 export const useProductsListStore = defineStore("productsList", () => {
-  const items = ref<Product[]>(DUMMY_ITEMS);
+  const items = ref<Product[]>([]);
   const displayType = ref("card");
   const showShoppingCart = ref(false);
   const showFilters = ref(false);
@@ -81,6 +82,19 @@ export const useProductsListStore = defineStore("productsList", () => {
     return filtered;
   });
 
+  const fetchProducts = async () => {
+    try {
+      const response = await axios.get(
+        "http://localhost:3000/products?_limit=20"
+      );
+      console.log(response.data);
+      items.value = response.data;
+    } catch (error) {
+      items.value = DUMMY_ITEMS;
+      console.error("Error fetching products:", error);
+    }
+  };
+
   const setSearchQuery = (query: string) => {
     searchQuery.value = query;
   };
@@ -105,6 +119,7 @@ export const useProductsListStore = defineStore("productsList", () => {
     showFilters,
     toggleDisplaytype,
     filteredItems,
+    fetchProducts,
     setSearchQuery,
     setCategory,
     setSortBy,
