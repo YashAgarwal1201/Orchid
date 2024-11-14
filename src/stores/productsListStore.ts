@@ -1,69 +1,97 @@
-import { defineStore } from 'pinia'
-import { ref, computed } from 'vue'
-import { DUMMY_ITEMS } from '@/constants/dummyItems' // Assuming your dummy data is stored in a constants folder
+import { defineStore } from "pinia";
+import { ref, computed } from "vue";
+import { DUMMY_ITEMS } from "@/constants/dummyItems";
+import type { Product, SelectFilterOption } from "@/types/types";
 
-export const useProductsListStore = defineStore('productsList', () => {
-  const items = ref(DUMMY_ITEMS)
-  const displayType = ref('card')
-  const showShoppingCart = ref<boolean>(false)
-  // Filters
-  const showFilters = ref<boolean>(false)
-  const searchQuery = ref('')
-  const selectedCategory = ref('All')
-  const sortBy = ref('default') // options: 'default', 'priceAsc', 'priceDesc', 'ratingDesc'
+export const useProductsListStore = defineStore("productsList", () => {
+  const items = ref<Product[]>(DUMMY_ITEMS);
+  const displayType = ref("card");
+  const showShoppingCart = ref(false);
+  const showFilters = ref(false);
+  const searchQuery = ref("");
 
-  const sortByOptions = ref([
-    { name: 'All', code: 'ALL' },
-    { name: 'Price: Low to High', code: 'LTH' },
-    { name: 'Price: High to Low', code: 'HTL' },
-    { name: 'Rating: High to Low', code: 'RH' },
-  ])
+  const selectedCategory = ref<SelectFilterOption>({
+    name: "All",
+    code: "ALL",
+  });
+  const sortBy = ref<SelectFilterOption>({ name: "Default", code: "default" });
 
-  // Categories extracted from dummy data
-  const categories = computed(() => [
-    'All',
-    ...new Set(DUMMY_ITEMS.map((item) => item.productCategory)),
-  ])
+  const sortByOptions = ref<SelectFilterOption[]>([
+    { name: "Default", code: "default" },
+    { name: "Price: Low to High", code: "priceAsc" },
+    { name: "Price: High to Low", code: "priceDesc" },
+    { name: "Rating: High to Low", code: "ratingDesc" },
+  ]);
+
+  const categories = computed<SelectFilterOption[]>(() => {
+    const categoryList: SelectFilterOption[] = [
+      { name: "All", code: "ALL" },
+      ...Array.from(
+        new Set(DUMMY_ITEMS.map((item) => item.productCategory))
+      ).map((category) => ({
+        name: category,
+        code: category,
+      })),
+    ];
+    return categoryList;
+  });
 
   const toggleDisplaytype = () => {
-    displayType.value = displayType.value === 'card' ? 'list' : 'card'
-  }
+    displayType.value = displayType.value === "card" ? "list" : "card";
+  };
 
   const filteredItems = computed(() => {
-    let filtered = [...items.value]
+    let filtered = [...items.value];
+
+    // if (searchQuery.value) {
+    //   filtered = filtered.filter((item) =>
+    //     item.productTitle
+    //       .toLowerCase()
+    //       .includes(searchQuery.value.toLowerCase())
+    //   );
+    // }
 
     if (searchQuery.value) {
-      filtered = filtered.filter((item) =>
-        item.productTitle.toLowerCase().includes(searchQuery.value.toLowerCase()),
-      )
+      const searchQueryLower = searchQuery.value.toLowerCase();
+      filtered = filtered.filter((item) => {
+        const searchableString =
+          `${item.productTitle} ${item.productCategory} ${item.productId}`.toLowerCase();
+        return searchableString.includes(searchQueryLower);
+      });
     }
 
-    if (selectedCategory.value !== 'All') {
-      filtered = filtered.filter((item) => item.productCategory === selectedCategory.value)
+    if (selectedCategory.value.code !== "ALL") {
+      filtered = filtered.filter(
+        (item) => item.productCategory === selectedCategory.value.code
+      );
     }
 
-    if (sortBy.value === 'priceAsc') {
-      filtered.sort((a, b) => a.productPrice - b.productPrice)
-    } else if (sortBy.value === 'priceDesc') {
-      filtered.sort((a, b) => b.productPrice - a.productPrice)
-    } else if (sortBy.value === 'ratingDesc') {
-      filtered.sort((a, b) => b.productRating - a.productRating)
+    switch (sortBy.value.code) {
+      case "priceAsc":
+        filtered.sort((a, b) => a.productPrice - b.productPrice);
+        break;
+      case "priceDesc":
+        filtered.sort((a, b) => b.productPrice - a.productPrice);
+        break;
+      case "ratingDesc":
+        filtered.sort((a, b) => b.productRating - a.productRating);
+        break;
     }
 
-    return filtered
-  })
+    return filtered;
+  });
 
   const setSearchQuery = (query: string) => {
-    searchQuery.value = query
-  }
+    searchQuery.value = query;
+  };
 
-  const setCategory = (category: string) => {
-    selectedCategory.value = category
-  }
+  const setCategory = (category: SelectFilterOption) => {
+    selectedCategory.value = category;
+  };
 
-  const setSortBy = (sortOption: string) => {
-    sortBy.value = sortOption
-  }
+  const setSortBy = (sortOption: SelectFilterOption) => {
+    sortBy.value = sortOption;
+  };
 
   return {
     items,
@@ -80,5 +108,5 @@ export const useProductsListStore = defineStore('productsList', () => {
     setSearchQuery,
     setCategory,
     setSortBy,
-  }
-})
+  };
+});
