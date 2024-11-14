@@ -99,9 +99,30 @@
           scrollable
           scroll-height="flex"
         >
-          <Column field="productTitle" header="Product Name"></Column>
-          <Column field="productPrice" header="Product Price"></Column>
-          <Column field="quanity" header="Quantity"></Column>
+          <Column field="productTitle" header="Name" sortable></Column>
+          <Column field="productPrice" header="Price" sortable></Column>
+          <Column field="quantity" header="Quantity" sortable>
+            <template #body="slotProps">
+              <InputNumber
+                v-model="slotProps.data.quantity"
+                inputId="horizontal-buttons"
+                showButtons
+                buttonLayout="horizontal"
+                :step="1"
+                class="!rounded-full w-fit"
+                prefix="x"
+                :max="10"
+                :min="1"
+              >
+                <template #incrementicon>
+                  <span class="pi pi-plus" />
+                </template>
+                <template #decrementicon>
+                  <span class="pi pi-minus" />
+                </template>
+              </InputNumber>
+            </template>
+          </Column>
           <Column header="Actions">
             <template #body="slotProps">
               <Button
@@ -136,10 +157,19 @@
         </DataTable>
       </div>
       <div class="h-[100px] border-t flex justify-between items-center">
-        <h2 class="text-xl sm:text-2xl md:text-3xl">
+        <h2 class="text-xl sm:text-2xl md:text-3xl flex items-center gap-x-2">
           Your Total :
           <span class="text-green-500"
             >${{ shoppingCartStore.getTotalPrice() }}</span
+          >
+          <span class="text-sm sm:text-base"
+            >({{
+              shoppingCartStore.items.reduce(
+                (acc, item) => acc + item.quantity,
+                0
+              )
+            }}
+            items)</span
           >
         </h2>
 
@@ -269,7 +299,8 @@ import {
   DataTable,
   Dialog,
   Drawer,
-  ScrollTop,
+  InputNumber,
+  // ScrollTop,
 } from "primevue";
 // import { computed } from 'vue'
 
