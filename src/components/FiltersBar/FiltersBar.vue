@@ -15,9 +15,9 @@
 
       <Select
         v-model="store.selectedCategory"
-        :options="store.sortByOptions"
-        option-label="name"
+        :options="store.categories"
         placeholder="Category"
+        option-label="name"
         class="w-[200px] !rounded-full"
       >
       </Select>
@@ -49,10 +49,10 @@
 </template>
 
 <script setup lang="ts">
-import { useProductsListStore } from '@/stores/productsListStore'
-import { Button, InputText, Select } from 'primevue'
+import { useProductsListStore } from "@/stores/productsListStore";
+import { Button, InputText, Select } from "primevue";
 
-const store = useProductsListStore()
+const store = useProductsListStore();
 </script>
 
 <style scoped></style>
