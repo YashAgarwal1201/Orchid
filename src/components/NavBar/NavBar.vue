@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import { useShoppingCartStore } from '@/stores/shoppingCartStore'
-import { useWishListStore } from '@/stores/wishlistStore'
-import { Button } from 'primevue'
+import { useShoppingCartStore } from "@/stores/shoppingCartStore";
+import { useWishListStore } from "@/stores/wishlistStore";
+import { Button } from "primevue";
 
-const shoppingCartStore = useShoppingCartStore()
-const wishListStore = useWishListStore()
+const shoppingCartStore = useShoppingCartStore();
+const wishListStore = useWishListStore();
 </script>
 
 <template>
@@ -44,6 +44,8 @@ const wishListStore = useWishListStore()
         class="absolute right-0 top-0 w-3 h-3 block animate-pulse rounded-full bg-violet-100"
       ></span>
     </div>
+
+    <img src="/logo.svg" />
   </div>
 </template>
 
