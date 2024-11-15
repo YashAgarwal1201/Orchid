@@ -43,16 +43,16 @@ const router = createRouter({
   ],
 });
 
-// router.beforeEach((to, from, next) => {
-//   if (to.path === "/") {
-//     const hasAccountCookie = document.cookie
-//       .split("; ")
-//       .some((row) => row.startsWith("OrchidStoreLoginAccount="));
-//     if (hasAccountCookie) {
-//       return next("/products");
-//     }
-//   }
-//   next();
-// });
+router.beforeEach((to, from, next) => {
+  if (to.path === "/") {
+    const hasAccountCookie = document.cookie
+      .split("; ")
+      .some((row) => row.startsWith("OrchidStoreLoginAccount="));
+    if (hasAccountCookie) {
+      return next("/products");
+    }
+  }
+  next();
+});
 
 export default router;

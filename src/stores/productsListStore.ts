@@ -96,7 +96,7 @@ export const useProductsListStore = defineStore("productsList", () => {
         items.value = response.data;
       }
     } catch (error) {
-      // items.value = DUMMY_ITEMS;
+      items.value = DUMMY_ITEMS;
       console.error("Error fetching products:", error);
     }
   };
