@@ -16,3 +16,10 @@ export type SelectFilterOption = {
 };
 
 export type ModeOfPayment = "upi" | "card";
+
+export interface RegisterFormData {
+  username: string;
+  email: string;
+  password: string;
+  cpassword: string;
+}
