@@ -88,8 +88,13 @@ export const useProductsListStore = defineStore("productsList", () => {
       const response = await axios.get(
         `${import.meta.env.VITE_API_BASE_URL}/products?_limit=20`
       );
-      console.log(response.data);
-      items.value = response.data;
+      console.log(response.data, import.meta.env.MODE);
+
+      if (import.meta.env.MODE !== "development") {
+        items.value = JSON.parse(response.data);
+      } else {
+        items.value = response.data;
+      }
     } catch (error) {
       // items.value = DUMMY_ITEMS;
       console.error("Error fetching products:", error);
