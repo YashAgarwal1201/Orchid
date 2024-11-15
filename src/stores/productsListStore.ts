@@ -84,13 +84,14 @@ export const useProductsListStore = defineStore("productsList", () => {
 
   const fetchProducts = async () => {
     try {
+      console.log(import.meta.env.VITE_API_BASE_URL);
       const response = await axios.get(
-        "http://localhost:3000/products?_limit=20"
+        `${import.meta.env.VITE_API_BASE_URL}/products?_limit=20`
       );
       console.log(response.data);
       items.value = response.data;
     } catch (error) {
-      items.value = DUMMY_ITEMS;
+      // items.value = DUMMY_ITEMS;
       console.error("Error fetching products:", error);
     }
   };
