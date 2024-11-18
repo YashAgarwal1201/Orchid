@@ -2,9 +2,12 @@
 import { useShoppingCartStore } from "@/stores/shoppingCartStore";
 import { useWishListStore } from "@/stores/wishlistStore";
 import { Button } from "primevue";
+import { useRouter } from "vue-router";
 
 const shoppingCartStore = useShoppingCartStore();
 const wishListStore = useWishListStore();
+
+const router = useRouter();
 </script>
 
 <template>
@@ -34,15 +37,24 @@ const wishListStore = useWishListStore();
     />
     <div class="relative">
       <Button
+        :disabled="router.currentRoute.value.fullPath.includes('/payment')"
         title="Click to view your shopping cart"
         icon="pi pi-shopping-cart"
         rounded
-        :variant="shoppingCartStore.items.length > 0 ? undefined : 'text'"
+        :variant="
+          shoppingCartStore.items.length > 0 &&
+          !router.currentRoute.value.fullPath.includes('/payment')
+            ? undefined
+            : 'text'
+        "
         @click="shoppingCartStore.showShoppingCart = true"
       />
 
       <span
-        v-if="shoppingCartStore.items.length > 0"
+        v-if="
+          shoppingCartStore.items.length > 0 &&
+          !router.currentRoute.value.fullPath.includes('/payment')
+        "
         class="absolute right-0 top-0 w-3 h-3 block animate-pulse rounded-full bg-violet-100"
       ></span>
     </div>
