@@ -13,6 +13,7 @@
           <h3 class="text-lg sm:text-xl md:text-2xl">Your Wish List</h3>
 
           <Button
+            v-if="!router.currentRoute.value.fullPath.includes('/payment')"
             icon="pi pi-cart-plus"
             class="p-button-text"
             rounded
@@ -68,6 +69,9 @@
                 "
               />
               <Button
+                :disabled="
+                  router.currentRoute.value.fullPath.includes('/payment')
+                "
                 icon="pi pi-cart-plus"
                 label="Move to Cart"
                 rounded
@@ -93,9 +97,12 @@
 import { useShoppingCartStore } from "@/stores/shoppingCartStore";
 import { useWishListStore } from "@/stores/wishlistStore";
 import { Button, Card, Drawer } from "primevue";
+import { useRouter } from "vue-router";
 
 const shoppingCartStore = useShoppingCartStore();
 const wishListStore = useWishListStore();
+
+const router = useRouter();
 </script>
 
 <style scoped></style>
