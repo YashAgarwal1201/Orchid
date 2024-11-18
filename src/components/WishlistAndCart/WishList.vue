@@ -14,7 +14,7 @@
 
           <Button
             v-if="!router.currentRoute.value.fullPath.includes('/payment')"
-            icon="pi pi-cart-plus"
+            icon="pi pi-shopping-cart"
             class="p-button-text"
             rounded
             @click="

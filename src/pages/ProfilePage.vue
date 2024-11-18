@@ -11,15 +11,18 @@
       <div class="p-2 md:p-3">
         <Tabs value="0" class="rounded-3xl" scrollable :show-navigators="false">
           <TabList>
-            <Tab value="0" class="text-sm"
-              ><span class="pi pi-plus mr-3"></span>Your Details</Tab
+            <Tab value="0" class="text-sm flex items-center"
+              ><span class="pi pi-info-circle mr-3"></span>Your Details</Tab
             >
-            <Tab value="1" class="text-sm"
+            <Tab value="1" class="text-sm flex items-center"
               ><span class="pi pi-heart mr-3"></span>Your Wishlist</Tab
             >
 
-            <Tab value="2" class="text-sm"
+            <Tab value="2" class="text-sm flex items-center"
               ><span class="pi pi-history mr-3"></span>Your Previous Orders</Tab
+            >
+            <Tab value="3" class="text-sm flex items-center"
+              ><span class="pi pi-cog mr-3"></span>Settings</Tab
             >
           </TabList>
 
@@ -123,6 +126,14 @@
                 <p class="text-lg md:text-xl italic">Coming Soon</p>
               </div>
             </TabPanel>
+
+            <TabPanel value="3" class="min-h-[200px]">
+              <div
+                class="w-full h-full p-3 md:p-4 flex justify-center items-center"
+              >
+                <p class="text-lg md:text-xl italic">Coming Soon</p>
+              </div>
+            </TabPanel>
           </TabPanels>
         </Tabs>
       </div>
@@ -132,7 +143,6 @@
 
 <script setup lang="ts">
 import PageLayout from "@/layout/PageLayout.vue";
-import { useProductsListStore } from "@/stores/productsListStore";
 import { useShoppingCartStore } from "@/stores/shoppingCartStore";
 import { useWishListStore } from "@/stores/wishlistStore";
 import {
@@ -148,7 +158,6 @@ import {
 import { ref } from "vue";
 import { useRouter } from "vue-router";
 
-const productListStore = useProductsListStore();
 const wishListStore = useWishListStore();
 
 const shoppingCartStore = useShoppingCartStore();

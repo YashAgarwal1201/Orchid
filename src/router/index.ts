@@ -21,7 +21,12 @@ const router = createRouter({
       component: ProductsPage,
       meta: { title: "Orchid Store -  Products page" },
     },
-
+    {
+      path: "/products/:productId?",
+      name: "products",
+      component: ProductsPage,
+      meta: { title: "Orchid Store - Product page" },
+    },
     {
       path: "/payment",
       name: "payment",
