@@ -7,6 +7,7 @@ import axios from "axios";
 export const useProductsListStore = defineStore("productsList", () => {
   const items = ref<Product[]>([]);
   const displayType = ref("card");
+  const showProductPage = ref<boolean>(false);
   const showShoppingCart = ref(false);
   const showFilters = ref(false);
   const searchQuery = ref("");
@@ -116,6 +117,7 @@ export const useProductsListStore = defineStore("productsList", () => {
   return {
     items,
     displayType,
+    showProductPage,
     showShoppingCart,
     searchQuery,
     selectedCategory,

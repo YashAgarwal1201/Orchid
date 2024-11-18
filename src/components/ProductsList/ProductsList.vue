@@ -22,7 +22,14 @@
           class="w-full max-h-[150px] object-cover rounded-t-2xl"
         />
       </template>
-      <template #title>{{ value.productTitle }}</template>
+      <template #title
+        ><span
+          @click="viewProduct(value.productId)"
+          class="cursor-pointer truncate-description"
+          v-tooltip="value.productTitle"
+          >{{ value.productTitle }}</span
+        ></template
+      >
       <template #subtitle>{{ value.productCategory }}</template>
       <template #content>
         <p
@@ -39,11 +46,14 @@
           Delivery: {{ value.estimatedDelivery }}
         </p>
 
-        <Rating
-          v-model="value.productRating"
-          readonly
-          class="cursor-default my-3"
-        />
+        <div class="flex items-center gap-x-3">
+          <Rating
+            v-model="value.productRating"
+            readonly
+            class="cursor-default my-3"
+          />
+          <span>{{ value.productRating }}/5</span>
+        </div>
       </template>
       <template #footer>
         <div class="flex gap-4 mt-1 product-card">
@@ -97,6 +107,8 @@
       icon="pi pi-arrow-up"
       class="w-5 h-5 left-0 m-auto"
     />
+
+    <ProductPage />
   </div>
 </template>
 
@@ -107,6 +119,10 @@ import { useShoppingCartStore } from "@/stores/shoppingCartStore";
 import { useWishListStore } from "@/stores/wishlistStore";
 import { Button, Card, Rating, ScrollTop } from "primevue";
 import { onMounted } from "vue";
+import { useRouter } from "vue-router";
+import ProductPage from "./ProductPage.vue";
+
+const router = useRouter();
 
 const store = useProductsListStore();
 const wishListStore = useWishListStore();
@@ -115,6 +131,10 @@ const shoppingCartStore = useShoppingCartStore();
 onMounted(() => {
   store.fetchProducts();
 });
+
+function viewProduct(productId: string) {
+  router.push({ name: "products", params: { productId } });
+}
 </script>
 
 <style lang="css">
