@@ -167,7 +167,6 @@ const schema = z
 const resolver = zodResolver(schema);
 
 const onFormSubmit = (event: FormSubmitEvent) => {
-  // Check if data already exists in localStorage or cookies
   const existingLocalStorageData = localStorage.getItem(
     "OrchidStoreRegisteredAccount"
   );
@@ -175,7 +174,6 @@ const onFormSubmit = (event: FormSubmitEvent) => {
     .split("; ")
     .find((row) => row.startsWith("OrchidStoreLoginAccount="));
 
-  // If data exists in either storage, do not proceed with saving
   if (existingLocalStorageData || existingCookieData) {
     console.log("Account data already exists. Skipping storage.");
     event.reset();
@@ -184,24 +182,18 @@ const onFormSubmit = (event: FormSubmitEvent) => {
     return;
   }
 
-  // If form is valid and data doesn't exist, proceed with storage
   if (event.valid) {
     console.log(event.values);
 
-    // Store in localStorage
     localStorage.setItem(
       "OrchidStoreRegisteredAccount",
       JSON.stringify(event.values)
     );
-
-    // Set cookie with expiration in 7 days
     const expirationDate = new Date();
-    expirationDate.setDate(expirationDate.getDate() + 7); // 7 days from now
+    expirationDate.setDate(expirationDate.getDate() + 7);
     const expires = `expires=${expirationDate.toUTCString()}`;
 
     document.cookie = `OrchidStoreLoginAccount=${JSON.stringify(event.values)}; ${expires}; path=/`;
-
-    // Reset form fields after submission
     event.reset();
     router.push("/payment");
   }
@@ -209,11 +201,6 @@ const onFormSubmit = (event: FormSubmitEvent) => {
 </script>
 
 <style lang="css" scoped>
-/*
-  Enter and leave animations can use different
-  durations and timing functions.
-*/
-
 .slide-fade-enter-active {
   transition: all 0.3s ease-out;
 }

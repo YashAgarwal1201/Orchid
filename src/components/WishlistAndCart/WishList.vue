@@ -41,13 +41,13 @@
               class="w-full max-h-[150px] object-cover rounded-t-2xl"
             />
           </template>
-          <template #title>{{ item.productTitle }}</template>
+          <template #title
+            ><span v-tooltip="item.productDescription">{{
+              item.productTitle
+            }}</span></template
+          >
           <template #subtitle>{{ item.productCategory }}</template>
           <template #content>
-            <p class="m-0">
-              {{ item.productDescription }}
-            </p>
-
             <h3 class="font-semibold">
               Price: <span class="text-lg">${{ item.productPrice }}</span>
             </h3>

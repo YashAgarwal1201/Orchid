@@ -25,7 +25,10 @@
       <template #title>{{ value.productTitle }}</template>
       <template #subtitle>{{ value.productCategory }}</template>
       <template #content>
-        <p class="m-0">
+        <p
+          class="m-0 truncate-description"
+          v-tooltip="value.productDescription"
+        >
           {{ value.productDescription }}
         </p>
 
@@ -115,6 +118,13 @@ onMounted(() => {
 </script>
 
 <style lang="css">
+.truncate-description {
+  white-space: nowrap; /* Prevent text from wrapping to a new line */
+  overflow: hidden; /* Hide the overflow content */
+  text-overflow: ellipsis; /* Add an ellipsis (…) when text overflows */
+  max-width: 100%; /* Ensure the element does not exceed its container's width */
+}
+
 @media screen and (max-width: 640px) {
   .product-card .p-button-label {
     display: none;

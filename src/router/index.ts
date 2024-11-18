@@ -4,6 +4,7 @@ import LandingPage from "@/pages/LandingPage.vue";
 import ProductsPage from "@/pages/ProductsPage.vue";
 import PaymentsPage from "@/pages/PaymentsPage.vue";
 import { useShoppingCartStore } from "@/stores/shoppingCartStore";
+import ProfilePage from "@/pages/ProfilePage.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -34,6 +35,12 @@ const router = createRouter({
           next();
         }
       },
+    },
+    {
+      path: "/profile",
+      name: "profile",
+      component: ProfilePage,
+      meta: { title: "Orchid Store -  Your Profile" },
     },
     {
       path: "/:pathMatch(.*)*",
