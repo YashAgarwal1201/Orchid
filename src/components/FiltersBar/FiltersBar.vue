@@ -40,11 +40,11 @@
       >
       </Select>
 
-      <Button
+      <!-- <Button
         rounded
         :icon="store.displayType === 'card' ? 'pi pi-th-large' : 'pi pi-list'"
         @click="store.toggleDisplaytype"
-      />
+      /> -->
     </div>
 
     <Button
