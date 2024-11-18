@@ -29,6 +29,7 @@ const router = useRouter();
     /> -->
 
     <Button
+      v-if="!router.currentRoute.value.fullPath.includes('/profile')"
       title="Click to view your wishlist"
       icon="pi pi-heart"
       rounded
@@ -58,6 +59,12 @@ const router = useRouter();
         class="absolute right-0 top-0 w-3 h-3 block animate-pulse rounded-full bg-violet-100"
       ></span>
     </div>
+
+    <RouterLink
+      to="/profile"
+      class="ml-auto md:ml-0 mt-0 md:mt-auto p-button p-button-rounded p-button-text"
+      ><span class="pi pi-user"></span
+    ></RouterLink>
   </div>
 </template>
 

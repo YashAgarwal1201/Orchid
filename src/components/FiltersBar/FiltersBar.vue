@@ -1,12 +1,15 @@
 <template>
   <div class="w-full h-full flex justify-end items-center gap-x-3 px-3 md:px-4">
-    <InputText
-      type="text"
-      v-model="store.searchQuery"
-      placeholder="Search products..."
-      @input="store.setSearchQuery(store.searchQuery)"
-      class="text-sm sm:text-base !rounded-full"
-    />
+    <IconField>
+      <InputIcon class="pi pi-search" />
+      <InputText
+        type="text"
+        v-model="store.searchQuery"
+        placeholder="Search products..."
+        @input="store.setSearchQuery(store.searchQuery)"
+        class="text-sm sm:text-base !rounded-full"
+      />
+    </IconField>
 
     <div class="hidden mdl:flex items-center gap-x-3">
       <!-- <select v-model="store.selectedCategory" @change="store.setCategory(store.selectedCategory)">
@@ -59,7 +62,7 @@
 
 <script setup lang="ts">
 import { useProductsListStore } from "@/stores/productsListStore";
-import { Button, InputText, Select } from "primevue";
+import { Button, IconField, InputIcon, InputText, Select } from "primevue";
 
 const store = useProductsListStore();
 </script>

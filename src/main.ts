@@ -7,6 +7,8 @@ import App from "./App.vue";
 import router from "./router";
 import PrimeVue from "primevue/config";
 import { definePreset } from "@primevue/themes";
+import Tooltip from "primevue/tooltip";
+
 // import { Theme } from '@primevue/themes'
 
 const app = createApp(App);
@@ -33,6 +35,8 @@ app.use(PrimeVue, {
     }),
   },
 });
+app.directive("tooltip", Tooltip);
+
 router.afterEach((to) => {
   const defaultTitle = "My Vite App";
   document.title = (to.meta?.title as string) || defaultTitle;
