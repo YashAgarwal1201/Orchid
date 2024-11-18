@@ -67,7 +67,7 @@ export const DUMMY_ITEMS = [
     productPrice: 2499,
     productRating: 4.9,
     productCategory: "Electronics",
-    estimatedDelivery: "4-6 days",
+    estimatedDelivery: "Fast Delivery",
   },
   {
     productId: "prod-008",
@@ -87,7 +87,7 @@ export const DUMMY_ITEMS = [
     productPrice: 499,
     productRating: 4.7,
     productCategory: "Gaming",
-    estimatedDelivery: "5-7 days",
+    estimatedDelivery: "Fast Delivery",
   },
   {
     productId: "prod-010",
@@ -137,7 +137,7 @@ export const DUMMY_ITEMS = [
     productPrice: 129,
     productRating: 4.6,
     productCategory: "Electronics",
-    estimatedDelivery: "1-3 days",
+    estimatedDelivery: "Fast Delivery",
   },
   {
     productId: "prod-015",
@@ -147,7 +147,7 @@ export const DUMMY_ITEMS = [
     productPrice: 1999,
     productRating: 4.5,
     productCategory: "Cameras",
-    estimatedDelivery: "5-7 days",
+    estimatedDelivery: "Fast Delivery",
   },
   {
     productId: "prod-016",
