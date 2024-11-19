@@ -5,6 +5,7 @@ import ProductsPage from "@/pages/ProductsPage.vue";
 import PaymentsPage from "@/pages/PaymentsPage.vue";
 import { useShoppingCartStore } from "@/stores/shoppingCartStore";
 import ProfilePage from "@/pages/ProfilePage.vue";
+import HomePage from "@/pages/HomePage.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -14,6 +15,12 @@ const router = createRouter({
       name: "home",
       component: LandingPage,
       meta: { title: "Welcome to Orchid Store" },
+    },
+    {
+      path: "/home",
+      name: "home",
+      component: HomePage,
+      meta: { title: "Orchid Store -  Home Page" },
     },
     {
       path: "/products",
