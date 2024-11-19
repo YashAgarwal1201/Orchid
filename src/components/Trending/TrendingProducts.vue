@@ -1,9 +1,16 @@
 <template>
   <div>
     <div class="flex justify-between items-center">
-      <h3 class="text-xl md:text-2xl">
+      <h3
+        v-if="props.title?.toLowerCase().includes('all')"
+        class="text-lg sm:text-xl md:text-2xl"
+      >
+        Trending Top 10 Products
+      </h3>
+      <h3 v-else class="text-lg sm:text-xl md:text-2xl">
         Trending in <span class="capitalize">{{ props.title }}</span>
       </h3>
+
       <div class="flex gap-2">
         <Button
           icon="pi pi-chevron-left"
@@ -29,11 +36,10 @@
       ref="scroll-container"
     >
       <Card
-        v-for="(value, index) in productListStore.items.filter(
-          (value: Product) =>
-            value.productCategory
-              .toLowerCase()
-              .includes(props.category?.toLowerCase())
+        v-for="(value, index) in temp.filter((value: Product) =>
+          value.productCategory
+            .toLowerCase()
+            .includes(props.category?.toLowerCase())
         )"
         :key="index"
         class="w-[250px] md:w-[300px] rounded-2xl"
@@ -134,7 +140,7 @@ import { useWishListStore } from "@/stores/wishlistStore";
 import { useRouter } from "vue-router";
 import { Button, Card, Rating } from "primevue";
 import { useProductsListStore } from "@/stores/productsListStore";
-import { useTemplateRef } from "vue";
+import { computed, useTemplateRef } from "vue";
 import type { Product } from "@/types/types";
 
 const productListStore = useProductsListStore();
@@ -146,7 +152,13 @@ const router = useRouter();
 const props = defineProps<{ category: string; title: string }>();
 
 // console.log(props.category);
-
+const temp = computed(() => {
+  if (props.title?.toLowerCase().includes("all")) {
+    return [...productListStore.items.slice(0, 10)];
+  } else {
+    return productListStore.items;
+  }
+});
 const scrollContainer = useTemplateRef("scroll-container");
 
 function scrollLeft() {

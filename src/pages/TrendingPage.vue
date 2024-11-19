@@ -22,7 +22,7 @@
       />
       <TrendingProducts :category="''" :title="'All categories'" />
 
-      <ScrollTop target="parent" :threshold="200" class="w-5 h-5" />
+      <ScrollTop target="parent" :threshold="200" class="aspect-square" />
     </div>
   </PageLayout>
 </template>

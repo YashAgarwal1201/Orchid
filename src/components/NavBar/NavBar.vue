@@ -15,10 +15,14 @@ const router = useRouter();
     <RouterLink to="/" class="aspect-square max-h-full rounded-full"
       ><img src="/logoLight.svg"
     /></RouterLink>
-    <RouterLink to="/products" class="p-button p-button-rounded p-button-text"
+    <RouterLink
+      to="/products"
+      class="p-button p-button-rounded p-button-text aspect-square"
       ><span class="pi pi-shop"></span
     ></RouterLink>
-    <RouterLink to="/trending" class="p-button p-button-rounded p-button-text"
+    <RouterLink
+      to="/trending"
+      class="p-button p-button-rounded p-button-text aspect-square"
       ><span class="pi pi-chart-line"></span
     ></RouterLink>
 
@@ -65,7 +69,7 @@ const router = useRouter();
 
     <RouterLink
       to="/profile"
-      class="ml-auto md:ml-0 mt-0 md:mt-auto p-button p-button-rounded p-button-text"
+      class="ml-auto md:ml-0 mt-0 md:mt-auto p-button p-button-rounded p-button-text aspect-square"
       ><span class="pi pi-user"></span
     ></RouterLink>
   </div>
