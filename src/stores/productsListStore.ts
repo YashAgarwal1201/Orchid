@@ -85,11 +85,11 @@ export const useProductsListStore = defineStore("productsList", () => {
 
   const fetchProducts = async () => {
     try {
-      console.log(import.meta.env.VITE_API_BASE_URL);
+      // console.log(import.meta.env.VITE_API_BASE_URL);
       const response = await axios.get(
         `${import.meta.env.VITE_API_BASE_URL}/products?_limit=20`
       );
-      console.log(response.data, import.meta.env.MODE);
+      // console.log(response.data, import.meta.env.MODE);
 
       if (import.meta.env.MODE !== "development") {
         items.value = JSON.parse(response.data);

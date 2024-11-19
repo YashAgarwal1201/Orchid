@@ -1,14 +1,39 @@
 <template>
   <div>
-    <h3 class="text-xl md:text-2xl">
-      Trending in <span class="capitalize">{{ props.title }}</span>
-    </h3>
-    <div class="flex flex-row gap-x-3 p-3 overflow-x-auto">
+    <div class="flex justify-between items-center">
+      <h3 class="text-xl md:text-2xl">
+        Trending in <span class="capitalize">{{ props.title }}</span>
+      </h3>
+      <div class="flex gap-2">
+        <Button
+          icon="pi pi-chevron-left"
+          title="Scroll Left"
+          outlined
+          rounded
+          size="small"
+          @click="scrollLeft"
+        />
+        <Button
+          icon="pi pi-chevron-right"
+          title="Scroll Right"
+          outlined
+          rounded
+          size="small"
+          @click="scrollRight"
+        />
+      </div>
+    </div>
+
+    <div
+      class="flex flex-row gap-x-3 p-3 overflow-x-auto"
+      ref="scroll-container"
+    >
       <Card
-        v-for="(value, index) in productListStore.items.filter((value) =>
-          value.productCategory
-            .toLowerCase()
-            .includes(props.category?.toLowerCase())
+        v-for="(value, index) in productListStore.items.filter(
+          (value: Product) =>
+            value.productCategory
+              .toLowerCase()
+              .includes(props.category?.toLowerCase())
         )"
         :key="index"
         class="w-[250px] md:w-[300px] rounded-2xl"
@@ -109,6 +134,8 @@ import { useWishListStore } from "@/stores/wishlistStore";
 import { useRouter } from "vue-router";
 import { Button, Card, Rating } from "primevue";
 import { useProductsListStore } from "@/stores/productsListStore";
+import { useTemplateRef } from "vue";
+import type { Product } from "@/types/types";
 
 const productListStore = useProductsListStore();
 const wishListStore = useWishListStore();
@@ -118,7 +145,21 @@ const router = useRouter();
 
 const props = defineProps<{ category: string; title: string }>();
 
-console.log(props.category);
+// console.log(props.category);
+
+const scrollContainer = useTemplateRef("scroll-container");
+
+function scrollLeft() {
+  if (scrollContainer.value) {
+    scrollContainer.value.scrollBy({ left: -300, behavior: "smooth" });
+  }
+}
+
+function scrollRight() {
+  if (scrollContainer.value) {
+    scrollContainer.value.scrollBy({ left: 300, behavior: "smooth" });
+  }
+}
 
 function viewProduct(productId: string) {
   router.push({ name: "products", params: { productId } });

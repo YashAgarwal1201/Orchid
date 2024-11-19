@@ -12,112 +12,114 @@
 
       <div class="w-full flex flex-col items-center gap-y-5 mt-10 md:mt-20">
         <h2 class="text-2xl md:text-3xl">Create an Account</h2>
-        <div
+        <Card
           class="w-full md:w-[768px] rounded-3xl py-7 px-3 md:px-5 bg-black !p-card shadow-md"
         >
-          <Form
-            v-slot="$form"
-            :initialValues="initialValues"
-            :resolver="resolver"
-            @submit="onFormSubmit"
-            class="flex flex-col gap-7 w-full"
-            :validateOnValueUpdate="true"
-          >
-            <div class="w-full flex flex-col gap-1">
-              <FloatLabel variant="on">
-                <InputText
-                  name="username"
-                  type="text"
-                  fluid
-                  class="!rounded-2xl"
-                />
-                <label>Username </label>
-              </FloatLabel>
-              <Message
-                v-if="($form as any).username?.invalid"
-                severity="error"
-                size="small"
-                variant="simple"
-                >{{ ($form as any).username?.error.message }}</Message
-              >
-            </div>
+          <template #content>
+            <Form
+              v-slot="$form"
+              :initialValues="initialValues"
+              :resolver="resolver"
+              @submit="onFormSubmit"
+              class="flex flex-col gap-7 w-full"
+              :validateOnValueUpdate="true"
+            >
+              <div class="w-full flex flex-col gap-1">
+                <FloatLabel variant="on">
+                  <InputText
+                    name="username"
+                    type="text"
+                    fluid
+                    class="!rounded-2xl"
+                  />
+                  <label>Username </label>
+                </FloatLabel>
+                <Message
+                  v-if="($form as any).username?.invalid"
+                  severity="error"
+                  size="small"
+                  variant="simple"
+                  >{{ ($form as any).username?.error.message }}</Message
+                >
+              </div>
 
-            <div class="w-full flex flex-col gap-1">
-              <FloatLabel variant="on">
-                <InputText
-                  name="email"
-                  type="email"
-                  fluid
-                  class="!rounded-2xl"
-                />
-                <label>Email </label>
-              </FloatLabel>
-              <Message
-                v-if="($form as any).email?.invalid"
-                severity="error"
-                size="small"
-                variant="simple"
-                >{{ ($form as any).email?.error.message }}</Message
-              >
-            </div>
+              <div class="w-full flex flex-col gap-1">
+                <FloatLabel variant="on">
+                  <InputText
+                    name="email"
+                    type="email"
+                    fluid
+                    class="!rounded-2xl"
+                  />
+                  <label>Email </label>
+                </FloatLabel>
+                <Message
+                  v-if="($form as any).email?.invalid"
+                  severity="error"
+                  size="small"
+                  variant="simple"
+                  >{{ ($form as any).email?.error.message }}</Message
+                >
+              </div>
 
-            <div class="w-full flex flex-col gap-1">
-              <FloatLabel variant="on">
-                <Password
-                  name="password"
-                  inputId="over_label"
-                  class="w-full !rounded-2xl"
-                  toggle-mask
-                />
-                <label>Password </label>
-              </FloatLabel>
-              <Message
-                v-if="($form as any).password?.invalid"
-                severity="error"
-                size="small"
-                variant="simple"
-                >{{ ($form as any).password?.error.message }}</Message
-              >
-            </div>
+              <div class="w-full flex flex-col gap-1">
+                <FloatLabel variant="on">
+                  <Password
+                    name="password"
+                    inputId="over_label"
+                    class="w-full !rounded-2xl"
+                    toggle-mask
+                  />
+                  <label>Password </label>
+                </FloatLabel>
+                <Message
+                  v-if="($form as any).password?.invalid"
+                  severity="error"
+                  size="small"
+                  variant="simple"
+                  >{{ ($form as any).password?.error.message }}</Message
+                >
+              </div>
 
-            <div class="w-full flex flex-col gap-1">
-              <FloatLabel variant="on">
-                <Password
-                  name="cpassword"
-                  inputId="over_label"
-                  class="w-full !rounded-2xl"
-                  toggle-mask
-                />
-                <label>Confirm Password </label>
-              </FloatLabel>
-              <Message
-                v-if="($form as any).cpassword?.invalid"
-                severity="error"
-                size="small"
-                variant="simple"
-                >{{ ($form as any).cpassword?.error.message }}</Message
-              >
-            </div>
+              <div class="w-full flex flex-col gap-1">
+                <FloatLabel variant="on">
+                  <Password
+                    name="cpassword"
+                    inputId="over_label"
+                    class="w-full !rounded-2xl"
+                    toggle-mask
+                  />
+                  <label>Confirm Password </label>
+                </FloatLabel>
+                <Message
+                  v-if="($form as any).cpassword?.invalid"
+                  severity="error"
+                  size="small"
+                  variant="simple"
+                  >{{ ($form as any).cpassword?.error.message }}</Message
+                >
+              </div>
 
-            <div class="flex justify-between">
-              <Button
-                type="reset"
-                outlined
-                rounded
-                icon="pi pi-trash"
-                label="Clear details"
-                @click="$form.reset()"
-              />
-              <Button
-                type="submit"
-                rounded
-                :disabled="!$form.valid"
-                icon="pi pi-send"
-                label="Submit details"
-              />
-            </div>
-          </Form>
-        </div>
+              <div class="flex justify-between">
+                <Button
+                  type="reset"
+                  outlined
+                  rounded
+                  icon="pi pi-trash"
+                  label="Clear details"
+                  @click="$form.reset()"
+                />
+                <Button
+                  type="submit"
+                  rounded
+                  :disabled="!$form.valid"
+                  icon="pi pi-send"
+                  label="Submit details"
+                />
+              </div>
+            </Form>
+          </template>
+        </Card>
       </div></div
   ></Transition>
 </template>
@@ -126,7 +128,14 @@
 // import PageLayout from "@/layout/PageLayout.vue";
 import { Form, type FormSubmitEvent } from "@primevue/forms";
 import { ref } from "vue";
-import { Button, FloatLabel, InputText, Message, Password } from "primevue";
+import {
+  Button,
+  Card,
+  FloatLabel,
+  InputText,
+  Message,
+  Password,
+} from "primevue";
 import { z } from "zod";
 import { zodResolver } from "@primevue/forms/resolvers/zod";
 import type { RegisterFormData } from "@/types/types";
