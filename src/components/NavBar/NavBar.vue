@@ -18,6 +18,9 @@ const router = useRouter();
     <RouterLink to="/products" class="p-button p-button-rounded p-button-text"
       ><span class="pi pi-shop"></span
     ></RouterLink>
+    <RouterLink to="/trending" class="p-button p-button-rounded p-button-text"
+      ><span class="pi pi-chart-line"></span
+    ></RouterLink>
 
     <!-- <Button title="Click to go to home" icon="pi pi-home" rounded variant="text" to="/" />
     <Button
