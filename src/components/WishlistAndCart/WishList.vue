@@ -65,6 +65,11 @@
                   () => {
                     wishListStore.removeFromWishList(item.productId);
                     // wishListStore.showWishList = true
+                    showToast(
+                      'warn',
+                      'Removed fom whishlist',
+                      'Item removed from your wishlist'
+                    );
                   }
                 "
               />
@@ -79,6 +84,11 @@
                   () => {
                     shoppingCartStore.addToCart(item);
                     wishListStore.removeFromWishList(item.productId);
+                    showToast(
+                      'info',
+                      'Added to cart',
+                      'Item is moved to your cart'
+                    );
                   }
                 "
               />
@@ -94,6 +104,7 @@
 </template>
 
 <script setup lang="ts">
+import toastHandler from "@/composables/toastHandeler";
 import { useShoppingCartStore } from "@/stores/shoppingCartStore";
 import { useWishListStore } from "@/stores/wishlistStore";
 import { Button, Card, Drawer } from "primevue";
@@ -103,6 +114,8 @@ const shoppingCartStore = useShoppingCartStore();
 const wishListStore = useWishListStore();
 
 const router = useRouter();
+
+const { showToast } = toastHandler();
 </script>
 
 <style scoped></style>

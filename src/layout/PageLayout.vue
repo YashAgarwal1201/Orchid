@@ -1,5 +1,6 @@
 <template>
   <div class="w-full h-full flex flex-col md:flex-row">
+    <Toast />
     <div class="w-full md:w-[70px] h-[60px] md:h-full"><NavBar /></div>
     <div
       class="w-full md:w-[calc(100%-70px)] h-[calc(100%-60px)] md:h-full overflow-auto"
@@ -52,6 +53,7 @@ import { useProductsListStore } from "@/stores/productsListStore";
 import {
   Dialog,
   Select,
+  Toast,
   // ScrollTop,
 } from "primevue";
 import WishList from "@/components/WishlistAndCart/WishList.vue";

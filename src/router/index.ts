@@ -6,6 +6,7 @@ import PaymentsPage from "@/pages/PaymentsPage.vue";
 import { useShoppingCartStore } from "@/stores/shoppingCartStore";
 import ProfilePage from "@/pages/ProfilePage.vue";
 import TrendingPage from "@/pages/TrendingPage.vue";
+import toastHandler from "@/composables/toastHandeler";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -62,11 +63,17 @@ const router = createRouter({
 });
 
 router.beforeEach((to, from, next) => {
+  const { showToast } = toastHandler();
   if (to.path === "/") {
     const hasAccountCookie = document.cookie
       .split("; ")
       .some((row) => row.startsWith("OrchidStoreLoginAccount="));
     if (hasAccountCookie) {
+      showToast(
+        "info",
+        "User is logged in",
+        "You are already logged in, navigating you to products page"
+      );
       return next("/products");
     }
   }

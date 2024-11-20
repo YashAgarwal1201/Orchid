@@ -68,6 +68,11 @@
               () => {
                 wishListStore.addToWishList(value);
                 wishListStore.showWishList = true;
+                showToast(
+                  'info',
+                  'Added to wishlist',
+                  'Item is added to your wishlist'
+                );
               }
             "
           />
@@ -79,7 +84,7 @@
             @click="
               () => {
                 wishListStore.removeFromWishList(value.productId);
-                // wishListStore.showWishList = true
+                showToast('warn', 'Warning', 'Item removed from wishlist');
               }
             "
           />
@@ -88,7 +93,16 @@
             icon="pi pi-cart-plus"
             label="Add to Cart"
             rounded
-            @click="() => shoppingCartStore.addToCart(value)"
+            @click="
+              () => {
+                shoppingCartStore.addToCart(value);
+                showToast(
+                  'success',
+                  'Added to cart',
+                  'Item is added to your cart'
+                );
+              }
+            "
           />
           <Button
             v-else
@@ -96,7 +110,16 @@
             label="Remove from Cart"
             rounded
             outlined
-            @click="() => shoppingCartStore.removeFromCart(value.productTitle)"
+            @click="
+              () => {
+                shoppingCartStore.removeFromCart(value.productTitle);
+                showToast(
+                  'warn',
+                  'Removed from cart',
+                  'Item is removed from your cart'
+                );
+              }
+            "
           />
         </div> </template
     ></Card>
@@ -121,8 +144,10 @@ import { Button, Card, Rating, ScrollTop } from "primevue";
 import { onMounted } from "vue";
 import { useRouter } from "vue-router";
 import ProductPage from "./ProductPage.vue";
+import toastHandler from "@/composables/toastHandeler";
 
 const router = useRouter();
+const { showToast } = toastHandler();
 
 const store = useProductsListStore();
 const wishListStore = useWishListStore();
@@ -139,10 +164,10 @@ function viewProduct(productId: string) {
 
 <style lang="css">
 .truncate-description {
-  white-space: nowrap; /* Prevent text from wrapping to a new line */
-  overflow: hidden; /* Hide the overflow content */
-  text-overflow: ellipsis; /* Add an ellipsis (…) when text overflows */
-  max-width: 100%; /* Ensure the element does not exceed its container's width */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
 }
 
 @media screen and (max-width: 640px) {

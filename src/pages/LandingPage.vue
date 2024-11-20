@@ -140,8 +140,10 @@ import { z } from "zod";
 import { zodResolver } from "@primevue/forms/resolvers/zod";
 import type { RegisterFormData } from "@/types/types";
 import { useRouter } from "vue-router";
+import toastHandler from "@/composables/toastHandeler";
 
 const router = useRouter();
+const { showToast } = toastHandler();
 
 const initialValues = ref<RegisterFormData>({
   username: "",
@@ -192,6 +194,12 @@ const onFormSubmit = (event: FormSubmitEvent) => {
   }
 
   if (event.valid) {
+    showToast(
+      "success",
+      "Success",
+      "Login Successful, navigating to products page"
+    );
+
     console.log(event.values);
 
     localStorage.setItem(
@@ -203,6 +211,7 @@ const onFormSubmit = (event: FormSubmitEvent) => {
     const expires = `expires=${expirationDate.toUTCString()}`;
 
     document.cookie = `OrchidStoreLoginAccount=${JSON.stringify(event.values)}; ${expires}; path=/`;
+
     event.reset();
     router.push("/payment");
   }

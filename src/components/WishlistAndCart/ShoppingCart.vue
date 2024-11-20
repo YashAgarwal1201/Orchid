@@ -25,62 +25,6 @@
         </div>
       </template>
       <div v-if="shoppingCartStore.items.length > 0" class="w-full h-full">
-        <!-- <div
-        class="w-full h-[calc(100%-100px)] grid grid-cols-1 xs:grid-cols-2 gap-3 overflow-y-auto"
-      >
-        <Card
-          v-for="(item, index) in shoppingCartStore.items"
-          :key="index"
-          class="rounded-2xl aspect-auto"
-          ><template #header>
-            <img
-              alt="user header"
-              :src="item.productImage"
-              class="w-full max-h-[150px] object-cover rounded-t-2xl"
-            />
-          </template>
-          <template #title>{{ item.productTitle }}</template>
-          <template #subtitle>{{ item.productCategory }}</template>
-          <template #content>
-            <p class="m-0">
-              {{ item.productDescription }}
-            </p>
-
-            <h3 class="font-semibold">
-              Price: <span class="text-lg">${{ item.productPrice }}</span>
-            </h3>
-            <p class="mt-3 font-semibold">
-              Delivery: {{ item.estimatedDelivery }}
-            </p>
-          </template>
-          <template #footer>
-            <div class="flex gap-4 mt-1 product-card">
-              <Button
-                icon="pi pi-heart"
-                title="Move to wishlist"
-                severity="secondary"
-                rounded
-                outlined
-                @click="
-                  () => {
-                    wishListStore.addToWishList(item);
-                    shoppingCartStore.removeFromCart(item.productTitle);
-                  }
-                "
-              />
-              <Button
-                icon="pi pi-cart-minus"
-                label="Remove Cart"
-                rounded
-                outlined
-                @click="shoppingCartStore.removeFromCart(item.productTitle)"
-              />
-            </div> </template
-        ></Card>
-
-        <ScrollTop target="parent" :threshold="200" />
-      </div> -->
-
         <div class="w-full h-[calc(100%-100px)]">
           <DataTable
             :value="shoppingCartStore.items"
@@ -128,7 +72,12 @@
                   @click="
                     shoppingCartStore.removeFromCart(
                       slotProps.data.productTitle
-                    )
+                    );
+                    showToast(
+                      'warn',
+                      'Removed from cart',
+                      'Item is removed from your cart'
+                    );
                   "
                 />
                 <Button
@@ -142,6 +91,11 @@
                       wishListStore.addToWishList(slotProps.data);
                       shoppingCartStore.removeFromCart(
                         slotProps.data.productTitle
+                      );
+                      showToast(
+                        'info',
+                        'Moved to wishlist',
+                        'Item moved to your wishlist'
                       );
                     }
                   "
@@ -179,6 +133,11 @@
             @click="
               () => {
                 shoppingCartStore.showShoppingCart = false;
+                showToast(
+                  'info',
+                  'Moving to payment page',
+                  'You are being moved to payments page'
+                );
                 router.push('/payment');
               }
             "
@@ -194,12 +153,15 @@
 </template>
 
 <script setup lang="ts">
+import toastHandler from "@/composables/toastHandeler";
 import { useShoppingCartStore } from "@/stores/shoppingCartStore";
 import { useWishListStore } from "@/stores/wishlistStore";
 import { Button, Column, DataTable, Drawer, InputNumber } from "primevue";
 import { useRouter } from "vue-router";
 
 const router = useRouter();
+
+const { showToast } = toastHandler();
 
 const shoppingCartStore = useShoppingCartStore();
 const wishListStore = useWishListStore();
