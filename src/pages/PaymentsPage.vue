@@ -46,7 +46,7 @@ import {
                     class="w-full py-10 px-3 md:px-4 flex flex-col gap-y-10"
                   >
                     <div>
-                      <FloatLabel>
+                      <FloatLabel variant="on">
                         <InputText
                           id="username"
                           class="!rounded-2xl w-full"
@@ -58,7 +58,7 @@ import {
                     </div>
 
                     <div>
-                      <FloatLabel>
+                      <FloatLabel variant="on">
                         <InputText
                           id="email"
                           type="email"
@@ -71,7 +71,7 @@ import {
                     </div>
 
                     <div>
-                      <FloatLabel>
+                      <FloatLabel variant="on">
                         <Textarea
                           id="username"
                           class="!rounded-2xl resize-none w-full"

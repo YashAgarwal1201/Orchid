@@ -24,6 +24,9 @@
             <Tab value="3" class="text-sm flex items-center"
               ><span class="pi pi-cog mr-3"></span>Settings</Tab
             >
+            <Tab value="4" class="text-sm flex items-center"
+              ><span class="pi pi-comment mr-3"></span>Contact</Tab
+            >
           </TabList>
 
           <TabPanels class="!p-0 rounded-b-3xl">
@@ -134,6 +137,19 @@
                 <p class="text-lg md:text-xl italic">Coming Soon</p>
               </div>
             </TabPanel>
+
+            <TabPanel value="4" class="min-h-[200px]">
+              <div class="w-full h-full p-3 md:p-4 flex flex-col gap-3">
+                <p class="text-lg md:text-xl">Have something to say?</p>
+                <Button
+                  icon="pi pi-comment"
+                  label="Fill this form"
+                  rounded
+                  class="m-auto"
+                  @click="showToast('info', 'Info', 'Under progress')"
+                />
+              </div>
+            </TabPanel>
           </TabPanels>
         </Tabs>
       </div>
@@ -142,6 +158,7 @@
 </template>
 
 <script setup lang="ts">
+import toastHandler from "@/composables/toastHandeler";
 import PageLayout from "@/layout/PageLayout.vue";
 import { useShoppingCartStore } from "@/stores/shoppingCartStore";
 import { useWishListStore } from "@/stores/wishlistStore";
@@ -163,6 +180,8 @@ const wishListStore = useWishListStore();
 const shoppingCartStore = useShoppingCartStore();
 
 const router = useRouter();
+
+const { showToast } = toastHandler();
 
 function getCookie(name: string) {
   const value = `; ${document.cookie}`;

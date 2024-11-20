@@ -8,6 +8,7 @@ import router from "./router";
 import PrimeVue from "primevue/config";
 import { definePreset } from "@primevue/themes";
 import Tooltip from "primevue/tooltip";
+import ToastService from "primevue/toastservice";
 
 // import { Theme } from '@primevue/themes'
 
@@ -41,7 +42,7 @@ router.afterEach((to) => {
   const defaultTitle = "My Vite App";
   document.title = (to.meta?.title as string) || defaultTitle;
 });
-
+app.use(ToastService);
 app.use(router);
 
 app.mount("#app");

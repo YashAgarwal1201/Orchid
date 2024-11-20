@@ -23,3 +23,5 @@ export interface RegisterFormData {
   password: string;
   cpassword: string;
 }
+
+export type ToastSeverity = "success" | "info" | "warn" | "error";
