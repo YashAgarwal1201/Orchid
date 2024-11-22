@@ -42,7 +42,7 @@
             .includes(props.category?.toLowerCase())
         )"
         :key="index"
-        class="w-[250px] md:w-[300px] rounded-2xl"
+        class="!w-[250px] md:!w-[300px] rounded-2xl"
         ><template #header>
           <img
             alt="user header"
@@ -61,7 +61,7 @@
         <template #subtitle>{{ value.productCategory }}</template>
         <template #content>
           <p
-            class="m-0 truncate-description"
+            class="hidden md:block m-0 truncate-description"
             v-tooltip="value.productDescription"
           >
             {{ value.productDescription }}
@@ -163,13 +163,19 @@ const scrollContainer = useTemplateRef("scroll-container");
 
 function scrollLeft() {
   if (scrollContainer.value) {
-    scrollContainer.value.scrollBy({ left: -300, behavior: "smooth" });
+    scrollContainer.value.scrollBy({
+      left: -window.innerWidth,
+      behavior: "smooth",
+    });
   }
 }
 
 function scrollRight() {
   if (scrollContainer.value) {
-    scrollContainer.value.scrollBy({ left: 300, behavior: "smooth" });
+    scrollContainer.value.scrollBy({
+      left: window.innerWidth,
+      behavior: "smooth",
+    });
   }
 }
 

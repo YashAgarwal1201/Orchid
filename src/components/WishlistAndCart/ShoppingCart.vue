@@ -145,7 +145,10 @@
         </div>
       </div>
 
-      <div v-else class="w-full h-full flex justify-center items-center">
+      <div
+        v-else
+        class="w-full h-full flex flex-col justify-center items-center"
+      >
         <p>Your cart is empty</p>
       </div>
     </Drawer>
