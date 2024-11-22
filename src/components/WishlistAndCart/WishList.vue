@@ -5,7 +5,6 @@
       v-on:hide="wishListStore.showWishList = false"
       :dismissable="true"
       position="right"
-      header="Your wishlist"
       class="w-full md:w-[768px] rounded-none md:!rounded-l-3xl"
     >
       <template #header>
@@ -67,8 +66,8 @@
                     // wishListStore.showWishList = true
                     showToast(
                       'warn',
-                      'Removed fom whishlist',
-                      'Item removed from your wishlist'
+                      'Item removed from whishlist',
+                      `${item.productTitle} is removed from your wishlist`
                     );
                   }
                 "
@@ -85,9 +84,9 @@
                     shoppingCartStore.addToCart(item);
                     wishListStore.removeFromWishList(item.productId);
                     showToast(
-                      'info',
-                      'Added to cart',
-                      'Item is moved to your cart'
+                      'success',
+                      'item added to cart',
+                      `${item.productTitle} is added to your cart`
                     );
                   }
                 "

@@ -25,7 +25,12 @@
               }
             "
           />
-          <Button icon="pi pi-share-alt" class="p-button-text" rounded />
+          <Button
+            icon="pi pi-share-alt"
+            class="p-button-text"
+            rounded
+            @click="shareProduct"
+          />
         </div>
       </template>
       <div v-if="product" class="flex flex-col gap-y-5">
@@ -56,6 +61,12 @@
                 if (product) {
                   wishListStore.addToWishList(product);
                   wishListStore.showWishList = true;
+
+                  showToast(
+                    'info',
+                    'Item added to wishlist',
+                    `${product?.productTitle} has been added to your wishlist`
+                  );
                 }
               }
             "
@@ -70,6 +81,11 @@
                 if (product)
                   wishListStore.removeFromWishList(product?.productId);
                 // wishListStore.showWishList = true
+                showToast(
+                  'warn',
+                  'Item removed from wishlist',
+                  `${product?.productTitle} has been removed from your wishlist`
+                );
               }
             "
           />
@@ -80,7 +96,14 @@
             rounded
             @click="
               () => {
-                if (product) shoppingCartStore.addToCart(product);
+                if (product) {
+                  shoppingCartStore.addToCart(product);
+                  showToast(
+                    'success',
+                    'Item added to cart',
+                    `${product?.productTitle} has been added to your cart`
+                  );
+                }
               }
             "
           />
@@ -92,8 +115,14 @@
             outlined
             @click="
               () => {
-                if (product)
+                if (product) {
                   shoppingCartStore.removeFromCart(product.productTitle);
+                  showToast(
+                    'warn',
+                    'Item removed from cart',
+                    `${product?.productTitle} has been removed from your cart`
+                  );
+                }
               }
             "
           />
@@ -132,6 +161,7 @@
 </template>
 
 <script lang="ts" setup>
+import toastHandler from "@/composables/toastHandeler";
 import { useProductsListStore } from "@/stores/productsListStore";
 import { useShoppingCartStore } from "@/stores/shoppingCartStore";
 import { useWishListStore } from "@/stores/wishlistStore";
@@ -142,6 +172,8 @@ import { useRoute, useRouter } from "vue-router";
 
 const router = useRouter();
 const route = useRoute();
+
+const { showToast } = toastHandler();
 // const isVisible = ref(false);
 const productId = computed(() => route.params.productId as string);
 
@@ -169,6 +201,39 @@ function closeSidebar() {
 
 function fetchProductDetails(id: string) {
   return productListStore.items?.find((value) => value.productId === id);
+}
+
+function shareProduct() {
+  if (!product.value) return;
+
+  if (navigator.share) {
+    navigator
+      .share({
+        title: product.value.productTitle,
+        text: product.value.productDescription,
+        url: `${window.location.origin}/product/${product.value.productId}`,
+      })
+      .then(() => console.log("Product shared successfully!"))
+      .catch((error) => console.error("Error sharing product:", error));
+  } else {
+    const shareUrl = `${window.location.origin}/product/${product.value.productId}`;
+    navigator.clipboard
+      .writeText(shareUrl)
+      .then(() =>
+        showToast(
+          "info",
+          "Copied link",
+          "the link has been copied in clipboard"
+        )
+      )
+      .catch(() =>
+        showToast(
+          "error",
+          "Error while copying link",
+          "there has been an error while copying the link for this product"
+        )
+      );
+  }
 }
 </script>
 
