@@ -32,7 +32,7 @@
         <Card
           v-for="(item, index) in wishListStore.items"
           :key="index"
-          class="rounded-2xl aspect-auto"
+          class="h-fit !rounded-2xl aspect-auto border"
           ><template #header>
             <img
               alt="user header"
@@ -63,7 +63,6 @@
                 @click="
                   () => {
                     wishListStore.removeFromWishList(item.productId);
-                    // wishListStore.showWishList = true
                     showToast(
                       'warn',
                       'Item removed from whishlist',

@@ -96,7 +96,6 @@
                           @click="
                             () => {
                               wishListStore.removeFromWishList(item.productId);
-                              // wishListStore.showWishList = true
                             }
                           "
                         />

@@ -1,7 +1,7 @@
 <template>
   <PageLayout>
     <div
-      class="w-full h-full overflow-y-auto p-2 md-p-3 flex flex-col gap-y-7 md:gap-y-10"
+      class="w-full h-full overflow-y-auto p-2 md:p-3 flex flex-col gap-y-7 md:gap-y-10"
     >
       <div class="w-full h-[30vh] md:h-[40vh]">
         <div class="swiper w-full h-full" ref="swiper-container">
@@ -49,12 +49,7 @@
             ></Card>
           </div>
           <div class="swiper-pagination"></div>
-          <div
-            class="absolute bottom-5 right-10 bg-white border-2 flex items-center gap-x-2"
-          >
-            <!-- <div class="swiper-button-prev static"></div>
-            <div class="swiper-button-next static"></div> -->
-
+          <div class="absolute bottom-5 right-10 flex items-center gap-x-2">
             <Button
               icon="pi pi-arrow-left"
               class="swiper-button-prev !static"
@@ -91,22 +86,9 @@ import TrendingProducts from "@/components/Trending/TrendingProducts.vue";
 import PageLayout from "@/layout/PageLayout.vue";
 import { useProductsListStore } from "@/stores/productsListStore";
 import { Button, Card, ScrollTop } from "primevue";
-// import { useShoppingCartStore } from "@/stores/shoppingCartStore";
-// import { useWishListStore } from "@/stores/wishlistStore";
-// import { Card, Rating } from "primevue";
 import { computed, nextTick, onMounted, useTemplateRef } from "vue";
-// import { useRouter } from "vue-router";
-
-const productListStore = useProductsListStore();
-// const wishListStore = useWishListStore();
-// const shoppingCartStore = useShoppingCartStore();
-
-// const router = useRouter();
 
 import Swiper from "swiper";
-
-// Import styles
-
 import {
   Autoplay,
   EffectCoverflow,
@@ -115,7 +97,10 @@ import {
 } from "swiper/modules";
 import "swiper/css/bundle";
 
+const productListStore = useProductsListStore();
+
 const swiperContainerRef = useTemplateRef("swiper-container");
+
 const uniqueCategories = computed(() => {
   const categories = productListStore.items.map(
     (product) => product.productCategory
