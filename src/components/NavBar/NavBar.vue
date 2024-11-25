@@ -26,15 +26,6 @@ const router = useRouter();
       ><span class="pi pi-chart-line"></span
     ></RouterLink>
 
-    <!-- <Button title="Click to go to home" icon="pi pi-home" rounded variant="text" to="/" />
-    <Button
-      title="Click to go to products page"
-      icon="pi pi-shop"
-      rounded
-      variant="text"
-      to="/products"
-    /> -->
-
     <Button
       v-if="!router.currentRoute.value.fullPath.includes('/profile')"
       title="Click to view your wishlist"
