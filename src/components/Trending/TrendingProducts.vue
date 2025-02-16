@@ -32,7 +32,7 @@
     </div>
 
     <div
-      class="flex flex-row gap-x-3 p-3 overflow-x-auto"
+      class="flex flex-row gap-x-3 p-3 overflow-x-auto scrollbar-hide"
       ref="scroll-container"
     >
       <Card

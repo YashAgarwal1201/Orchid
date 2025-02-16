@@ -10,7 +10,7 @@
     <Card
       v-for="(value, index) in store.filteredItems"
       :key="index"
-      class="rounded-2xl"
+      class="rounded-3xl"
       :class="{
         'aspect-auto': store.displayType !== 'card',
         'aspect-square': store.displayType === 'card',

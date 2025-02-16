@@ -6,45 +6,13 @@
       <div class="w-full h-[30vh] md:h-[40vh]">
         <div class="swiper w-full h-full" ref="swiper-container">
           <div class="swiper-wrapper w-full h-full rounded-3xl">
-            <Card class="swiper-slide"
+            <Card class="swiper-slide" v-for="index in 5" :key="index"
               ><template #content>
                 <div class="w-full h-full grid grid-cols-2 rounded-3xl">
                   <div class="h-full flex flex-col justify-center">
                     <h2>lorem ipsum</h2>
                   </div>
-                  <div class="bg-slate-900 h-full"></div>
-                </div> </template></Card
-            ><Card class="swiper-slide"
-              ><template #content>
-                <div class="w-full h-full grid grid-cols-2 rounded-3xl">
-                  <div class="h-full flex flex-col justify-center">
-                    <h2>lorem ipsum</h2>
-                  </div>
-                  <div class="bg-slate-900 h-full"></div>
-                </div> </template></Card
-            ><Card class="swiper-slide"
-              ><template #content>
-                <div class="w-full h-full grid grid-cols-2 rounded-3xl">
-                  <div class="h-full flex flex-col justify-center">
-                    <h2>lorem ipsum</h2>
-                  </div>
-                  <div class="bg-slate-900 h-full"></div>
-                </div> </template></Card
-            ><Card class="swiper-slide"
-              ><template #content>
-                <div class="w-full h-full grid grid-cols-2 rounded-3xl">
-                  <div class="h-full flex flex-col justify-center">
-                    <h2>lorem ipsum</h2>
-                  </div>
-                  <div class="bg-slate-900 h-full"></div>
-                </div> </template></Card
-            ><Card class="swiper-slide"
-              ><template #content>
-                <div class="w-full h-full grid grid-cols-2 rounded-3xl">
-                  <div class="h-full flex flex-col justify-center">
-                    <h2>lorem ipsum</h2>
-                  </div>
-                  <div class="bg-slate-900 h-full"></div>
+                  <div class="bg-violet-500 h-full"></div>
                 </div> </template
             ></Card>
           </div>
