@@ -12,34 +12,36 @@ const router = useRouter();
 
 <template>
   <div class="w-full h-full p-3 flex flex-row md:flex-col items-center gap-3">
-    <RouterLink to="/" class="aspect-square max-h-full rounded-full"
+    <RouterLink
+      to="/"
+      class="max-h-full p-button-text flex justify-center items-center rounded-3xl aspect-square w-12 lg:w-16 h-full lg:h-16"
       ><img src="/logoLight.svg"
     /></RouterLink>
     <RouterLink
       to="/products"
-      class="p-button p-button-rounded p-button-text aspect-square"
+      class="p-button-text flex justify-center items-center rounded-3xl aspect-square w-12 lg:w-16 h-full lg:h-16"
       ><span class="pi pi-shop"></span
     ></RouterLink>
     <RouterLink
       to="/trending"
-      class="p-button p-button-rounded p-button-text aspect-square"
+      class="p-button-text flex justify-center items-center rounded-3xl aspect-square w-12 lg:w-16 h-full lg:h-16"
       ><span class="pi pi-chart-line"></span
     ></RouterLink>
 
     <Button
       v-if="!router.currentRoute.value.fullPath.includes('/profile')"
+      class="flex justify-center items-center rounded-3xl aspect-square w-12 lg:w-16 h-full lg:h-16 border-none"
       title="Click to view your wishlist"
       icon="pi pi-heart"
-      rounded
       variant="text"
       @click="wishListStore.showWishList = true"
     />
     <div class="relative">
       <Button
         :disabled="router.currentRoute.value.fullPath.includes('/payment')"
+        class="flex justify-center items-center rounded-3xl aspect-square w-12 lg:w-16 h-full lg:h-16 border-none"
         title="Click to view your shopping cart"
         icon="pi pi-shopping-cart"
-        rounded
         :variant="
           shoppingCartStore.items.length > 0 &&
           !router.currentRoute.value.fullPath.includes('/payment')
@@ -60,7 +62,7 @@ const router = useRouter();
 
     <RouterLink
       to="/profile"
-      class="ml-auto md:ml-0 mt-0 md:mt-auto p-button p-button-rounded p-button-text aspect-square"
+      class="ml-auto md:ml-0 mt-0 md:mt-auto p-button-text flex justify-center items-center rounded-3xl aspect-square w-12 lg:w-16 h-full lg:h-16"
       ><span class="pi pi-user"></span
     ></RouterLink>
   </div>

@@ -32,20 +32,39 @@
           <TabPanels class="!p-0 rounded-b-3xl">
             <TabPanel value="0" class="min-h-[200px]">
               <div
-                class="w-full h-full p-3 md:p-4 flex flex-col gap-y-5 md:gap-y-7"
+                class="w-full h-full p-3 md:p-4 flex flex-col gap-y-3 md:gap-y-5"
               >
-                <p>
-                  <span class="text-lg md:text-xl">Name:</span>
-                  {{ userDetails.username }}
-                </p>
-                <p>
-                  <span class="text-lg md:text-xl">Email:</span>
-                  {{ userDetails.email }}
-                </p>
-                <p>
-                  <span class="text-lg md:text-xl">Password:</span>
-                  {{ userDetails.password }}
-                </p>
+                <p class="text-lg md:text-xl">Your profile details</p>
+                <div class="flex flex-wrap items-center gap-x-5 gap-y-2">
+                  <span class="w-auto sm:w-[200px] text-base md:text-lg"
+                    >Name:</span
+                  >
+                  <InputText
+                    :value="userDetails.username"
+                    class="!rounded-2xl text-sm md:text-base"
+                    :readonly="true"
+                  />
+                </div>
+                <div class="flex flex-wrap items-center gap-x-5 gap-y-2">
+                  <span class="w-auto sm:w-[200px] text-base md:text-lg"
+                    >Email:</span
+                  >
+                  <InputText
+                    :value="userDetails.email"
+                    class="!rounded-2xl text-sm md:text-base"
+                    :readonly="true"
+                  />
+                </div>
+                <div class="flex flex-wrap items-center gap-x-5 gap-y-2">
+                  <span class="w-auto sm:w-[200px] text-base md:text-lg"
+                    >Password:</span
+                  >
+                  <InputText
+                    :value="userDetails.password"
+                    class="!rounded-2xl text-sm md:text-base"
+                    :readonly="true"
+                  />
+                </div>
               </div>
             </TabPanel>
 
@@ -138,15 +157,13 @@
             </TabPanel>
 
             <TabPanel value="4" class="min-h-[200px]">
-              <div class="w-full h-full p-3 md:p-4 flex flex-col gap-3">
-                <p class="text-lg md:text-xl">Have something to say?</p>
-                <Button
-                  icon="pi pi-comment"
-                  label="Fill this form"
-                  rounded
-                  class="m-auto"
-                  @click="showToast('info', 'Info', 'Under progress')"
-                />
+              <div class="w-full h-full p-3 md:p-4 flex flex-col gap-5">
+                <p class="text-lg md:text-xl">
+                  Have something to say? Fill out this form
+                </p>
+                <div>
+                  <FeedbackForm />
+                </div>
               </div>
             </TabPanel>
           </TabPanels>
@@ -157,7 +174,8 @@
 </template>
 
 <script setup lang="ts">
-import toastHandler from "@/composables/toastHandeler";
+import FeedbackForm from "@/components/FeedbackForm/FeedbackForm.vue";
+// import toastHandler from "@/composables/toastHandeler";
 import PageLayout from "@/layout/PageLayout.vue";
 import { useShoppingCartStore } from "@/stores/shoppingCartStore";
 import { useWishListStore } from "@/stores/wishlistStore";
@@ -170,6 +188,7 @@ import {
   TabPanel,
   TabPanels,
   Tabs,
+  InputText,
 } from "primevue";
 import { ref } from "vue";
 import { useRouter } from "vue-router";
@@ -180,7 +199,7 @@ const shoppingCartStore = useShoppingCartStore();
 
 const router = useRouter();
 
-const { showToast } = toastHandler();
+// const { showToast } = toastHandler();
 
 function getCookie(name: string) {
   const value = `; ${document.cookie}`;

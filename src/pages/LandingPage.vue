@@ -13,7 +13,7 @@
       <div class="w-full flex flex-col items-center gap-y-5 mt-10 md:mt-20">
         <h2 class="text-2xl md:text-3xl">Create an Account</h2>
         <Card
-          class="w-full md:w-[768px] rounded-3xl py-7 px-3 md:px-5 bg-black !p-card shadow-md"
+          class="w-full md:w-[768px] rounded-3xl py-7 px-3 md:px-5 !p-card shadow-md"
         >
           <template #content>
             <Form
@@ -25,79 +25,82 @@
               :validateOnValueUpdate="true"
             >
               <div class="w-full flex flex-col gap-1">
-                <FloatLabel variant="on">
-                  <InputText
-                    name="username"
-                    type="text"
-                    fluid
-                    class="!rounded-2xl"
-                  />
+                <div class="px-3 flex justify-between items-center">
                   <label>Username </label>
-                </FloatLabel>
-                <Message
-                  v-if="($form as any).username?.invalid"
-                  severity="error"
-                  size="small"
-                  variant="simple"
-                  >{{ ($form as any).username?.error.message }}</Message
-                >
+                  <Message
+                    v-if="($form as any).username?.invalid"
+                    severity="error"
+                    size="small"
+                    variant="simple"
+                    >{{ ($form as any).username?.error.message }}</Message
+                  >
+                </div>
+
+                <InputText
+                  name="username"
+                  type="text"
+                  fluid
+                  class="!rounded-2xl"
+                />
               </div>
 
               <div class="w-full flex flex-col gap-1">
-                <FloatLabel variant="on">
-                  <InputText
-                    name="email"
-                    type="email"
-                    fluid
-                    class="!rounded-2xl"
-                  />
+                <div class="px-3 flex justify-between items-center">
                   <label>Email </label>
-                </FloatLabel>
-                <Message
-                  v-if="($form as any).email?.invalid"
-                  severity="error"
-                  size="small"
-                  variant="simple"
-                  >{{ ($form as any).email?.error.message }}</Message
-                >
+
+                  <Message
+                    v-if="($form as any).email?.invalid"
+                    severity="error"
+                    size="small"
+                    variant="simple"
+                    >{{ ($form as any).email?.error.message }}</Message
+                  >
+                </div>
+                <InputText
+                  name="email"
+                  type="email"
+                  fluid
+                  class="!rounded-2xl"
+                />
               </div>
 
               <div class="w-full flex flex-col gap-1">
-                <FloatLabel variant="on">
-                  <Password
-                    name="password"
-                    inputId="over_label"
-                    class="w-full !rounded-2xl"
-                    toggle-mask
-                  />
+                <div class="px-3 flex justify-between items-center">
                   <label>Password </label>
-                </FloatLabel>
-                <Message
-                  v-if="($form as any).password?.invalid"
-                  severity="error"
-                  size="small"
-                  variant="simple"
-                  >{{ ($form as any).password?.error.message }}</Message
-                >
+
+                  <Message
+                    v-if="($form as any).password?.invalid"
+                    severity="error"
+                    size="small"
+                    variant="simple"
+                    >{{ ($form as any).password?.error.message }}</Message
+                  >
+                </div>
+                <Password
+                  name="password"
+                  inputId="over_label"
+                  class="w-full !rounded-2xl"
+                  toggle-mask
+                />
               </div>
 
               <div class="w-full flex flex-col gap-1">
-                <FloatLabel variant="on">
-                  <Password
-                    name="cpassword"
-                    inputId="over_label"
-                    class="w-full !rounded-2xl"
-                    toggle-mask
-                  />
+                <div class="px-3 flex justify-between items-center">
                   <label>Confirm Password </label>
-                </FloatLabel>
-                <Message
-                  v-if="($form as any).cpassword?.invalid"
-                  severity="error"
-                  size="small"
-                  variant="simple"
-                  >{{ ($form as any).cpassword?.error.message }}</Message
-                >
+                  <Message
+                    v-if="($form as any).cpassword?.invalid"
+                    severity="error"
+                    size="small"
+                    variant="simple"
+                    >{{ ($form as any).cpassword?.error.message }}</Message
+                  >
+                </div>
+                <Password
+                  name="cpassword"
+                  inputId="over_label"
+                  class="w-full !rounded-2xl"
+                  toggle-mask
+                />
               </div>
 
               <div class="flex justify-between">
@@ -128,14 +131,7 @@
 // import PageLayout from "@/layout/PageLayout.vue";
 import { Form, type FormSubmitEvent } from "@primevue/forms";
 import { ref } from "vue";
-import {
-  Button,
-  Card,
-  FloatLabel,
-  InputText,
-  Message,
-  Password,
-} from "primevue";
+import { Button, Card, InputText, Message, Password } from "primevue";
 import { z } from "zod";
 import { zodResolver } from "@primevue/forms/resolvers/zod";
 import type { RegisterFormData } from "@/types/types";
