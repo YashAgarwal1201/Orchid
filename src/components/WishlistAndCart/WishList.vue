@@ -38,6 +38,7 @@
               alt="user header"
               :src="item.productImage"
               class="w-full max-h-[150px] object-cover rounded-t-2xl"
+              @error="handleImageError($event, index)"
             />
           </template>
           <template #title
@@ -107,6 +108,7 @@ import { useShoppingCartStore } from "@/stores/shoppingCartStore";
 import { useWishListStore } from "@/stores/wishlistStore";
 import { Button, Card, Drawer } from "primevue";
 import { useRouter } from "vue-router";
+import { handleImageError } from "@/utils/handleImageError";
 
 const shoppingCartStore = useShoppingCartStore();
 const wishListStore = useWishListStore();

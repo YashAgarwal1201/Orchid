@@ -9,7 +9,7 @@ import PrimeVue from "primevue/config";
 import { definePreset } from "@primevue/themes";
 import Tooltip from "primevue/tooltip";
 import ToastService from "primevue/toastservice";
-
+import { handleImageError } from "@/utils/handleImageError";
 // import { Theme } from '@primevue/themes'
 
 const app = createApp(App);
@@ -43,6 +43,7 @@ router.afterEach((to) => {
   document.title = (to.meta?.title as string) || defaultTitle;
 });
 app.use(ToastService);
+app.config.globalProperties.$handleImageError = handleImageError;
 app.use(router);
 
 app.mount("#app");

@@ -19,7 +19,8 @@
         <img
           alt="user header"
           :src="value.productImage"
-          class="w-full max-h-[150px] object-cover rounded-t-2xl"
+          class="w-full max-h-[150px] h-[150px] object-cover rounded-t-2xl"
+          @error="handleImageError($event, index)"
         />
       </template>
       <template #title
@@ -145,6 +146,7 @@ import { onMounted } from "vue";
 import { useRouter } from "vue-router";
 import ProductPage from "./ProductPage.vue";
 import toastHandler from "@/composables/toastHandeler";
+import { handleImageError } from "@/utils/handleImageError";
 
 const router = useRouter();
 const { showToast } = toastHandler();

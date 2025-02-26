@@ -200,3 +200,8 @@ export const DUMMY_ITEMS = [
     estimatedDelivery: "2-4 days",
   },
 ];
+
+export const PLACEHOLDER_IMAGES = [
+  // "https://via.placeholder.com/150?text=Image+Not+Found",
+  "https://dummyimage.com/150x150/000/fff.png&text=No+Image",
+];
