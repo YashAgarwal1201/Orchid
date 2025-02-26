@@ -9,56 +9,69 @@
       </div>
 
       <div class="p-2 md:p-3">
-        <Tabs value="0" class="rounded-3xl" scrollable :show-navigators="false">
-          <TabList>
-            <Tab value="0" class="text-sm flex items-center"
-              ><span class="pi pi-info-circle mr-3"></span>Your Details</Tab
+        <Tabs
+          value="0"
+          class="rounded-3xl w-full max-w-7xl mx-auto"
+          scrollable
+          :show-navigators="false"
+        >
+          <TabList class="w-full">
+            <Tab value="0" class="text-sm flex items-center gap-x-2"
+              ><CircleUserRound :size="16" /><span>Your Details</span></Tab
             >
-            <Tab value="1" class="text-sm flex items-center"
-              ><span class="pi pi-heart mr-3"></span>Your Wishlist</Tab
+            <Tab value="1" class="text-sm flex items-center gap-x-2"
+              ><Heart :size="16" /><span>Your Wishlist</span></Tab
             >
-
-            <Tab value="2" class="text-sm flex items-center"
-              ><span class="pi pi-history mr-3"></span>Your Previous Orders</Tab
+            <Tab value="2" class="text-sm flex items-center gap-x-2"
+              ><History :size="16" /><span>Your Previous Orders</span></Tab
             >
-            <Tab value="3" class="text-sm flex items-center"
-              ><span class="pi pi-cog mr-3"></span>Settings</Tab
+            <Tab value="3" class="text-sm flex items-center gap-x-2"
+              ><Settings :size="16" /><span>Settings</span></Tab
             >
-            <Tab value="4" class="text-sm flex items-center"
-              ><span class="pi pi-comment mr-3"></span>Contact</Tab
+            <Tab value="4" class="text-sm flex items-center gap-x-2"
+              ><MessageSquarePlus :size="16" /><span>Contact</span></Tab
             >
           </TabList>
 
           <TabPanels class="!p-0 rounded-b-3xl">
             <TabPanel value="0" class="min-h-[200px]">
               <div
-                class="w-full h-full p-3 md:p-4 flex flex-col gap-y-3 md:gap-y-5"
+                class="w-full h-full p-3 md:p-4 xl:p-5 flex flex-col gap-y-3 md:gap-y-5"
               >
                 <p class="text-lg md:text-xl">Your profile details</p>
-                <div class="flex flex-wrap items-center gap-x-5 gap-y-2">
-                  <span class="w-auto sm:w-[200px] text-base md:text-lg"
-                    >Name:</span
+                <div
+                  class="flex flex-nowrap items-center gap-x-3 sm:gap-x-5 gap-y-2"
+                >
+                  <span class="w-full max-w-36 text-right text-base md:text-lg"
+                    >Name</span
                   >
+                  <div class="h-10 w-[1px] bg-current"></div>
                   <InputText
                     :value="userDetails.username"
                     class="!rounded-2xl text-sm md:text-base"
                     :readonly="true"
                   />
                 </div>
-                <div class="flex flex-wrap items-center gap-x-5 gap-y-2">
-                  <span class="w-auto sm:w-[200px] text-base md:text-lg"
-                    >Email:</span
+                <div
+                  class="flex flex-nowrap items-center gap-x-3 sm:gap-x-5 gap-y-2"
+                >
+                  <span class="w-full max-w-36 text-right text-base md:text-lg"
+                    >Email</span
                   >
+                  <div class="h-10 w-[1px] bg-current"></div>
                   <InputText
                     :value="userDetails.email"
                     class="!rounded-2xl text-sm md:text-base"
                     :readonly="true"
                   />
                 </div>
-                <div class="flex flex-wrap items-center gap-x-5 gap-y-2">
-                  <span class="w-auto sm:w-[200px] text-base md:text-lg"
-                    >Password:</span
+                <div
+                  class="flex flex-nowrap items-center gap-x-3 sm:gap-x-5 gap-y-2"
+                >
+                  <span class="w-full max-w-36 text-right text-base md:text-lg"
+                    >Password</span
                   >
+                  <div class="h-10 w-[1px] bg-current"></div>
                   <InputText
                     :value="userDetails.password"
                     class="!rounded-2xl text-sm md:text-base"
@@ -70,7 +83,7 @@
 
             <TabPanel value="1" class="min-h-[200px]">
               <div
-                class="w-full h-full p-3 md:p-4 flex flex-col justify-center items-center gap-y-5 md:gap-y-7"
+                class="w-full h-full p-3 md:p-4 xl:p-5 flex flex-col justify-center items-center gap-y-5 md:gap-y-7"
               >
                 <p>
                   You have currently {{ wishListStore.items.length }} item(s) in
@@ -142,7 +155,7 @@
 
             <TabPanel value="2" class="min-h-[200px]">
               <div
-                class="w-full h-full p-3 md:p-4 flex justify-center items-center"
+                class="w-full h-full p-3 md:p-4 xl:p-5 flex justify-center items-center"
               >
                 <p class="text-lg md:text-xl italic">Coming Soon</p>
               </div>
@@ -150,14 +163,14 @@
 
             <TabPanel value="3" class="min-h-[200px]">
               <div
-                class="w-full h-full p-3 md:p-4 flex justify-center items-center"
+                class="w-full h-full p-3 md:p-4 xl:p-5 flex justify-center items-center"
               >
                 <p class="text-lg md:text-xl italic">Coming Soon</p>
               </div>
             </TabPanel>
 
             <TabPanel value="4" class="min-h-[200px]">
-              <div class="w-full h-full p-3 md:p-4 flex flex-col gap-5">
+              <div class="w-full h-full p-3 md:p-4 xl:p-5 flex flex-col gap-5">
                 <p class="text-lg md:text-xl">
                   Have something to say? Fill out this form
                 </p>
@@ -190,6 +203,13 @@ import {
   Tabs,
   InputText,
 } from "primevue";
+import {
+  CircleUserRound,
+  Heart,
+  History,
+  MessageSquarePlus,
+  Settings,
+} from "lucide-vue-next";
 import { ref } from "vue";
 import { useRouter } from "vue-router";
 

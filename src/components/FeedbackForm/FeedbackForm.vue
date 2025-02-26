@@ -23,7 +23,7 @@
         <div class="px-3 flex justify-between items-center">
           <label for="message">Message</label>
         </div>
-        <InputText
+        <Textarea
           id="message"
           v-model="message"
           rows="4"
@@ -53,7 +53,7 @@
 
 <script setup lang="ts">
 import { ref } from "vue";
-import { Button, InputText } from "primevue";
+import { Button, InputText, Textarea } from "primevue";
 
 const name = ref("");
 const email = ref("");
