@@ -90,7 +90,8 @@ const schema = yup.object({
   message: yup
     .string()
     .required("Message is required")
-    .min(10, "Message must be at least 10 characters"),
+    .min(10, "Message must be at least 10 characters")
+    .max(250, "Message can be at most 250 characters long"),
 });
 
 // Initialize the form with vee-validate

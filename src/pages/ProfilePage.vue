@@ -5,7 +5,7 @@
         class="w-full h-[40vh] min-h-[300px] flex flex-col md:flex-row items-center justify-center gap-3"
       >
         <Avatar icon="pi pi-user" class="mr-2" size="xlarge" shape="circle" />
-        <h1 class="text-2xl md:text-3xl">{{ userDetails.username }}</h1>
+        <h1 class="text-2xl md:text-3xl">{{ userDetails.userName }}</h1>
       </div>
 
       <div class="p-2 md:p-3">
@@ -47,7 +47,8 @@
                   >
                   <div class="h-10 w-[1px] bg-current"></div>
                   <InputText
-                    :value="userDetails.username"
+                    disabled
+                    :value="userDetails.userName"
                     class="!rounded-2xl text-sm md:text-base"
                     :readonly="true"
                   />
@@ -60,6 +61,7 @@
                   >
                   <div class="h-10 w-[1px] bg-current"></div>
                   <InputText
+                    disabled
                     :value="userDetails.email"
                     class="!rounded-2xl text-sm md:text-base"
                     :readonly="true"
@@ -73,11 +75,21 @@
                   >
                   <div class="h-10 w-[1px] bg-current"></div>
                   <InputText
+                    disabled
                     :value="userDetails.password"
-                    class="!rounded-2xl text-sm md:text-base"
+                    class="!rounded-2xl text-sm md:text-base select-none"
                     :readonly="true"
                   />
                 </div>
+
+                <Button
+                  icon="pi pi-sign-out"
+                  label="Sign Out"
+                  severity="danger"
+                  class="w-fit !rounded-full"
+                  outlined
+                  @click="signOut"
+                />
               </div>
             </TabPanel>
 
@@ -212,6 +224,7 @@ import {
 } from "lucide-vue-next";
 import { ref } from "vue";
 import { useRouter } from "vue-router";
+import toastHandler from "@/composables/toastHandeler";
 
 const wishListStore = useWishListStore();
 
@@ -219,7 +232,7 @@ const shoppingCartStore = useShoppingCartStore();
 
 const router = useRouter();
 
-// const { showToast } = toastHandler();
+const { showToast } = toastHandler();
 
 function getCookie(name: string) {
   const value = `; ${document.cookie}`;
@@ -231,7 +244,7 @@ function getCookie(name: string) {
 }
 
 const userDetails = ref({
-  username: "Guest",
+  userName: "Guest",
   email: "N/A",
   password: "",
 });
@@ -244,6 +257,25 @@ if (userCookie) {
   } catch (error) {
     console.error("Failed to parse user details cookie:", error);
   }
+}
+
+function signOut() {
+  // Delete the OrchidStoreLoginAccount cookie by setting its expiration date to the past
+  document.cookie =
+    "OrchidStoreLoginAccount=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+
+  // Refresh user details to default values
+  userDetails.value = {
+    userName: "Guest",
+    email: "N/A",
+    password: "",
+  };
+
+  // Show a toast notification (uncomment if using toast)
+  showToast("info", "Signed Out", "You have been successfully signed out");
+
+  // Redirect to landing page
+  router.push("/");
 }
 </script>
 
