@@ -48,6 +48,7 @@
             alt="user header"
             :src="value.productImage"
             class="w-full max-h-[150px] object-cover rounded-t-2xl"
+            @error="handleImageError($event, index)"
           />
         </template>
         <template #title
@@ -142,6 +143,7 @@ import { Button, Card, Rating } from "primevue";
 import { useProductsListStore } from "@/stores/productsListStore";
 import { computed, useTemplateRef } from "vue";
 import type { Product } from "@/types/types";
+import { handleImageError } from "@/utils/handleImageError";
 
 const productListStore = useProductsListStore();
 const wishListStore = useWishListStore();
