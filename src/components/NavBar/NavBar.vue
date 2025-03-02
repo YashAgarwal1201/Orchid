@@ -42,6 +42,7 @@ const router = useRouter();
       class="relative flex justify-center items-center !rounded-3xl aspect-auto !size-12 lg:!size-16 border-none !overflow-visible"
       title="Click to view your shopping cart"
       icon="pi pi-shopping-cart"
+      :variant="shoppingCartStore.items?.length > 0 ? undefined : 'text'"
       @click="shoppingCartStore.showShoppingCart = true"
       ><span class="pi pi-shopping-cart"></span
       ><span

@@ -71,8 +71,6 @@ router.beforeEach((to, from, next) => {
     .map((cookie) => cookie.trim())
     .some((cookie) => cookie.startsWith("OrchidStoreLoginAccount="));
 
-  console.log("hasAccountCookie", hasAccountCookie, document.cookie.split(";"));
-
   // If going to landing page and already logged in
   if (to.path === "/" && hasAccountCookie) {
     showToast(

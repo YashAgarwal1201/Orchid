@@ -289,4 +289,8 @@ const onSubmit = handleSubmit((values) => {
 .p-invalid {
   border-color: #f56c6c !important;
 }
+
+.p-error {
+  color: #f56c6c;
+}
 </style>

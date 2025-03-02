@@ -10,6 +10,26 @@
   ],
   "start_url": "/",
   "scope": "/",
+  "shortcuts": [
+    {
+      "name": "All Products",
+      "short_name": "Products",
+      "description": "Browse our products",
+      "url": "/products"
+    },
+    {
+      "name": "Trending Products",
+      "short_name": "Trending",
+      "description": "View trending products",
+      "url": "/trending"
+    },
+    {
+      "name": "Profile Page",
+      "short_name": "Profile",
+      "description": "Check your profile",
+      "url": "/profile"
+    }
+  ],
   "display": "standalone",
   "theme_color": "#c4b5fd",
   "background_color": "#c4b5fd",
