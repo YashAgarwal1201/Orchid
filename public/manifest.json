@@ -15,19 +15,28 @@
       "name": "All Products",
       "short_name": "Products",
       "description": "Browse our products",
-      "url": "/products"
+      "url": "/products",
+      "icons": [
+        { "src": "./logo.svg", "sizes": "any", "type": "image/svg+xml" }
+      ]
     },
     {
       "name": "Trending Products",
       "short_name": "Trending",
       "description": "View trending products",
-      "url": "/trending"
+      "url": "/trending",
+      "icons": [
+        { "src": "./logo.svg", "sizes": "any", "type": "image/svg+xml" }
+      ]
     },
     {
       "name": "Profile Page",
       "short_name": "Profile",
       "description": "Check your profile",
-      "url": "/profile"
+      "url": "/profile",
+      "icons": [
+        { "src": "./logo.svg", "sizes": "any", "type": "image/svg+xml" }
+      ]
     }
   ],
   "display": "standalone",
