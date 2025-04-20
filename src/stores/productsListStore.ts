@@ -77,15 +77,31 @@ export const useProductsListStore = defineStore("productsList", () => {
 
   const fetchProducts = async () => {
     try {
-      const response = await axios.get(
-        `${import.meta.env.VITE_API_BASE_URL}/products?_limit=20`
+      const response = await axios.post(
+        `${import.meta.env.VITE_API_BASE_URL}/api-services/orchid-store-dummy-data`,
+        {},
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
       );
 
-      if (import.meta.env.MODE !== "development") {
-        items.value = JSON.parse(response.data);
-      } else {
-        items.value = response.data;
+      console.log("Response from API:", response);
+      if (response.status === 200) {
+        console.log(
+          "Data fetched successfully:",
+          response.data.products,
+          typeof DUMMY_ITEMS
+        );
+        items.value = response.data.products;
       }
+
+      // if (import.meta.env.MODE !== "development") {
+      //   items.value = JSON.parse(response.data);
+      // } else {
+      //   items.value = response.data;
+      // }
     } catch (error) {
       items.value = DUMMY_ITEMS;
       console.error("Error fetching products:", error);
